@@ -1,37 +1,11 @@
-## Welcome to GitHub Pages
+> 追梦课堂专注前端技术培训，培训内容包括HTML、CSS、JavaScript、移动端、HTML5、es6/es7，框架、node、前端工程化等 我们致力于以 小班化模式、1对1辅导、完整体系的课堂 来打造 企业所需要的中高端前端人才。
 
-You can use the [editor on GitHub](https://github.com/zmclass/web-study/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+官方网址：www.zmclass.com
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+微信账号：13453729058
 
-### Markdown
+快手账号：查找 写代码的老孟
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+微信公众号：
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/zmclass/web-study/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+![qrcode_for_gh_54a234c6ef13_258.jpg](http://note.youdao.com/yws/res/624/WEBRESOURCE53d2f1f574540881616dbc500a4abadc)
