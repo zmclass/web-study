@@ -6,6 +6,3 @@
 
 快手账号：查找 写代码的老孟
 
-微信公众号：
-
-![qrcode_for_gh_54a234c6ef13_258.jpg](http://note.youdao.com/yws/res/624/WEBRESOURCE53d2f1f574540881616dbc500a4abadc)
