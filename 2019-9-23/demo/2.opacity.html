@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>透明度区别</title>
+</head>
+<body>
+
+	<div class = "demo1">
+		<div class="demo2">
+
+			<div class="demo4">
+				
+			</div>
+			
+			hello world
+		</div>
+
+	</div>
+
+	<div class = "demo1">
+		<div class="demo3">
+			<div class="demo4">
+				
+			</div>
+			
+			hello world
+		</div>
+
+	</div>
+
+
+	<style>
+		
+		div {
+			width: 100px;
+			height: 100px;
+			margin:0 auto;
+
+		}
+		.demo1 {
+			background: red;
+		}
+		.demo2 {
+			/*background: green;*/
+			background: rgba(0,255,0,0.5);
+		}
+		.demo3 {
+			background: green;
+
+			opacity: .5;
+
+		}
+		.demo4 {
+			width:50px;
+			height:50px;
+			background: blue;
+		}
+
+	</style>
+	
+</body>
+</html>
