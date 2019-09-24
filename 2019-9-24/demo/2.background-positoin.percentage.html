@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>postion取值百分比</title>
+</head>
+<body>
+
+	<div class="demo1"></div>
+
+	<div class="demo2"></div>
+	<div class="demo3"></div>
+	<style>
+		
+		div {
+			width: 300px;
+			height:100px;
+			background:url(text-image.png) no-repeat;
+		}
+
+		.demo1 {
+			background-position: 0 0;
+		}
+		.demo2 {
+			background-position: 0 -100px;
+
+		}
+		.demo3 {
+			background-position: 0 100%;
+		}
+
+		/*
+			百分比值参照的是设置背景的区域减去背景图的尺寸
+			(100 - 200) * () = -100px
+			-100 * (1)  = -100
+		*/
+
+	</style>
+	
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>径向渐变</title>
+</head>
+<body>
+	<div class="demo1"></div>
+	<div class="demo2"></div>
+	<div class="demo3"></div>
+	<div class="demo4"></div>
+	<div class="demo5"></div>
+	<div class="demo6"></div>
+	<div class="demo7"></div>
+	<div class="demo8"></div>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+		}
+		.demo1 {
+			
+			background-image: radial-gradient(red,blue);
+
+		}
+		.demo2 {
+			background-image: radial-gradient(circle,red,blue);
+		}
+		.demo3 {
+			background-image: radial-gradient(circle at 0 0 ,red,blue);
+		}
+		.demo4 {
+			background-image: radial-gradient(circle at top,red,blue);
+
+		}
+		.demo5 {
+			background-image: radial-gradient(circle closest-side,red,blue);
+
+		}
+		.demo6 {
+			background-image: radial-gradient(circle farthest-side at right top,red,blue);
+		}
+		.demo7 {
+			background-image: radial-gradient(red,blue,pink,green);
+		}
+		.demo8 {
+			background-image: radial-gradient(red 10px,blue 10%,pink 21px,green 22px);
+
+		}
+	</style>
+	
+</body>
+</html>
