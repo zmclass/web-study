@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对子元素的影响</title>
+</head>
+<body>
+	<div class="example1">
+		<div class="demo1">demo1</div>
+		<div class="demo2">demo2</div>
+		<div class="demo3">demo3</div>
+	</div>
+	
+	<style>
+		.example1,.example2 {
+			width: 300px;
+			background:#0c6a9d;
+			border:1px solid silver;
+			margin-top:10px;
+			float:left;
+		}
+		.example2 {
+			margin-top:50px;
+		}
+		.example1 div,.example2 div {
+			padding: 10px;
+			margin: 15px;
+			border:2px dashed red;
+			background:#fcd568;
+		}
+		.demo2 {
+			float:left;
+		}
+		.demo3 {
+			float:left;
+		}
+	</style>
+	
+</body>
+</html>
