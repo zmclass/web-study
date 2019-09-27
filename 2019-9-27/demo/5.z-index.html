@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>层叠上下文</title>
+</head>
+<body>
+<!-- 	<div class="demo">demo</div>
+	<div class="demo1">demo1</div> -->
+
+
+		<div class="demo2">demo2</div>
+		<div class="demo3">demo3</div>
+	
+	
+	<style>
+		div {
+			width: 100px;
+			height: 50px;
+			
+			
+		}
+		.demo1 {
+			background: pink;
+			top: 20px;
+			/*float: left;*/
+		}
+		.demo2 {
+			background: green;
+			position: absolute;
+			top: 30px;
+			z-index: 10;
+			/*float: left;*/
+			/*margin-top: -10px;*/
+
+		}
+		.demo3 {
+			background: red;
+			position: absolute;
+			top: 40px;
+			z-index: 5;
+		/*	margin-top: -10px;*/
+		}
+	</style>	
+</body>
+</html>
