@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>布局4</title>
+		<style>
+			.dome2{
+				width: 150px;
+				height: 150px;
+				background-color: green;
+			}
+			.dome1{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				z-index: 1;
+			}
+			.dome3{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background: rgba(0,0,0,.5);
+				z-index: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class = "dome1">
+			<div class = "dome2">
+				
+			</div>
+		</div>
+		<div></div>
+		<div class = "dome3"></div>
+	</body>
+</html>
