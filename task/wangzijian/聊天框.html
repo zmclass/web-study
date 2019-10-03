@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+.chat{
+      width: 300px; 
+      height: 80px; 
+      border: 1px solid #ccc; 
+      position: relative;
+      border-radius: 16px;
+      line-height: 30px;
+      padding-left: 15px;
+} 
+
+.chat:before{
+    content: "";
+    position: absolute; 
+    left: -10px; 
+   top: 34px; 
+   border-top: 6px solid transparent; 
+   border-bottom: 6px solid transparent; 
+   border-right: 10px solid #ccc;
+}  
+
+.chat:after{
+   content: "";
+   position: absolute; 
+   left: -8px; 
+   top: 34px; 
+   border-top: 6px solid transparent; 
+   border-bottom: 6px solid transparent; 
+   border-right: 10px solid #fff; 
+} 
+	</style>
+</head>
+<body>
+	 <div class="chat">hi, 亲</div>
+
+</body>
+</html>
