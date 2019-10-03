@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>分割线</title>
+		<style>
+			div::before,div::after{
+				content: " ";
+				display: inline-block;
+				width: 300px;
+				border-top: 1px #cccc solid;
+				vertical-align: middle;
+			}
+			div::before{
+				margin-right: 5px;
+			}
+			div::after{
+				margin-left: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Or </div>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分割线3</title>
+</head>
+<body>
+	<p>Or</p>
+	
+	<style>
+		* {
+
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+
+		p::before,p::after {
+			
+			content:'';
+
+			display:inline-block;
+			width: 200px;
+			height: 1px;
+			background:#ddd;
+			vertical-align:middle;
+
+
+		}
+		p::before {
+			margin-right:5px;
+		}
+		p::after {
+			margin-left:5px;
+		}
+		
+
+
+	</style>
+	
+</body>
+</html>
