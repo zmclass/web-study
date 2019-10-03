@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+</head>
+<body>
+
+	<div>
+		<img src="../images/2019-9-29/2.png" alt="">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing:border-box;
+			list-style:none;
+		}
+
+		div {
+			width: 500px;
+			position:relative;
+		}
+		div img {
+			width: 100%;
+		}
+		ul {
+			overflow:hidden;
+			position:absolute;
+
+			width: 100%;
+			background: rgba(0,0,0,.5);
+			padding:25px 5px;
+			bottom: 6px;
+
+			
+		}
+		li {
+			width:10px;
+			height:10px;
+			border-radius: 50%;
+			background:rgba(255,0,0,.5);
+			float:right;
+			margin:0 2px;
+		}	
+
+	</style>
+	
+</body>
+</html>

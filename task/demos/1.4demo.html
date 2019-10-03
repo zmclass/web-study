@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分割线4</title>
+</head>
+<body>
+
+	<p>Or</p>
+		
+
+	<style>
+		* {
+
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		p {
+			position: relative;
+			border:1px #ddd solid;
+			text-align: center;
+		}
+
+		p::before,p::after {
+			content: '';
+			position: absolute;
+
+			width: 200px;
+			height: 1px;
+			background: red;
+			top: 10px;
+		}
+		p::before {
+			left: 0;
+		}
+
+		p::after {
+			right: 0;
+		}
+		
+	</style>
+
+	
+</body>
+</html>
