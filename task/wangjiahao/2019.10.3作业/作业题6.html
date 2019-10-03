@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset = "UTF-8">
+		<title>聊天框</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			.demo1{
+				width: 300px;
+				height: 80px;
+				border: 1px gray solid;
+				border-radius: 15px;
+				margin-left: 80px;
+				position: relative;
+				font-size: 40px;
+				color: gray;
+			}
+			.demo1::before{
+				content: " ";
+				border-top: 15px solid transparent;
+				border-right: 25px solid gray;
+				border-bottom: 15px solid transparent;
+				position: absolute;
+				top: 25px;
+				left: -25px;
+			}
+			.demo1::after{
+				content: " ";
+				border-top: 15px solid transparent;
+				border-right: 25px solid #fff;
+				border-bottom: 15px solid transparent;
+				position: absolute;
+				top: 25px;
+				left: -23px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class = "demo1">
+			  hi, 亲
+		</div>
+	</body>
+</html>
