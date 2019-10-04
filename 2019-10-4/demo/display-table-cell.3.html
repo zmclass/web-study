@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>等分布局</title>
+</head>
+<body>
+
+	<ul>
+		<li>追梦111</li>
+		<li>追梦222</li>
+		<li>追梦333</li>
+		<li>追梦</li>
+		<li>追梦</li>
+	</ul>
+
+	<style>
+		
+		ul {
+			list-style-type:none;
+			display: table;
+			width:500px;
+		}
+		li {
+
+			display:table-cell;
+			line-height:60px;
+			color:white;
+			text-align:center;
+		}
+
+		li:nth-child(1){
+			background: red;
+		}
+		li:nth-child(2){
+			background: orange;
+		}
+		li:nth-child(3){
+			background: blue;
+			width:300px;
+		}
+		li:nth-child(4){
+			background: silver;
+		}
+		li:nth-child(5){
+			background: purple;
+		}
+
+
+	</style>
+	
+</body>
+</html>

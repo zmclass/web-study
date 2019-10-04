@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vertical-align</title>
+</head>
+<body>
+
+	<div>
+		<span>对齐</span>文字
+	</div>
+
+
+
+	<table>
+		<tr>
+			<td>追梦课堂</td>
+			<td>课堂</td>
+		</tr>
+	</table>
+
+	<style>
+
+		table {
+			border-collapse:collapse;
+			border-spacing:0;
+			width:300px;
+		}
+		table,td {
+			border:1px #ddd solid;
+		}
+		td:last-child {
+			height:50px;
+			vertical-align:middle;
+		}
+		div {
+			background: red;
+			color: white;
+		}
+		span {
+			background: green;
+			font-size:30px;
+			vertical-align:-5px;
+		}
+	</style>
+	
+</body>
+</html>
