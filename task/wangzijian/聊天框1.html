@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	    *{
+	    	 margin: 0;
+	    	 padding: 0
+	    }
+		  .box{
+		  	   width: 400px;
+		  	   height: 150px;
+              border: 1px solid gray;
+              border-radius: 10px;
+              margin: 10px auto;
+              font-size: 20px;
+             line-height: 50px;
+             padding-left: 13px;
+             position: relative;
+             
+            
+
+
+		  	  
+		  }
+         .box1{
+         	   width: 0;
+         	   height: 0;
+         	   border-top: 10px solid  transparent;
+         	   border-right: 19px solid  gray ;
+         	   border-bottom: 10px solid transparent;
+         	 /*  border-left: 10px solid  ;*/
+         	    position:absolute;
+         	    right: 413px;
+         	    top:70px;
+         	    
+         	  
+
+         }
+         .box2{
+         	   width: 0;
+         	   height: 0;
+         	   border-top: 10px solid  transparent;
+         	   border-right: 18px solid  white ;
+         	   border-bottom: 10px solid transparent;
+         	 /*  border-left: 10px solid  ;*/
+         	    z-index: 40;
+         	    display: inline-block;
+         	    position:absolute;
+         	    right: 409px;
+         	    top:71px;
+         	  
+         }
+	</style>
+</head>
+<body>
+	  <div class="box">
+	  	hi,  亲
+	  	<div class="box1"></div>
+	  	<div class="box2"></div>
+	  </div>
+</body>
+</html>
