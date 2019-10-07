@@ -19,18 +19,23 @@
 	</div>
 
 	<style>
+		* {
+			box-sizing:border-box;
+		}
 		.parent {
 			width: 200px;
 			height: 200px;
 			perspective: 400px;
 			margin: 80px auto;
+			
 		}
 		.card {
 			position: relative;
 			width: 200px;
 			height: 200px;
-			/*transform-style: preserve-3d;*/
-			
+			transform-style: preserve-3d;
+			/*transform:rotateY(-180deg);*/
+
 		}
 		.face {
 			position: absolute;
@@ -40,31 +45,31 @@
 			color: white;
 			text-align:center;
 			line-height: 200px;
-			
 		}
 
 		.front {
-			background: red;
-			transform: rotateY(180deg) translateZ(100px);
+			background: rgba(255,0,0,.7);
+			transform: translateZ(100px);
 		}
 		.back {
-			background: orange;
+			background: rgba(255,30,80,.7);
 			transform: rotateY(180deg) translateZ(100px);
+		
 		}
 		.right {
-			background: yellow;
+			background: rgba(80,30,80,.7);
 			transform: rotateY(90deg) translateZ(100px);
 		}
 		.left {
-			background: green;
+			background: rgba(78,78,78,.7);
 			transform: rotateY(-90deg) translateZ(100px);
 		}
 		.top {
-			background: blue;
+			background: rgba(0,0,255,.7);
 			transform: rotateX(90deg) translateZ(100px);
 		}
 		.bottom {
-			background: pink;
+			background: rgba(0,255,0,.7);
 			transform: rotateX(-90deg) translateZ(100px);
 		}
 		
