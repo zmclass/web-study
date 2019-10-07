@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正方体</title>
+</head>
+<body>
+	<!-- 初始化3d场景 -->
+	<div class="parent">
+		<!-- 创建一个3d 对象 -->
+		<div class="card">
+			<div class="face front">front</div>
+			<div class="face back">back</div>
+			<div class="face right">right</div>
+			<div class="face left">left</div>
+			<div class="face top">top</div>
+			<div class="face bottom">bottom</div>
+		</div>
+	</div>
+
+	<style>
+		.parent {
+			width: 200px;
+			height: 200px;
+			perspective: 500px;
+		}
+		.card {
+			position: relative;
+			width: 200px;
+			height: 200px;
+			transform-style: preserve-3d;
+			
+		}
+		.face {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			font-size: 30px;
+			color: white;
+			text-align:center;
+			line-height: 200px;
+			
+		}
+
+		.front {
+			background: red;
+			
+			transform: translateZ(100px);
+		}
+		.back {
+			background: orange;
+			transform: rotateY(180deg) translateZ(100px);
+		}
+		.right {
+			background: yellow;
+			transform: rotateY(90deg) translateZ(100px);
+		}
+		.left {
+			background: green;
+			transform: rotateY(-90deg) translateZ(100px);
+		}
+		.top {
+			background: blue;
+			transform: rotateX(90deg) translateZ(100px);
+		}
+		.bottom {
+			background: pink;
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+		
+
+
+	</style>
+	
+</body>
+</html>
