@@ -22,13 +22,14 @@
 		.parent {
 			width: 200px;
 			height: 200px;
-			perspective: 500px;
+			perspective: 400px;
+			margin: 80px auto;
 		}
 		.card {
 			position: relative;
 			width: 200px;
 			height: 200px;
-			transform-style: preserve-3d;
+			/*transform-style: preserve-3d;*/
 			
 		}
 		.face {
@@ -44,8 +45,7 @@
 
 		.front {
 			background: red;
-			
-			transform: translateZ(100px);
+			transform: rotateY(180deg) translateZ(100px);
 		}
 		.back {
 			background: orange;
