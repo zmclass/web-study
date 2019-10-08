@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>补间动画</title>
+</head>
+<body>
+
+	<div class = "demo1"></div>
+	
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.demo1 {
+			width: 20px;
+			height: 100px;
+			border:1px solid green;
+			transition-property: width,background,height;
+			transition-duration: 2s,3s,4s;
+			transition-delay: 0s,2s,5s;
+
+		}
+
+		.demo1:hover {
+	
+			width: 100px;
+			background: red;
+			height:200px;
+			
+		}
+	</style>
+	
+</body>
+</html>
