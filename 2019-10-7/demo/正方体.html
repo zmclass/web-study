@@ -9,12 +9,12 @@
 	<div class="parent">
 		<!-- 创建一个3d 对象 -->
 		<div class="card">
-			<div class="face front">front</div>
-			<div class="face back">back</div>
-			<div class="face right">right</div>
-			<div class="face left">left</div>
-			<div class="face top">top</div>
-			<div class="face bottom">bottom</div>
+	      	<div class="face top">top</div>
+	        <div class="face bottom">bottom</div>
+	        <div class="face left">left</div>
+	        <div class="face right">right</div>
+	        <div class="face back">back</div>
+	        <div class="face front">front</div>
 		</div>
 	</div>
 
@@ -26,7 +26,12 @@
 			width: 200px;
 			height: 200px;
 			perspective: 400px;
-			margin: 80px auto;
+			position:absolute;
+			top: 50%;
+
+			left: 50%;
+
+			transform: translate(-50%,-50%)
 			
 		}
 		.card {
@@ -34,12 +39,9 @@
 			width: 200px;
 			height: 200px;
 			transform-style: preserve-3d;
-			transition:transform 10s;
-
+			animation:demo 20s 21s 20;
 		}
-		.card:hover {
-			transform:rotateY(90deg);
-		}
+		
 		.face {
 			position: absolute;
 			width: 100%;
@@ -49,30 +51,84 @@
 			text-align:center;
 			line-height: 200px;
 		}
-
-		.front {
-			background: rgba(255,0,0,.7);
-			transform: translateZ(100px);
-		}
-		.back {
-			background: rgba(255,30,80,.7);
-			transform: rotateY(180deg) translateZ(100px);
-		}
-		.right {
-			background: rgba(80,30,80,.7);
-			transform: rotateY(90deg) translateZ(100px);
-		}
-		.left {
-			background: rgba(78,78,78,.7);
-			transform: rotateY(-90deg) translateZ(100px);
-		}
 		.top {
-			background: rgba(0,0,255,.7);
-			transform: rotateX(90deg) translateZ(100px);
+			animation:top 2s 3s linear both;
+			background: rgba(255,0,0,.7);
 		}
 		.bottom {
+			animation:bottom 2s 6s linear both;
+			background: rgba(255,30,80,.7);
+		}
+		.left {
+			animation:left 2s 9s linear both;
+			background: rgba(80,30,80,.7);
+
+		}
+		.right {
+			animation:right 2s 12s linear both;
+			background: rgba(78,78,78,.7);
+
+		}
+		.front {
+			animation:front 2s 18s linear both;
+			background: rgba(0,0,255,.7);
+
+		}
+		.back {
+			animation:back 2s 15s linear both;
 			background: rgba(0,255,0,.7);
-			transform: rotateX(-90deg) translateZ(100px);
+
+		}
+
+		@keyframes front {
+			to{
+				transform: translateZ(100px);
+			}
+		}
+		@keyframes back {
+			to{
+				
+				transform: rotateY(180deg) translateZ(100px);
+			}
+		}
+		@keyframes right {
+			to{
+				
+				transform: rotateY(90deg) translateZ(100px);
+			}
+		}
+		@keyframes left {
+			to{
+			
+				transform: rotateY(-90deg) translateZ(100px);
+			}
+		}
+		@keyframes top {
+			to{
+				
+				transform: rotateX(90deg) translateZ(100px);
+			}
+		}
+		@keyframes bottom {
+			to{
+				
+				transform: rotateX(-90deg) translateZ(100px);
+			}
+		}
+		
+		@keyframes demo{
+
+			from {
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+
+			to {
+				transform: rotateX(360deg) rotateY(360deg);
+
+			}
+			
+
+
 		}
 		
 
