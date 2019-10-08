@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box">
+		<div class = "demo1"></div>
+		<div class = "demo2"></div>		
+		<div class = "demo3"></div>
+	</div>
+
+	<div class="box-2">
+		<div class = "demo1"></div>
+		<div class = "demo2"></div>		
+		<div class = "demo3"></div>
+	</div>
+
+
+	<style>
+		.box,.box-2 {
+			width:850px;
+			height:100px;
+			margin:0 auto;
+			position:relative;
+		}
+		.box-2 {
+			top: 10px;
+		}
+		.demo1,.demo2,.demo3 {
+			width:100px;
+			height:100%;
+			position:absolute;
+			border:1px pink dotted;
+		}
+
+		.demo2 {
+			right:0;
+		}
+		.demo3 {
+			background: red;
+			border:none;
+		}
+		.box .demo3 {
+			background:green;
+			
+	/*		animation-name : demo1;
+			animation-duration: 2s;  
+			animation-iteration-count: 1;
+			animation-fill-mode:forwards;*/
+
+			animation:demo2 2s;
+
+			
+		}
+
+		.box-2 .demo3 {
+			animation-name : none;
+			animation-duration: 2s;  /*毫秒 ms*/
+			/*animation-delay: 2s;*/
+			animation-iteration-count: 1;
+			
+		}
+
+		@keyframes demo1 {
+			
+
+			to {
+
+				transform:translateX(750px);
+			}
+
+		}
+
+		@keyframes demo2 {
+			
+			from {
+				
+				transform:translateX(100px);
+			}
+
+			
+			50% {
+				transform:translateX(350px);
+
+			}
+			to {
+				transform:translateX(750px);
+				background: pink;
+			}
+
+		}
+
+	
+
+		
+	
+	
+
+
+	</style>
+	
+</body>
+</html>
