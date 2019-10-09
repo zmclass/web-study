@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动</title>
+</head>
+<body>
+
+	<div class="box">
+		<span class="line"></span>
+	</div>
+
+
+	 <style>
+
+	 	/**
+			圆形周长
+			c=2πr /  πd
+
+			转动800米需要几圈 = 移动的距离 / 周长
+
+			滚动的度数 = 圈数 * 360
+
+	 	*/
+	 	
+		* {
+			box-sizing: border-box;
+		}
+
+		.box {
+
+			width: 200px;
+			height: 200px;
+			border:10px solid orange;
+			border-radius: 50%;
+			position: relative;
+			animation: demo 5s linear infinite;
+		}
+
+		.line {
+			width: 90px;
+			height:10px;
+			background:black;
+			position:absolute;
+			top:50%;
+			left:50%;
+		}
+		@keyframes demo{
+
+			to {
+				transform:translateX(800px) rotate(457.2deg)
+			}
+
+
+		}
+
+
+
+
+	 </style>
+	
+</body>
+</html>
