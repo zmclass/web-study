@@ -7,6 +7,7 @@
 <body>
 
 	<div class="box">
+		<span class="line-1"></span>
 		<span class="line"></span>
 	</div>
 
@@ -17,6 +18,8 @@
 			box-sizing: border-box;
 		}
 
+
+
 		.box {
 
 			width: 200px;
@@ -26,17 +29,27 @@
 			position: relative;
 		}
 
-		.line {
-			width: 80px;
-			height:2px;
+		.line,.line-1 {
+			width: 2px;
+			height:90px;
 			background:black;
 			position:absolute;
-			top:50%;
+			
 			left:50%;
-			transform-origin:left bottom;
-			transform: rotate(-90deg);
-			animation:demo 60s steps(60) infinite;
+			transform-origin:bottom center;
+		/*	transform: rotate(-90deg);*/
+			
 
+		}
+		.line {
+			animation:demo 60s steps(60,end) infinite;
+		}
+		.line-1 {
+			height:70px;
+			top:20px;
+
+			background: red;
+			animation:demo 3600s steps(60,end) infinite;
 		}
 
 		@keyframes demo{
