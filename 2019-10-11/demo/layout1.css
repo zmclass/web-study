@@ -1,0 +1,48 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.box {
+	width: 100%;
+	padding-top:10%;
+}
+
+.red {
+	background: red;
+}
+.yellow {
+	background: yellow;
+}
+.green {
+	background: green;
+}
+
+@media screen and (min-width:450px) {
+
+	.red {
+		width: 25%;
+	}
+	.yellow {
+		width: 75%;
+	}
+
+}
+@media screen and (min-width:700px) {
+
+	
+	.yellow {
+		width: 50%;
+	}
+	.green {
+		width: 25%;
+	}
+
+}

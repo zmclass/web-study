@@ -1,0 +1,49 @@
+.container {
+	display: flex;
+	flex-wrap : wrap;
+	width: 100%;
+}
+.box {
+	width: 100%;
+	padding-top: 10%;
+}
+.red {
+	background: red;
+}
+.blue {
+	background: blue;
+}
+.green {
+	background: green;
+}
+.pink {
+	background: pink;
+}
+@media screen and (min-width: 450px) {
+	
+	.red {
+		width: 50%;
+	}
+	.container2 {
+		width: 50%;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	
+	.red {
+		width: 25%;
+		order: 1;
+	}
+	.pink {
+		width: 25%;
+		order: -1;
+	}
+
+
+}
+
+
+
+
+
