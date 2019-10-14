@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>响应式元素</title>
+
+	<meta name = "viewport" content = "width = device-width">
+</head>
+<body>
+
+<!-- 
+		375px 设计图
+
+		vw  和 vh
+	
+
+		40px      x
+
+		375px     100vw
+
+		x/100vw = 40px/375px
+
+		
+		
+
+
+			
+		
+	
+	 -->
+
+	 <div class="container">
+	 	<div class="box"></div>
+	 	<div class="box"></div>
+	 	<div class="box"></div>
+	 	<div class="box"></div>
+	 	<div class="box"></div>
+	 </div>
+
+	 <style>
+	 	* {
+	 		margin:0;
+	 		padding:0;
+	 		box-sizing:border-box;
+	 	}
+	 	body {
+	 		background: #ccc;
+
+	 	}
+	 	.container {
+	 		width:  calc((375 / 375) * 100vw);
+			display: flex;
+			margin: calc((50 / 375) * 100vw) auto;
+			background: #fff;
+			justify-content:space-around;
+			padding:calc((20 / 375) * 100vw) 0;
+	 	}
+	 	.box {
+			width: calc((40 / 375) * 100vw);
+			height:  calc((40 / 375) * 100vw);
+			background: pink;
+	 	}
+
+
+	 </style>
+</body>
+</html>

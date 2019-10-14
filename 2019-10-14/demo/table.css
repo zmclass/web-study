@@ -1,0 +1,40 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+}
+table {
+	width: 100%;
+	border:1px #ddd solid;
+	border-spacing: 0;
+
+}
+tbody tr:nth-child(odd) {
+	background:#ccc;
+}
+td {
+	padding:20px 0;
+	text-align:center;
+}
+
+@media screen and (max-width: 500px) {
+	table thead {
+		position: absolute;
+		left: -9999px;
+		top: -9999px;
+	}
+	table,tbody,tr,td {
+		display: block;
+	}
+	td {
+		position:relative;
+		padding-left: 80%;
+	}
+	td::before {
+		content: attr(data-th);
+		position:absolute;
+		left:6px;
+	}
+}
+

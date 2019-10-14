@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>响应式图片</title>
+	<meta name = "viewport" content="width=device-width">
+</head>
+<body>
+
+	<img 
+		src="small.png" 
+		alt=""
+		srcset = "
+			large.png 1024w,
+			medium.png 640w,
+			small.png 320w"
+		sizes = "(max-width:360px) calc(100vw - 20px),320px"
+
+
+	
+</body>
+</html>

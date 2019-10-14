@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>响应式元素</title>
+
+	<meta name = "viewport" content = "width = device-width">
+</head>
+<body>
+
+	<!-- 
+
+
+		
+
+
+	 -->
+
+	 <div class="container">
+	 	<div class="box"></div>
+	 	<div class="box"></div>
+	 	<div class="box"></div>
+	 	<div class="box"></div>
+	 	<div class="box"></div>
+	 </div>
+
+	 <style>
+	 	html {
+	 		/*font-size: 75px;*/
+
+	 		/*1rem = 75px*/
+
+			/*
+	 		750px
+			
+			75px
+
+			
+			75			x
+
+			750/2.       100vw
+
+			*/
+
+
+			font-size: calc((75 / 375) * 100vw);
+
+	 	}
+	 	* {
+	 		margin:0;
+	 		padding:0;
+	 		box-sizing:border-box;
+	 	}
+	 	body {
+	 		background: #ccc;
+
+	 	}
+	 	.container {
+	 		width:  calc(375 / 75 * 1rem);
+			display: flex;
+			margin: calc(50 / 75 * 1rem) auto;
+			background: #fff;
+			justify-content:space-around;
+			padding:calc(20 / 75 * 1rem) 0;
+	 	}
+	 	.box {
+			width: calc(40 / 75 * 1rem);
+			height:  calc(40 / 75 * 1rem);
+			background: pink;
+	 	}
+		
+
+	/*	@media screen and (min-width: 640px){
+			html {
+				font-size: 108px;
+			}
+		}*/
+
+
+	 	
+	 </style>
+</body>
+</html>
