@@ -1,0 +1,109 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background: #ccc;
+}
+.header{
+	padding-top: 50%;
+	background: url(banner@2X.png) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.search{
+	width: calc(100% - 100px);
+	border: 1px #ccc solid;
+	position: absolute;
+	border-radius: 20px;
+	background: rgb(255,250,240);
+	opacity: .3;
+	top: calc((25 / 375) * 100vw);
+	margin-left: 50px;
+}
+.inputbox {
+	width: calc(100% - 100px);
+	margin: calc((5 / 375 ) * 100vw) calc((25 / 375 ) * 100vw);
+	font-size: calc((4 / 375 ) * 100vw);
+	border: none;
+	outline: none;
+}
+.search--i {
+	position: absolute;
+	top: calc((5 / 375 ) * 100vw);
+	left: calc((4 / 375 ) * 100vw);
+}
+.navigationicon{
+	background: rgb(255,250,240);
+	display: flex;
+	flex-wrap: wrap;
+}
+.icon{
+	width: calc((50/ 375) * 100vw);
+	margin: calc((15 / 375) * 100vw) calc((21 / 375) * 100vw);
+}
+.icon img{
+	width: 100%;
+}
+.icon figcaption{
+	margin-top: 5px;
+	text-align: center;
+	font-size: calc((16 / 375 ) * 100vw);
+}
+.recommend{
+	margin-top: calc((16 / 375 ) * 100vw);
+	background: rgb(255,250,240);
+}
+.more span{
+	color: #ccc;
+}
+.title{
+	display: flex;
+	justify-content: space-between;
+	font-size: calc((16 / 375 ) * 100vw);
+}
+.list{
+	display: flex;
+	flex-wrap: wrap;
+}
+.example{
+	width: calc((100 / 375) * 100vw);
+	margin: calc((10 / 375) * 100vw);
+}
+.example img{
+	width: 100%;
+	height: calc((60 / 375) * 100vw);
+}
+.example figcaption{
+	font-size: calc((14 / 375) * 100vw);
+}
+.price{
+	margin-top: calc((10 / 375 ) * 100vw);
+	display: flex;
+	justify-content: space-between;
+}
+.price span{
+	color: red;
+	font-size: calc((10 / 375) * 100vw);
+}
+.price p{
+	color: gray;
+	font-size: calc((6 / 375) * 100vw);
+}
+.option{
+	display: flex;
+	justify-content: space-around;
+	position: fixed;
+	bottom: 0;
+	width: calc(375 / 375 * 100vw);
+	height: calc((50 / 375) * 100vw);
+	padding-top: 10px;
+	background: rgb(255,250,240);
+	opacity: .9;
+	font-size: calc((20 / 375) * 100vw);
+	text-align: center;
+}
+.option p{
+	font-size: calc((16 / 375) * 100vw);
+}
