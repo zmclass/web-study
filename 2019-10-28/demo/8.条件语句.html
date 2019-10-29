@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>条件语句</title>
+</head>
+<body>
+	<script>
+		
+		//伪代码
+		//如果硬币为正面 中午去吃 刀削面 否则 去吃 河南烩面
+		// 双向选择
+		var gold = "反面";
+		var result;
+		// if (gold === "正面") {
+
+		// 	result = "山西刀削面"
+
+		// } else {
+
+		// 	result = "河南烩面"
+
+		// }
+		// console.log(result)
+
+		// 单向选择
+		
+		//定义商品价格
+		var price = 999;
+		//定义金钱
+		var money = 1000;
+
+		if (money >= price) {
+			console.log('买东西')
+		}
+
+
+		// 多向选择
+		// var weather = "明天下雨"
+
+		// if (weather === '明天下雨') {
+
+		// 	console.log('穿夹克')
+
+		// } else if (weather === '明天下雪') {
+		// 	console.log('穿大衣')
+		// } else {
+
+		// 	console.log('就不变')
+		// }
+		// 
+		// 大括号里面只有1条语句，我们可以把大括号省略掉
+		var weather = "明天下雨"
+		if (weather === '明天下雨')
+			console.log('穿夹克')
+		else if (weather === '明天下雪') 
+			console.log('穿大衣')
+		else 
+			console.log('就不变');
+			// alert('我执行了')
+
+
+		// 多条件语句
+		// 
+		// 京东超市促销
+		// 18888  现价 1.8 包邮
+		// 条件是 你会员注册日期2年或以上，并且是plugs 会员
+		
+		var time = 1;
+		var type = 1;
+
+		if(time >= 2 && type === 1) {
+
+			console.log('才能购买这个商品')
+
+		}else {
+			console.log('你没有权限！')
+		}
+
+
+		if(time >= 2 || type === 1 ) {
+
+			console.log('才能购买这个商品')
+
+		}else {
+			console.log('你没有权限！')
+		}
+
+
+		if (!type === 2) {
+
+			console.log(1)
+
+		}
+		
+		//短路  最短路径/最小计算
+		//
+		
+		var person = 0;
+		var name = '小红'
+		var isHas = person && name === '小红'
+
+		// if(person && name === '小红') {
+
+		// 	console.log('确认身份')
+		// }
+		
+		if(isHas) {
+
+			console.log('确认身份')
+		}
+
+
+		var a = 1 || 2
+
+		var b = 0 || 1
+
+		var c = 0 && 1
+
+		var d = 1 && 0 && 1
+
+		console.log(a,b,c,d)
+
+
+
+
+		var x = 1;
+		var y = 5;
+		var z = 6;
+
+		if ( x > 1 && (y>=5 || z>=5)) {
+
+		}
+
+
+		// 语句嵌套
+		if(x > 1) {
+			if ( y > 5){
+				console.log(1)
+			}else {
+
+				console.log(2)
+			}
+
+		}else {
+
+			if ( z > 5) {
+				console.log(3)
+			}else {
+				console.log(4)
+			}
+
+		}
+
+
+		 var value = 1 / 'm'
+		//真值与假值
+		 if ( value ) {
+		 	console.log('真值')
+		 }else {
+		 	console.log(value + '假值')
+		 }
+
+		 // 三元运算符
+		 // ? :
+		
+		 
+		console.log(result) //undefined
+
+		result = gold === '正面' ? "山西刀削面" : "河南烩面"
+
+		console.log(result)
+
+
+		// switch case
+		var option = 3 ;
+		// if (option === 1) {
+		// 	console.log ('选项1')
+		// } else if (option === 2) {
+		// 	console.log('选项2')
+		// } else if (option === 3) {
+		// 	console.log('选项3')
+		// } else if (option === 4) {
+		// 	console.log('选项4')
+		// } else if (option === 5) {
+		// 	console.log('选项5')
+		// } else {
+		// 	console.log('选项6')
+		// }
+
+
+		// switch(option){
+		// 	case 1 :
+		// 		console.log('选项1');
+		// 		break
+		// 	case 2 :
+		// 		console.log('选项2');
+		// 		break
+		// 	case 3 :
+		// 		console.log('选项3')
+		// 		break
+		// 	case 4 :
+		// 		console.log('选项4')
+		// 		break
+		// 	case 5 :
+		// 		console.log('选项5')
+		// 		break
+		// 	default : 
+		// 		console.log('选项6')
+		// }
+
+		//2个条件相同时
+		switch(option){
+			case 1 :
+			case 2 :
+				console.log('选项2');
+				break
+			case 3 :
+				console.log('选项3')
+				break
+			case 4 :
+				console.log('选项4')
+				break
+			case 5 :
+				console.log('选项5')
+				break
+			default : 
+				console.log('选项6')
+		}
+
+		// ===
+		switch( 2 > 1 ) {
+
+			case 1 + 0 :
+
+				console.log('我执行了')
+
+			default :
+
+				console.log('我是默认执行')
+
+		}
+
+
+		//+=
+		//
+		 var name = 'kitty'
+
+		 //name = name + 'hello'
+		 name+='hello'
+
+		 console.log(name)
+
+
+
+
+
+
+
+
+	
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
