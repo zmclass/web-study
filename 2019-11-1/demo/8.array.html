@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组循环</title>
+</head>
+<body>
+	<script>
+		
+		var arr = [1,2,3,4,5]
+
+		// debugger;
+		// for(var i = 0;i < arr.length;i++) {
+
+		// 	arr[i] =  arr[i] + 1
+
+		// }
+
+		// console.log(arr)
+		// 
+		// 
+		// forEach
+		// var fn = function(){}
+		// var a =5
+
+
+		// var demo = arr.forEach(function(e,i,arr){
+		// 	var e = e + 1;
+		// 	arr[i] = e
+		// })
+
+		//map()
+		//
+		var demo = arr.map(function(e,i,arr){
+
+			e = e + 1
+
+			return e
+
+		})
+
+		console.log(arr,demo)
+
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
