@@ -26,13 +26,13 @@
     写一个 for 循环，输出数字 10 的阶乘：
     阶乘计算方法是将小于等于某个数字的所有数字相乘。例如 3!，即 "3 阶乘” 为 3 * 2 * 1 = 6
     var factorial = 1；
-    for(var i = 10; i >= 1; i++) {
+    for(var i = 10; i >= 1; i--) {
         factorial*=i
     }
 
     function factorial(num){
         var factorial = 1；
-        for(var i = num; i >= 1; i++) {
+        for(var i = num; i >= 1; i--) {
             factorial*=i
         }
         return factorial
@@ -72,12 +72,13 @@
     * * * * * * * * * *
 
     function rightTriangle(num){
+        debugger;
         var line = '';
         for(var i = 1; i<=num; i++){
             line+='* '
-            console.log(line)
+         
         }
-        
+        console.log(line)
     }
 
 ```

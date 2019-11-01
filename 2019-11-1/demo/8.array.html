@@ -31,15 +31,40 @@
 
 		//map()
 		//
-		var demo = arr.map(function(e,i,arr){
+		// var demo = arr.map(function(e,i,arr){
 
-			e = e + 1
+		// 	e = e + 1
 
-			return e
+		// 	return e
 
+		// })
+
+		// console.log(arr,demo)
+
+		//自定义 封装FOREACH
+		//
+		// arr.forEach(function(e,i,arr){
+
+		// 	console.log(e,i,arr)
+
+
+		// })
+
+		// var fn = function(e,i,arr){
+
+		// 	console.log(e,i,arr)
+		// }
+		function customForEach(arr,fn) {
+			for(var i = 0 ;i < arr.length; i++) {
+				fn(arr[i],i,arr)
+			}
+		}
+		customForEach(arr,function(element,index,arr){
+			console.log(element,index,arr)
 		})
 
-		console.log(arr,demo)
+
+
 
 
 
