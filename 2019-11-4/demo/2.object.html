@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>读取对象</title>
+</head>
+<body>
+
+	<script>
+		var obj = {
+			name : "张三",
+			age : 30,
+			0: "test",
+			gender: '男',
+			fn:function(){
+				return '会画画'
+			},
+			"m n" : "test",
+			"m-n": "test",
+			headerBar : "test"
+		}
+
+
+		// console.log(obj.name)
+		// console.log(obj.age)
+		// console.log(obj.gender)
+		// console.log(obj.fn())
+
+
+		// console.log(obj["name"])
+		// console.log(obj["age"])
+		// console.log(obj['gender'])
+		// 
+		// 类数组
+		// var obj1 = {
+		// 	0 : "data2",
+		// 	1 : "data1",
+		// 	2 : "data3",
+		// 	length: 3
+		// }
+
+
+
+		// console.log(obj[0],obj[1],obj[2])
+
+		obj.parents = ["王五","李四"]
+		obj.test= "123"
+		obj.age = 31
+
+
+		//判断属性是否存在
+	
+		console.log("age" in obj)
+		console.log("m" in obj)
+
+
+
+		//删除
+		delete obj.test
+
+		console.log(obj)
+
+		//循环对象
+		//
+		
+		for(var i in obj){
+
+			console.log(obj[i])
+
+		}
+
+
+		var students = [
+
+			{
+				name: '张三',
+				age: 30
+			},
+
+			{
+				name: '李四',
+				age: 31
+			}
+		]
+
+		students.forEach(function(element,index,arr){
+
+			console.log(element.age)
+
+		})
+
+
+
+		// var san = {
+		// 	color: 'red',
+		// 	brand: '天堂伞',
+		// 	isclose: true,
+		// 	fn: function(){
+
+		// 		san.isclose = false
+
+		// 		return '伞打开了'
+
+		// 	},
+		// 	fn1: function(){
+		// 		san.isclose = true
+
+		// 		return '伞关闭了'
+		// 	}
+
+		// }
+		// 
+		var san = {
+			color: 'red',
+			brand: '天堂伞',
+			isclose: true,
+			fn: function(){
+
+
+				san.isclose = !san.isclose
+				// 
+				// 
+
+				// if(san.isclose) {
+
+				// 	san.isclose = false
+
+
+				// } else {
+
+				// 	san.isclose = true
+
+				// }
+
+				// san.isclose = false
+
+				// return '伞打开了'
+
+			}
+			// fn1: function(){
+			// 	san.isclose = true
+
+			// 	return '伞关闭了'
+			// }
+
+		}
+
+
+
+		san.fn()
+		san.fn()
+		console.log(san)
+
+
+
+		// san.fn1()
+
+		// console.log(san)
+		// 
+		// 
+		// var a = 1;
+		// var b = 2;
+		// 
+		// 
+		// 
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
