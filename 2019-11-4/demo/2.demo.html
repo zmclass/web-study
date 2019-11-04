@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo2 - 个人账户</title>
+</head>
+<body>
+	<script>
+		//版本一
+		var userAccout = {
+			name : '张三',
+			friendList: ['李四','王五'],
+			//添加好友
+			addFriend: function(name){
+				for(var i = 0; i < userAccout.friendList.length;i++){
+					if(name === userAccout.friendList[i]) {
+						console.log('好友已经存在')
+						return;
+					}
+				}
+				userAccout.friendList.push(name)
+			},
+			//移除好友
+			removeFriend: function(name){
+				for(var i = 0; i < userAccout.friendList.length;i++){
+					if(name === userAccout.friendList[i]) {
+						userAccout.friendList.splice(i,1)
+						return;
+					}
+				}
+				console.log('没有此好友')
+			}
+
+
+		}
+
+
+		// 版本二
+		var userAccout = {
+			name : '张三',
+			friendList: ['李四','王五'],
+
+			//好友是否存在
+			isFriends: function(name){
+				for(var i = 0; i < userAccout.friendList.length;i++){
+					if(name === userAccout.friendList[i]) {
+						return {status: true,index: i};
+					}
+				}
+				return {status: true,index: i}
+			},
+			//添加好友
+			addFriend: function(name){
+				if(!userAccout.isFriends(name).status){
+					userAccout.friendList.push(name)
+				}else {
+					console.log('好友已经存在')
+				}
+				
+			},
+			//移除好友
+			removeFriend: function(name){
+				if(userAccout.isFriends(name).status){
+					userAccout.friendList.splice(userAccout.isFriends(name).index,1)
+				}else {
+					console.log('好友不存在')
+				}
+			}
+
+
+		}
+
+		console.log('我的好友列表:' + userAccout.friendList)
+		//增加一个存在的好友
+		userAccout.addFriend('李四')
+		console.log('我的好友列表:' + userAccout.friendList)
+		//增加一个好友
+		userAccout.addFriend('王八')
+		console.log('我的好友列表:' + userAccout.friendList)
+		//增加一个好友
+		userAccout.addFriend('王九')
+		console.log('我的好友列表:' + userAccout.friendList)
+		//增加一个好友
+		userAccout.addFriend('王十')
+		console.log('我的好友列表:' + userAccout.friendList)		
+
+
+		//删除一个不存在好友
+		userAccout.removeFriend('王十一')
+		console.log('我的好友列表:' + userAccout.friendList)
+		//删除一个存在好友
+		userAccout.removeFriend('王八')
+		console.log('我的好友列表:' + userAccout.friendList)
+
+	</script>
+	
+</body>
+</html>

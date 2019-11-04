@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo - 描述银行账户</title>
+</head>
+<body>
+
+	<script>
+		
+		//银行账户
+		var bankAccout = {
+			//账户余额：1000
+			balance: 1000,
+			//存钱
+			addMoney: function(money){
+				if(money > 0) {
+					bankAccout.balance += money
+				}
+			},
+			//取钱
+			takeMoney: function(money){
+				//余额剩余多少
+				var balance = bankAccout.balance - money
+				if(money > 0 && balance >= 0) {
+					bankAccout.balance = balance
+				}else {
+					console.log('余额不足')
+				}
+			}
+		}
+
+		console.log('我的账户余额：'+ bankAccout.balance)
+		//发工资了，存 300元
+		bankAccout.addMoney(300)
+		console.log('我的账户余额：'+ bankAccout.balance)
+		//取钱 给女朋友买个iphone11
+		bankAccout.takeMoney(8000)
+		console.log('我的账户余额: '+ bankAccout.balance)
+		bankAccout.takeMoney(1300)
+		console.log('我的账户余额: '+ bankAccout.balance)
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
