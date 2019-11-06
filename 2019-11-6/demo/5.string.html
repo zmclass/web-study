@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串</title>
+</head>
+<body>
+	<script>
+		
+		var m = "hello";
+		//String
+		var m1 = new String("hello1");
+
+
+		console.log(m1)
+		//字符串的长度
+		console.log(m.length)
+		console.log(m1.length)
+
+		// 获取某个位置的值
+		
+		console.log(m[0])
+		console.log(m[1])
+		console.log(m[2])
+		console.log(m[3])
+		console.log(m[4])
+		
+		console.log(m.charAt(0))
+		console.log(m.charAt(1))
+		console.log(m.charAt(2))
+		console.log(m.charAt(3))
+		console.log(m.charAt(4))
+		console.log(m.charAt(5))
+		console.log(m.charAt(-1))
+
+		for(var i = 0 ; i< m.length; i++) {
+			console.log(m[i])
+		}
+
+
+		//包装数据类型
+		// var m2 = new String(m)
+
+		// var temp = m2.charAt(0)
+
+		// var firstChat = temp
+
+		// m2 = null;
+
+		// console.log(firstChat)
+
+		// ------------------
+		
+		m.n = 5
+		var m2 = new String(m)
+		m2.n = 5
+		m2 = null
+
+
+
+		var a1 = new String("hello")
+		var a2 = new String("world")
+		var a3 = "kitty"
+
+		console.log(typeof a1,typeof a2,typeof a3)
+
+		
+
+		console.log(a1 instanceof String)
+
+		//把字符串变成大写
+		
+		console.log("hello".toUpperCase())
+
+		// 把字符串编成小写
+		console.log("HELLOWORLD".toLowerCase())
+
+		//字符串第一次出现的位置
+		
+		var x = "helloworld"
+
+		console.log(x.indexOf("e"))
+		console.log(x.indexOf("e",2))
+		console.log(x.indexOf("e",11))
+
+		console.log(x.indexOf("l"))
+		console.log(x.lastIndexOf("l"))
+
+		//去除字符串两端的空格
+		
+		var x1 = "    helloWorld     "
+
+		var x2 = x1.trim()
+
+		var x3 = "\thello wrold"
+		var x4 = x3.trim()
+		console.log(x1)
+		console.log(x2)
+		console.log(x3)
+		console.log(x4)
+
+		// 字符串连接
+		var x5 = "hello"
+		var x6 = x5.concat('world',"kitty")
+		console.log(x6)
+		//推荐
+		var x7 = x5 + "world" + "kitty"
+		console.log("x7是",x7)
+
+
+		// 获取子字符串
+		// slice
+		var x8 = "helloWorld"
+		console.log(x8.slice(1,3))
+		console.log(x8.slice(1))
+		console.log(x8.slice(-3))
+		console.log(x8.slice(2,1))
+
+		console.log(x8.substring(1,3))
+		console.log(x8.substring(1))
+		console.log(x8.substring(-3))
+		console.log(x8.substring(2,1))
+
+		console.log(x8.substr(1,3)) //ell
+		console.log(x8.substr(1)) //ellowrorld
+		console.log(x8.substr(-3)) // rld
+		console.log(x8.substr(-3,-5)) // ""
+
+	</script>
+
+
+	
+</body>
+</html>
