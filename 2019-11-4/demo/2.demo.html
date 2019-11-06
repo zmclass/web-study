@@ -8,16 +8,20 @@
 	<script>
 		//版本一
 		var userAccout = {
-			name : '张三',
+			// name : '张三',
 			friendList: ['李四','王五'],
 			//添加好友
 			addFriend: function(name){
+				//循环获取数组长度
 				for(var i = 0; i < userAccout.friendList.length;i++){
+					 //判断索引
 					if(name === userAccout.friendList[i]) {
 						console.log('好友已经存在')
+						//满足条件后面不执行
 						return;
 					}
-				}
+				}  
+				// 上面不满足条件时执行
 				userAccout.friendList.push(name)
 			},
 			//移除好友
@@ -36,39 +40,39 @@
 
 
 		// 版本二
-		var userAccout = {
-			name : '张三',
-			friendList: ['李四','王五'],
+		// var userAccout = {
+		// 	name : '张三',
+		// 	friendList: ['李四','王五'],
 
-			//好友是否存在
-			isFriends: function(name){
-				for(var i = 0; i < userAccout.friendList.length;i++){
-					if(name === userAccout.friendList[i]) {
-						return {status: true,index: i};
-					}
-				}
-				return {status: true,index: i}
-			},
-			//添加好友
-			addFriend: function(name){
-				if(!userAccout.isFriends(name).status){
-					userAccout.friendList.push(name)
-				}else {
-					console.log('好友已经存在')
-				}
+		// 	//好友是否存在
+		// 	isFriends: function(name){
+		// 		for(var i = 0; i < userAccout.friendList.length;i++){
+		// 			if(name === userAccout.friendList[i]) {
+		// 				return {status: true,index: i};
+		// 			}
+		// 		}
+		// 		return {status: true,index: i}
+		// 	},
+		// 	//添加好友
+		// 	addFriend: function(name){
+		// 		if(!userAccout.isFriends(name).status){
+		// 			userAccout.friendList.push(name)
+		// 		}else {
+		// 			console.log('好友已经存在')
+		// 		}
 				
-			},
-			//移除好友
-			removeFriend: function(name){
-				if(userAccout.isFriends(name).status){
-					userAccout.friendList.splice(userAccout.isFriends(name).index,1)
-				}else {
-					console.log('好友不存在')
-				}
-			}
+		// 	},
+		// 	//移除好友
+		// 	removeFriend: function(name){
+		// 		if(userAccout.isFriends(name).status){
+		// 			userAccout.friendList.splice(userAccout.isFriends(name).index,1)
+		// 		}else {
+		// 			console.log('好友不存在')
+		// 		}
+		// 	}
 
 
-		}
+		// }
 
 		console.log('我的好友列表:' + userAccout.friendList)
 		//增加一个存在的好友
