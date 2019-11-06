@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>编程思想 - 面向对象</title>
+</head>
+<body>
+
+	<script>
+		
+		//把大象放入冰箱
+		//
+		//第一步 打开冰箱门
+		//第二步 把大象放入冰箱
+		//第三步 关闭冰箱门
+		//
+		//
+		// 面向对象
+		// 
+		// 有哪些实体
+
+		// 大象、冰箱
+		// 分析 属性 和方法
+		// 大象  - 名字 
+		// 冰箱 - 品牌 打开。关闭。放东西  
+		// 
+		// 
+		
+		var daxiang = {
+			name : "kitty"
+		}
+
+		var kele = {
+			name : '可乐'
+		}
+
+		var bingxiang = {
+			brank: "media",
+			open : function() {
+				console.log("打开门")
+			},
+			take: function(foodName){
+
+				console.log("取出"+foodName.name)
+
+			},
+			inTo: function(foodName){
+				console.log("放入了"+foodName.name)
+			},
+			close: function(){
+				console.log("关上门")
+			}
+		}
+
+
+		bingxiang.open()
+		bingxiang.take(daxiang)
+		bingxiang.inTo(kele)
+		bingxiang.close()
+
+
+
+
+
+	</script>
+
+	
+</body>
+</html>

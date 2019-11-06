@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>类与实例</title>
+</head>
+<body>
+
+	<script>
+		//java
+		//
+		// class Bird {
+
+		// 	int name = "mm"
+		
+		// }
+
+		// new Bird
+		
+		var student = {
+			name: '王五',
+			banji: '三班'
+		}
+
+		var student1 = {
+			name: '王三'
+		}
+		var student2 = {
+			name : '李四'
+		}
+
+		var bird = {
+			fly:function(){
+				console.log('会飞')
+			}
+		}
+		// student1.__proto__ = student
+		student1.__proto__ = bird
+		console.log(student1.fly())
+
+
+		//js中创建对象
+		
+		// var obj = {};
+
+		var obj = new Object();
+
+		obj.name = "kitty"
+		obj.color = "red"
+
+		console.log(2222,obj.toString())
+
+		//模拟类 (构造函数)
+		function Bird() {
+
+		}
+
+
+		var niao = new Bird()
+
+		niao.name = "hello"
+
+
+		//tostring => Bird => Function => Object => null
+
+		console.log(niao.toString())
+
+
+
+		// var str = "hello"
+		
+		// var str = new String("hello")
+		// ")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
