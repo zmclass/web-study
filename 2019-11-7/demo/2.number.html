@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数字</title>
+</head>
+<body>
+
+	<script>
+		
+		var num = 5;
+		var num1 = 5.;
+		var num2 = .5
+		//二进制
+		var num3 = 0b101;
+		//八进制
+		var num4 = 0o5
+		//16进制
+		var num5 = 0x5
+		//科学计数法
+		var num6 = 5e+4 //50000
+		var num7 = 5e-4 //0.0005
+
+
+		var num8 = new Number(5)
+
+
+
+		// tostring() 把数字转换成字符串
+		
+		var num9 = num.toString();
+		var num10 = num8.toString()
+		var num11 = num.toString(2)
+		var num12 = num.toString(8)
+		var num13 = num.toString(16)
+		console.log(num11,num12,num13)
+
+
+		console.log('-----',num.valueOf())
+
+		// NaN (not a number)
+		// 是一种特殊的数字类型
+		
+		console.log(typeof NaN)
+		console.log(1 * "hello")
+		console.log(1 / 0)
+		console.log(NaN === NaN)
+		
+		// 判断一个数字是不是NaN
+		console.log("-------",isNaN(1)) //false
+		console.log(isNaN("1")) //false
+		console.log(isNaN("hello")) //true
+		console.log(isNaN(true)) //false
+		console.log(isNaN(null)) //false
+		console.log(isNaN(undefined)) //true
+		console.log(isNaN({})) // true
+		console.log(isNaN([])) // false
+		console.log(isNaN([1])) // false
+		console.log(isNaN([1,2])) //true
+		console.log(isNaN(["123"])) // false
+
+		//es6 isNaN Number
+		console.log("---------",Number.isNaN(5))
+		console.log(Number.isNaN("hello"))
+		console.log(Number.isNaN("5"))
+		console.log(Number.isNaN(true))
+		console.log(Number.isNaN(null))		
+		console.log(Number.isNaN(undefined))
+		console.log(Number.isNaN({}))
+		console.log(Number.isNaN([]))
+		console.log(Number.isNaN([1]))
+		console.log(Number.isNaN(NaN))
+
+		// toFixed() 指定小数位的位数
+		
+		console.log(5.055.toFixed(2)) //5.05
+		console.log(5.005.toFixed(2)) //5.00
+		console.log(5.066.toFixed(2)) //5.07
+		console.log(5.056.toFixed(2)) //5.06
+		console.log(5.05.toFixed(1)) // 5.0
+		console.log(5.06.toFixed(1)) // 5.1
+		console.log(5.06.toFixed(1) + 5.05.toFixed(1)) // 5.1
+		console.log("值类型",typeof 5..toFixed(21)) //5.00
+		//toExponential() 将一个数转 换成科学记数法
+
+		console.log("-----",50000..toExponential(1))
+
+
+		// toPrecision()
+		console.log(5.055.toPrecision(3))
+
+
+
+		// 0.1 + 0.2 === 0.3 ?
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
