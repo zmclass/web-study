@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>例子</title>
+</head>
+<body>
+
+	<script>
+		//汽车的速度 100 每分钟  ，桥长 1000米， 几分钟可以通过桥长
+		//面向过程
+		
+		var speed = 100;
+		var len = 1000;
+
+		console.log(len / speed)
+
+		//面向对象
+		//
+		// 汽车 桥
+		// 汽车 -- 速度  run()
+		// 桥 -- 长度
+		// 
+		// 
+		
+		var car = {
+			speed : 100,
+			run:function(len){
+
+				console.log(len/car.speed)
+			}
+		}
+
+		var qiao = {
+			len: 1000
+		}
+
+
+		console.log(car.run(qiao.len))
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
