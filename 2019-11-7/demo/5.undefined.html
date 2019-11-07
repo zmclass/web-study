@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>undefined</title>
+</head>
+<body>
+	<script>
+		
+		var a;
+		console.log(a)
+
+		var b = {a:1}
+
+		console.log(b.b)
+
+
+		function demo(a,b,c) {
+
+			console.log(a,b,c)
+
+		}
+
+		console.log(demo(1,2))
+
+		var arr = [1,,2]
+
+		console.log(arr[1])
+
+
+		// 运算符 void
+		// 
+		
+		console.log(void 0)
+		console.log(void 1)
+		console.log(void [])
+		console.log(void {})
+		console.log(void "hello")
+		console.log(void false)
+
+
+		//错误的判断方法
+		// if(!c) {
+		// 	var c = 1
+		// }
+		//推荐写法
+		//
+		if(typeof c === "undefined") {
+			var c = 1
+		}
+
+
+
+		console.log(c)
+
+
+
+
+	</script>
+	
+</body>
+</html>

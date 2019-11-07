@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业一</title>
+</head>
+<body>
+
+	<script>
+		var str = "hello world kotty"
+		//第一次出现的位置
+		var index = str.indexOf("o")
+		var count = 0;
+		while(index !== -1) {
+			count++;
+			index = str.indexOf("o",index+1)
+		}
+	</script>
+	
+</body>
+</html>
