@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Date</title>
+</head>
+<body>
+
+	<script>
+		
+		//Date 类
+		// 作为普通函数调用
+		console.log(Date())
+
+		// 作为类来调用
+		// 
+		var date = new Date();
+
+		// console.log(date)
+
+		var date1 = new Date(1573176543186)
+		// console.log(date1)
+		// 2019-1-2 2018/9/2
+		var date2 = new Date("January 26, 2011 13:51:50")
+		var date3 = new Date("1992/02/12")
+		var date4 = new Date("1992/02/12 12:23:22")
+		var date5 = new Date("1992/02/12 12:23:22+0830")
+
+		var date6 = new Date("1997-07-16T08:20:30")
+		var date7 = new Date("1997-07-16T08:20:30-08:30")
+
+		//无效的格式
+		var date8 = new Date("1997年7月6")
+
+
+		var date9 = new Date(1998,12,32)
+		console.log(date2,date3,date4,date5,date6,date7,date8,date9)
+
+		// 获取时间戳
+		// Date.now()
+		//1 * 24 * 60 * 60 * 1000
+		//服务器上获取的unix时间戳。秒
+		console.log(Date.now())
+		console.log(Math.floor(Date.now()/1000))
+
+		// Date.parse()
+		console.log(Date.parse("January 26, 2011 13:51:50"))
+		// NaN
+		console.log(Date.parse("mmm"))
+
+		// Date.UTC()
+		
+		console.log(Date.UTC(1992,2))
+
+		// toString()
+		
+		console.log(new Date().toString())
+
+		// valueOf() 获取时间戳
+		console.log(new Date().valueOf()) 
+
+		// 时间偏移
+		console.log(new Date().getTimezoneOffset())
+
+		// toISOString & toUTCString
+		
+		console.log(new Date().toISOString())
+		console.log(new Date().toUTCString())
+
+		// 本地时间
+		console.log(new Date().toLocaleString()) //完整时间
+		console.log(new Date().toLocaleDateString()) //日期
+		console.log(new Date().toLocaleTimeString()) // 时间
+
+
+
+		// get 方法
+		
+		console.log(date.getFullYear()) //年份
+		console.log(date.getMonth()) 	//月份
+		console.log(date.getDate())	 // 天
+		console.log(date.getDay()) // 星期几
+		console.log(date.getHours()) // 小时
+		console.log(date.getMinutes()) // 分钟
+		console.log(date.getSeconds()) // 秒
+		console.log(date.getMilliseconds()) // 毫秒
+		console.log(date.getTime()) // 时间戳
+
+
+		//demo 往后延续一天
+		//
+		var nextDay = Date.now() + 24*60*60*1000;
+
+		var nextDate = new Date(nextDay)
+
+		console.log(nextDate.getDay())
+
+		// 时间运算
+		var dateTime1 = new Date()
+
+		var dateTime2 = new Date(2019,10,6)
+
+		// console.log(dateTime1.getTime())
+		// console.log(dateTime2.getTime())
+
+
+		console.log(dateTime1 - dateTime2)
+
+		console.log(dateTime1 + dateTime2)
+
+		console.log(date)
+
+		// console.log(new Date(date.setFullYear(2020)))
+
+		// console.log(new Date(date.setDate(2)))
+
+		console.log(new Date(date.setDate(32)))
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
