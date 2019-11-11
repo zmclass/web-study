@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>运算符</title>
+</head>
+<body>
+	<script>
+		var obj = {}
+
+		obj.height = 183;
+		obj.weight = 180;
+		obj.name = "王三";
+
+		delete obj.name
+
+		console.log(obj)
+
+
+		var a = (6*2,6+2)
+
+		var x = 1;
+		var y = 2;
+		var z = 3;
+
+		var x = 1,
+			y = 2,
+			z = 3
+
+
+		var i,k,j=5;
+		for(i=0; i<10; i++,j++) {
+		    k = i + j;
+		    console.log(k)
+		}
+
+		if((0,9)) {
+
+			console.log('T')
+		}
+
+		if((9,0)) {
+
+			console.log('T')
+		}
+
+
+		// （3 + 5） * 6
+
+		// console.log((1))
+
+		// console.log((3 + 5))
+
+
+		(
+			function(a,b){
+				return (a,b)
+			}
+		)((1,2))
+
+		//右结合运算
+		// var x = y = z = 10
+
+		function demo() {
+			// var m = 10;
+			var m = 10;
+			var x = y = z = 10;
+
+		}
+		demo()
+		console.log(x,m)
+
+
+		
+
+
+
+
+	</script>
+	
+</body>
+</html>

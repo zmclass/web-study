@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2.类型转换</title>
+</head>
+<body>
+	<script>
+		
+		console.log(String(10))
+		console.log(String(true))
+		console.log(String(false))
+		console.log(typeof String(true))
+		console.log(typeof String(false))
+
+		console.log(String(undefined))
+		console.log(String(null))
+		console.log(String(NaN))
+
+		console.log(String([])) //
+		console.log(String([1])) //
+		console.log(String([1,2,3]))
+		console.log(String({}))
+
+		console.log(1..toString())
+		console.log(2..toString())
+
+		console.log(1..toString(2))
+		console.log(1..toString(8))
+
+		console.log({}.toString())
+		console.log([].toString())
+		console.log([1].toString())
+		console.log([1,2,3].toString())
+
+		console.log(9 + "")
+		console.log([] + "")
+		console.log([1] + "")
+		console.log([1,2] + "")
+		console.log({} + "")
+		console.log(null + "")
+		console.log(undefined + "")
+
+
+		console.log(Boolean(false))
+		console.log(Boolean(0))
+		console.log(Boolean(""))
+		console.log(Boolean(NaN))
+		console.log(Boolean(undefined))
+		console.log(Boolean(null))
+
+		console.log(Boolean([]))
+		console.log(Boolean([1]))
+		console.log(Boolean([1,2]))
+		console.log(Boolean({}))
+
+
+		var num = new Number(0)
+		console.log(typeof num)
+
+		if(num) {
+
+			console.log("T")
+
+		}
+
+		var bol = new Boolean(false)
+
+		if(bol) {
+
+			console.log("T")
+		}
+
+		var str = new String("");
+
+		if(str) {
+
+			console.log("T")
+		}
+
+
+		var obj = {} // => Object
+		obj.toString = function(){
+
+			return "myobj"
+
+		}
+
+		console.log(obj+"") // [object Object]  //myobj
+
+
+
+
+	</script>
+	
+</body>
+</html>
