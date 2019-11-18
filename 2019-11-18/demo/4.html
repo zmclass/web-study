@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串模版字面量</title>
+</head>
+<body>
+	<script>
+		
+		// 定义字符串
+		
+		const str = "追梦课堂";
+		const str1 = '追梦课堂';
+		const str2 = new String("追梦课堂")
+
+		const str3 = "追梦课堂\n \
+			是临汾首家 \
+		";
+
+		const str4 = "追梦课堂" +
+		"是临汾首家"
+		console.log(str4)
+
+		const name = `追梦课堂`;
+		const name1 = `\`追梦课堂\``
+		console.log(name,name1,typeof name1)
+
+		const des = ` 
+			追梦课堂是临汾
+			首家专业的web
+			前端培训机构
+		`
+
+		const html = ` 
+			<div>
+				<div>
+					<nav>
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		`
+		console.log(des,html)
+
+
+		const studentName = "张三";
+		//const message = "欢迎" + studentName + "来到追梦课堂";
+		//const message = `欢迎${studentName}来到追梦课堂`
+		//const message = `欢迎${`张四`}来到追梦课堂`
+		
+
+		const count = 10;
+		const price = 0.25;
+
+		//const message = `总共花费${(count*price).toFixed(2)}`
+		//
+		const message = `大家好，${`我的名字叫${studentName}`}`
+		console.log(message)
+
+
+	</script>
+
+	
+</body>
+</html>

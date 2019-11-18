@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 块级作用域
+		
+		// {
+		// 	var a = 1;
+		// 	console.log(a)
+		// }
+		// 
+		{
+			let a = 1;
+			console.log('我是代码块中'+ a)
+			{
+				let a = 2;
+				console.log(a)
+			}
+		}
+		//console.log(a)
+
+		// {
+		// 	console.log(b)
+		// 	let b = 1;
+		// }
+		// 
+		// 
+		
+		// var a = 1;
+		// var a = 2;
+
+		// let a = 1;
+		// let a = 2;
+		// console.log(a)
+		
+		// let a = 1;
+		// a = 2;
+
+
+		// let b;
+		// b=2;
+		// console.log(b)
+
+		// const PI = 3.1415926;
+		
+		// 基本数据类 / 引用数据类型
+		// 
+		
+		 const a = 1;
+		 const b = a;
+
+
+		 const arr = [1,2,3];
+		 const arr1 = arr
+
+		 // arr1.push(4)
+		 // 
+		// arr1 = [4,5,6]
+		//arr1 = [1,2,3]
+
+
+		const obj = {
+			a: 1,
+			b: 2
+		}
+		const obj1 = {
+			a: 1,
+			b: 2
+		}
+
+		console.log(obj === obj1)
+
+		 console.log(arr,arr1)
+		
+
+		 {
+		 	console.log()
+		 	let a = 1;
+		 
+		 }
+
+
+		
+
+
+
+
+	</script>
+	
+</body>
+</html>

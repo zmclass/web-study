@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+			
+		let fns = [];
+
+		for(let i = 0; i<10; i++) {
+			fns.push(function(){
+				console.log(i)
+			})
+		}
+
+		fns.forEach(function(item,index){
+			//console.log(item())
+		})
+
+		let obj = {
+			a : 1,
+			b : 2,
+			c : 3
+		}
+		let objFns = []
+		for(let key in obj){
+			objFns.push(function(){
+				console.log(key)
+			})
+		}
+
+		objFns.forEach(function(item,index){
+			console.log(item())
+		})
+
+
+
+		var a = 1;
+
+		
+		for(var key in window){
+			console.log(key)
+		}
+
+		let RegExp = 123;
+		console.log(RegExp)
+
+		console.log(window.RegExp)
+
+
+		let a1 = 1;
+		const PI = 3.1415926;
+
+
+		function fn(){
+
+			a1++
+
+		}
+		fn()
+
+
+
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>解构</title>
+</head>
+<body>
+	<script>
+		
+		const companyInfo = {
+			name: "追梦课堂",
+			addr: "临汾市体育北街",
+			des: "专业的web前端",
+			content: {
+				name:"追梦课堂"
+			}
+		}
+
+		// const name = companyInfo.name;
+		// const name1 = companyInfo.content.name
+
+		// const students = ["张三","李四","王五",[{name: '张六'}]]
+
+		// const firstName = students[0]
+		// const fourthName = students[3][0]['name']
+		// 
+		// 
+		// 解构
+		// const {name,addr,des} = companyInfo
+
+		// const {name,addr,des}
+		// console.log(name,addr,des)
+
+		// let person = {
+		// 	name : "张三",
+		// 	age: 16,
+		// 	from: "山西"
+		// },
+		// name = "李四",
+		// age = 16;
+
+
+		// ({name,age} = person);
+
+		// console.log(name,age)
+		// 
+		// const person = {
+		// 	name : "张三",
+		// 	age: 16,
+		// 	from: "山西",
+		// 	color: "blue",
+		// 	content: {
+		// 		zuobiao: {
+		// 			start:{
+		// 				x: 10,
+		// 				y: 20
+		// 			},
+		// 			end: {
+		// 				x: 15,
+		// 				y: 25
+		// 			}
+		// 		}
+
+		// 	}
+		// }
+
+		// const {name,color} = person
+		// 默认值
+		//const {name,color = "red"} = person
+
+		//别名
+		//const {name:localName,age:localAge} = person
+
+		//console.log(localName,localAge)
+
+		// const {content:{zuobiao:{start:localStart,end:localEnd}}} = person
+
+		// console.log(localStart,localEnd)
+
+
+
+		//数组解构
+		
+		const students = ["张三","李四","王五"];
+
+		const [firstName,secondName,thirdName] = students;
+
+		console.log(firstName,secondName,thirdName)
+
+		const [,,thirdName1] = students
+
+		console.log(thirdName1)
+
+
+		// 交换2个变量的值
+		
+		// let a = 1, //2
+		// 	b = 2,
+		// 	tmp = a; //1
+		// a = b;
+		// b = tmp;
+
+		// 解构 交换
+		let a = 1,
+			b = 2;
+		[a,b] = [b,a];
+
+		console.log(a,b)
+
+
+		// 数组 嵌套解构
+		
+		// const colorList = ["red",["pink","blue"],"green"]
+
+		// const [,[,secondColor]] = colorList
+
+		// console.log(secondColor)
+
+		const person = {
+			name : "张三",
+			age: 16,
+			from: "山西",
+			color: "blue",
+			content: {
+				zuobiao: {
+					start:{
+						x: 10,
+						y: 20,
+						colorList: ["blue","red"]
+					},
+					end: {
+						x: 15,
+						y: 25
+					}
+				}
+
+			}
+		}
+
+		const {content:{zuobiao:{start:{colorList:[,secondColor]}}}} = person
+
+		console.log(secondColor)
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业答案</title>
+</head>
+<body>
+	<script>
+    /**
+    * 判断是否是闰年
+    * @param {number} year 要判断的年份
+    * @return {bool} 返回布尔值
+    * 满足下面任意一个条件即可
+    * 1.能被4整除且不能被100整除的为闰年
+    * 2.能被400整除的是闰年
+    */
+   	//常规解法
+   	function isLeapYear(year) {
+   		if(
+   			year % 4 === 0 && year % 100 !== 0 
+   			|| year % 400 === 0)
+   		{
+   			return true
+   		}
+   		return false
+   	}
+   	//不寻常解法 
+   	function isLeapYear(year) {
+       return !(year % (year % 100 ? 4 : 400)); 
+    }
+
+   	
+
+	
+
+	</script>
+	
+</body>
+</html>
