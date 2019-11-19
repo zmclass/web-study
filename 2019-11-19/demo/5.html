@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义迭代器</title>
+</head>
+<body>
+	<script>
+		
+		const arr = [1,2,3];
+		const str = "hellowrold"
+
+		const obj = {
+			name: "张三",
+			age: 16,
+			from: "山西"
+		}
+
+		console.log(arr[Symbol.iterator])
+		console.log(str[Symbol.iterator])
+		console.log(obj[Symbol.iterator])
+
+		// 自定义迭代器
+		//
+		obj[Symbol.iterator] = function(){
+			let valueList = [],
+				i = 0;
+			for(let key in obj){
+				valueList.push(obj[key])
+			}
+			return {
+				next:function(){
+					let done = (i >= valueList.length);
+					let value = !done ? valueList[i++]:undefined
+					//i++;
+					return {
+						value:value,
+						done:done
+					}
+				}
+			}
+
+		}
+
+
+		//let keys = Symbol("keys")
+		obj.keys = function(){
+
+			return  {
+
+				[Symbol.iterator]:function(){
+					let keyList = [],
+						i = 0;
+					for(let key in obj){
+						if(key !== "keys"){
+							keyList.push(key)
+						}
+						
+					}
+
+					return  {
+						next:function(){
+							let done = (i >= keyList.length);
+							let value = !done ? keyList[i++]:undefined
+							return {
+								value:value,
+								done:done
+							}
+
+						}
+					}
+				}
+			}
+		}
+
+		obj.entries = function(){
+
+			return  {
+
+				[Symbol.iterator]:function(){
+					let keyList = [],
+						i = 0;
+					for(let key in obj){
+						// if(key !== "keys" || key !== "entries"){
+						// 	keyList.push(key)
+						// }
+
+						if(["keys","entries"].indexOf(key) === -1){
+							keyList.push(key)
+						}
+						
+					}
+
+					return  {
+						next:function(){
+							let done = (i >= keyList.length);
+							let value = !done ? [keyList[i],obj[keyList[i]]]:undefined
+							i++
+							return {
+								value:value,
+								done:done
+							}
+
+						}
+					}
+				}
+			}
+		}
+
+		for(let [index,value] of obj.entries()){
+
+			console.log(index,value)
+
+		}
+		for(let key of obj.keys()){
+			console.log(`key值${key}`)
+		}
+
+		for(let value of obj){
+			console.log(value)
+		}
+
+
+		//显示的调用
+		const iterator = obj[Symbol.iterator]();
+		console.log(iterator.next())
+		console.log(iterator.next())
+		console.log(iterator.next())
+		console.log(iterator.next())
+		console.log(iterator.next())
+
+		const arr1 = [1,2,3];
+		const arrIterator = arr1[Symbol.iterator]();
+		// console.log(arrIterator.next())
+		// console.log(arrIterator.next())
+		// console.log(arrIterator.next())
+		// console.log(arrIterator.next())
+		// console.log(arrIterator.next())
+
+		while(true) {
+			let {done,value} = arrIterator.next();
+
+			console.log("值",arrIterator.next())
+
+			if(done){
+				break;
+			}
+
+		}
+
+
+		
+
+
+
+
+	</script>
+	
+</body>
+</html>

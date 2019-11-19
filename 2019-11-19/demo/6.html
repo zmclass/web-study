@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>判断对象是否是可迭代对象</title>
+</head>
+<body>
+	<script>
+		/**
+		 * 判断对象是否是可迭代对象
+		 * @param  {[any]}  obj 判定的对象
+		 * @return {Boolean}     如果为true 就是可迭代对象，为 false 就不是
+		 */
+		function isIterable(obj){
+			return typeof obj[Symbol.iterator] === 'function'
+		}
+
+		console.log(isIterable("hello"))
+		console.log(isIterable([1,2,3]))
+		console.log(isIterable({a:1}))
+
+	</script>
+
+
+
+	
+</body>
+</html>
