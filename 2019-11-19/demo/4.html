@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for...of</title>
+</head>
+<body>
+	<script>
+		
+		const str = "helloworld";
+
+		for(let i = 0;i<str.length;i++){
+			console.log(str[i])
+		}
+
+		for(let key in str){
+
+			console.log(str[key])
+		}
+
+		for(let value of str){
+
+			console.log(value)
+
+		}
+
+		const colorList = ["color","red","green"];
+
+		colorList.forEach(function(item,index){
+
+			console.log(item)
+		})
+
+		for(let color of colorList) {
+			console.log(color)
+		}
+
+
+		const person = {
+			name: "张三",
+			age: 14,
+			from: "山西"
+		}
+
+		for(let key in person) {
+
+			console.log(person[key])
+		}
+
+		for(let value of person){
+
+			console.log(value)
+		}
+
+
+
+
+	</script>
+	
+</body>
+</html>

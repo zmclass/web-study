@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全局可重用</title>
+</head>
+<body>
+	<script>
+
+		// {foobar: Symbol()}
+		
+		const symbol = Symbol.for("foobar")
+		const symbol1 = Symbol.for("foobar")
+
+
+
+
+
+		console.log(symbol === symbol1)
+		console.log(`key的值${Symbol.keyFor(symbol)}`)
+
+
+		//值的拷贝
+		let symbol2 = Symbol();
+		let symbol3 = symbol2;
+
+		symbol2 = 2;
+
+		console.log(symbol3)
+		console.log(symbol2 === symbol3)
+
+
+
+
+	</script>
+</body>
+</html>

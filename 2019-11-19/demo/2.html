@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Symbol基本语法</title>
+</head>
+<body>
+	<script>
+		
+		const symbol = Symbol()
+		const symbol1 = Symbol()
+		const symbol2 = Symbol('banana')
+		const symbol3 = Symbol(3.14)
+		const symbol4 = Symbol({foo:"bar"})
+		const symbol5 = Symbol('banana')
+		//错误的调用
+		// const symbol6 = new Symbol();
+		//const symbol7 = Symbol(Symbol())
+		console.log(symbol2,symbol3,symbol4)
+	
+		console.log(symbol === symbol1)
+
+
+		console.log(symbol2 === symbol5)
+
+
+		//定义一个盘子对象
+		// const plate = {
+		// 	apple:{
+		// 		color: "red",
+		// 		weight: 1.5
+		// 	},
+		// 	orange: {
+		// 		color: "orange",
+		// 		weight: 1.6
+		// 	},
+		// 	banana:{
+		// 		color: "yellow",
+		// 		weight: 1.8
+		// 	},
+		// 	banana: {
+		// 		color: "yellow",
+		// 		weight: 3
+		// 	}
+		// }
+
+		const banana1 = Symbol("big");
+		const banana2 = Symbol("small")
+
+		const orange1 = "orange"
+
+		const orange2 = "orange"
+
+
+		// const plate = {
+		// 	apple:{
+		// 		color: "red",
+		// 		weight: 1.5
+		// 	},
+		// 	orange: {
+		// 		color: "orange",
+		// 		weight: 1.6
+		// 	},
+		// 	[banana2]:{
+		// 		color: "yellow",
+		// 		weight: 1.8
+		// 	},
+		// 	[banana1]: {
+		// 		color: "yellow",
+		// 		weight: 3
+		// 	}
+		// }
+
+		const plate = {
+			apple:{
+				color: "red",
+				weight: 1.5
+			},
+			[orange1]: {
+				color: "orange",
+				weight: 1.6
+			}			
+		}
+
+		plate[banana1] = {
+			color: "yellow",
+			weight: 3
+		}
+		plate[banana2] = {
+			color: "yellow",
+			weight: 1.8
+		}
+
+		plate[orange2] = {
+			color: "orange",
+			weight: 10
+		}
+		console.log(plate)
+
+
+		// const person = {
+		// 	name: "张三",
+		// 	age: 16,
+		// 	from: "山西"
+		// }
+
+		// for(let key in person){
+
+		// 	console.log(person[key])
+
+		// }
+		// 
+		// 
+		// 取值
+		// 
+		// 
+		console.log(plate[banana1])
+
+
+
+		
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
