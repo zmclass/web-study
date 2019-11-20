@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>案列</title>
+</head>
+<body>
+	<script>
+		//消息列表
+		const message = [
+			{content:"内容一",from:"admin"},
+			{content:"内容二",from:"admin"},
+			{content:"内容三",from:"admin"},
+		]
+		//已读列表
+		//let readList = new Set();
+		let readList = new WeakSet();
+		readList.add(message[0]);
+		readList.add(message[1]);
+		readList.add(message[0]);
+
+		//删除消息
+		// readList.delete(message[0])
+		message.shift()
+
+
+		// 存储已读时间
+		let readList = new WeakMap();
+		readList.set(message[0],new Date());
+	
+
+
+
+
+
+		
+
+
+
+
+
+			
+
+
+
+
+
+	</script>
+
+</body>
+</html>

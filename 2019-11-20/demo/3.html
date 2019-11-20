@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>spread展开运算符</title>
+</head>
+<body>
+
+	<script>
+		
+		const maxValue = Math.max(5,6,7,8,9,10);
+		const arr = [1,8,20,7,10];
+		
+		const maxValue1 = Math.max(...arr)
+
+		console.log(maxValue1)
+
+
+		const arr1 = [].concat(arr)
+
+		const arr2 = [...arr]
+
+		const arr3 = [1,2,...arr,3]
+
+		const str = "hello"
+
+		const arr4 = [...str]
+
+		const arr5 = [1,2,2,3,5]
+
+		const set = new Set(arr5)
+		const arr6 = [...set]
+
+		const map = new Map([[1,2],[2,3]])
+		console.log([...map])
+
+		const arr7 = [8,9,10];
+
+		const [arr8,...arr9] = arr7
+
+		console.log(arr8,arr9)
+
+		const user = {
+			name : "张三"
+		}
+
+		const user1 = {age:30,...user}
+
+		//for of
+		console.log(user1)
+
+
+		
+
+
+	</script>
+	
+</body>
+</html>
