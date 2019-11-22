@@ -1,14 +1,57 @@
 # 题1
 ```
     将 字符串border-left-width 转换成 borderLeftWidth
-    /**
-     * [camelize description]
-     * @param  {[type]} str [description]
-     * @return {[type]}     [description]
-     */
-    function camelize(str){
-        
-    }
+        /**
+         * 将字符分割的字符串转换成 驼峰字符串
+         * @param  {String} str  以 - 分割的字符串
+         * @return {String} 字符串
+         */
+        function camelize(str){
+            const arr = str.split("-"); // ["border","left","width"]
+
+            for(let i = 1;i<arr.length;i++){
+                //substr
+                //subString
+                //slice 推荐
+                //arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1)
+                arr[i] = `${arr[i][0].toUpperCase()}${arr[i].slice(1)}`
+            }
+            return arr.join("")
+        }
+
+        function camelize1(str){
+            const arr = str.split("-"); // ["border","left","width"]
+
+            for(let [i,value] of arr.entries()){
+
+                if(i > 0) {
+                    arr[i] = `${arr[i][0].toUpperCase()}${arr[i].slice(1)}`
+                }
+
+            }
+
+
+            return arr.join("")
+        }
+
+        function camelize2(str){
+            const arr = str.split("-"); // ["border","left","width"]
+
+            const newArr = arr.map(function(item,index,arr){
+
+                if(index > 0){
+                    return `${item[0].toUpperCase()}${item.slice(1)}`
+                }
+                return item
+            })
+
+
+            return newArr.join("")
+        }       
+
+        const str = camelize2("border-left-width");
+        console.log(str)
+
 ```
 # 题2
 ```
