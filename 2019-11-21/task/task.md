@@ -63,6 +63,8 @@
 ```
     反转字符串
     eg :"abc" => "cba"
+    
+
 
 ```
 # 题4
@@ -87,6 +89,7 @@
     const arr = [5, 2, 1, -10, 8];
     倒叙排序
 
+
 ```
 
 # 题7
@@ -98,6 +101,37 @@
     ]
     
     生成一个 names 数组， 元素为 userList的 name 属性
+
+        const userList = [
+            { name: "张三", age: 25 },
+            { name: "王五", age: 30 },
+            { name: "李四", age: 28 }
+        ]
+
+        const nameList = [];
+        for(let i = 0;i < userList.length; i++){
+            nameList.push(userList[i]['name'])
+        }
+        console.log(nameList)
+
+
+        const nameList1 = userList.map(function(item,index){
+            return item.name
+        })
+
+
+        const nameList2 = userList.reduce(function(pre,item,index){
+            return pre.concat(item.name)
+        },[])
+        []
+
+        pre item                       result
+        []                        
+    1   []  { name: "张三", age: 25 }   ["张三"]
+    2   ["张三"]  { name: "王五", age: 30 }   ["张三","王五"]
+    3   ["张三","王五"]  { name: "李四", age: 28 }  ["张三","王五","李四"]
+
+        console.log(nameList2)
 ```
 
 # 题8
@@ -157,7 +191,7 @@
 
 ```
 
-# 题 13
+# 题13
 ```
     返回两个数组中存在的元素的列表。
     eg: [1,2,3] [4,3,2] => [2,3]
