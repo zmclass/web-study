@@ -56,15 +56,21 @@
 # 题2
 ```
     判定一个对象是否是可迭代对象
-
+    
 ```
 
 # 题3
 ```
     反转字符串
     eg :"abc" => "cba"
-    
+    function reverseString(str){
 
+        return str.split("").reverse()
+        //return [...str].reverse()
+        //return Array.from(str).reverse()
+
+    }        
+    
 
 ```
 # 题4
@@ -88,7 +94,25 @@
 ```
     const arr = [5, 2, 1, -10, 8];
     倒叙排序
+            // 排序
+        //  asc   正序 
+        //  desc  倒序
+        function arraySort(arr,type){
 
+            if(typeof type === "undefined") {
+                type = "asc"
+            }
+            arr.sort(function(a,b){
+                if(type === "asc"){
+                    return a - b
+                }
+                return b - a
+            })
+            return arr
+        }
+
+
+    
 
 ```
 
@@ -155,9 +179,37 @@
         { name: "李四", age: 28 }
     ]
     // 获取 年龄平均值
-    function getAverageAge(){
+function getAverageAge(arr){
+            //let sum = 0; //83
 
-    }
+            // for(let i = 0;i < arr.length;i++){
+            //  //    0    25
+            //  //    25    30
+            //  //    55    28
+            //  sum = sum + arr[i]['age']
+            // }
+
+
+            // for(let {age} of arr){
+
+            //  sum += age
+            // }
+
+
+
+            //return (sum / arr.length).toFixed(2)
+            //
+            
+            return ((arr.reduce(function(sum,{age},index){
+                    return sum + age
+                },0)) / arr.length).toFixed(2)
+
+            // console.log(m)
+
+    //      sum   item    result
+    // call 1   0       25     25
+    // call 2   25      30     55
+    // call 3  55     28      83
 
 ```
 
@@ -165,7 +217,7 @@
 ```
     返回数组除最后一个之外的所有元素
     eg: [1,2,3]) => [1,2]
-
+    arr.slice(0,-1)
 ```
 
 
@@ -174,18 +226,46 @@
 ```
     将数组块划分为指定大小的较小数组
     
-    function chunk(){
+    function chunk(arr,size){
+        return Array.from(
+            {
+                length: Math.ceil(arr.length / size)
+            },
+            function(item,index) {
 
+                return arr.slice(index,index + size)
 
+            }
+
+        )
     }
-
     eg: chunk([1,2,3,4,5], 2) => [[1,2],[3,4],[5]]
 
 ```
 # 题12
 ```
     计算数组中值的出现次数
-    eg:[1,1,2,1,2,3] 1  => 3    或者undefined
+    eg:[1,1,2,1,2,3] 1  => 3    或者0
+    
+    function getCount(arr,v){
+        // let count = 0;
+        // for(let value of arr){
+        //  if(value === v) {
+        //      count++
+        //  }
+        // }
+        // return count
+        // 
+        
+        return arr.reduce(function(count,item,index){
+
+            if(item === v) {
+                return count + 1
+            }
+            return count
+        },0)         
+    }
+
 
 
 
@@ -195,10 +275,77 @@
 ```
     返回两个数组中存在的元素的列表。
     eg: [1,2,3] [4,3,2] => [2,3]
+    function getCommonElment(arr1,arr2){
+        // const arr = []
+
+        // for(let value of arr1){
+        //  if(arr2.includes(value)){
+        //      arr.push(value)
+        //  }
+        // }
+        // return arr
+        
+        return arr1.filter(function(item,index){
+
+            //return arr2.includes(item)
+            
+            return new Set(arr2).has(item)
+        })
+    }
+
+    
 
 ```
 # 题14
 ```
     返回两个数组中不存在元素的列表
     eg: [1,2,3] [1,2,4] => [3,4]
+    
+    function getElment(arr1,arr2){
+        
+        return [...arr1.filter(function(item,index){
+            return !arr2.includes(item)
+        }),
+
+        ...arr2.filter(function(item,index){
+            return !arr1.includes(item)
+        }) ]
+
+    }
+    
+
+
+```
+
+# 题15
+```
+    返回在两个数组中的任意一个中存在的每个元素
+    [1,2,3], [4,3,2]  => 1 2 3 4
+
+    //console.log([...new Set([...arr1,...arr2])])
+
+    console.log(Array.from(new Set([...arr1,...arr2])))
+
+```
+# 题16
+```
+    将字符串截断为指定长度。 
+    并将...追加到末尾或原始字符串
+    "zmktweb",3 => zmk....
+    "zmktweb",7 => zmktweb
+    function splitStr(str,num){
+
+            if(str.length <= num){
+                return str
+            }
+
+            // 3    7
+
+            //return str.slice(0,num).padEnd(str.length,".")
+
+            return `${str.slice(0,num)}${".".repeat(str.length - num)}`
+
+
+    }
+
 ```
