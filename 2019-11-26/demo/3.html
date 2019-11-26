@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本语法</title>
+</head>
+<body>
+
+	<script>
+		//字面量 和 转义 \
+		// let str = "I have $1234"
+		// const reg = /1234\\/
+		// //const matchValue = str.match("123")
+		// const matchValue = str.match(reg)
+		// console.log(matchValue)
+
+		//匹配不到 返回。null
+		//集合 []
+		
+			const str = "zmkt"; 
+			const str1 = "zwkt"
+
+			const reg = /z[mw]kt/
+
+			console.log(str.match(reg),str1.match(reg))
+
+			const str2 = "zmkt"
+			const reg1 = /[zmkt]/g  //  /z/   /m/   /k/  /t/
+
+ 			console.log(str2.match(reg1))
+
+
+
+ 			const str3 = "I have $1234";
+ 			const str4 = "I have $2345"
+ 			const reg2 = /[13]/g
+ 			const reg3 = /13/  //精确查找
+
+ 			const reg4 = /[0,1,2,3,4,5,6,7,8,9][0,1,2,3,4,5,6,7,8,9][0,1,2,3,4,5,6,7,8,9][0,1,2,3,4,5,6,7,8,9]/
+
+ 			
+ 			console.log(str3.match(reg3)) //null
+ 			console.log(str3.match(reg2))
+ 			console.log(str3.match(reg4))
+ 			console.log(str4.match(reg4))
+
+
+ 			// []范围
+ 			// 
+ 			const reg5 = /[0-9][0-9][0-9][0-9]/
+
+ 			console.log(str4.match(reg5))
+
+ 			const reg6 = /0x[0-9A-F][0-9A-f]/ig
+
+ 			const str5 = "十六进制 0xaf  0x9b"
+
+ 			console.log(str5.match(reg6))
+
+ 			// 排除范围
+ 			
+ 			const reg7 = /[^0-9]/g
+ 			const str6 = "我的英文名字叫abc123456"
+ 			console.log(str6.match(reg7)) 
+ 			const reg8 = /[0^9]/
+ 			const str7 = "^"
+ 			console.log(str7.match(reg8))
+
+
+ 			//[]中不需要转义 
+ 			 
+ 			const str9 = "我有 $5.6"
+ 			const reg9 = /[0-9.]/g
+
+ 			console.log(str9.match(reg9))  // [5,".",6]
+
+
+ 			// 字符集合
+ 			// \d [0-9] 
+ 			// \D  [^0-9]
+ 			// \s  \n \t \f \r
+ 			// \S  [^\n\t\f\r]
+ 			// \w [a-zA-Z_0-9]
+ 			// \W [^a-zA-Z_0-9]
+
+ 			// . [^\n]
+ 			//空格也是正则字符
+ 			//
+ 			const reg10 = /\d - \d/g
+
+ 			const str10 = "5 - 5 4-5 6 - 5"
+
+ 			console.log(str10.match(reg10))
+
+
+ 			// . 点号。可以匹配 除换行符以外的任意字符
+
+ 			const reg11 = /cs.3/ig
+ 			//const str11 = "css3"
+ 			// const str11 = "cs-3"
+ 			const str11 = "cs 3"
+
+ 			console.log(str11.match(reg11))
+
+
+ 			// 量词
+ 		
+ 			const reg12 = /10?/g;
+ 			const str12 ="我几年年10周岁了"
+ 			console.log(str12.match(reg12))
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
