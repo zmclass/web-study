@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>语法</title>
+</head>
+<body>
+
+	<script>
+		//捕获组
+		const reg = /z(mk)+t/;
+		const str = "zmkt"
+		console.log(str.match(reg))
+
+		// -------------------
+		// 重复组
+		const str1 = "gogogo"
+		const reg1 = /(go)+/ 
+
+		// 捕获组
+		
+		const str2 = "<h1>hello world!</h1>"
+		const reg2 = /<(.+?)>/g
+
+		console.log(str2.match(reg2))
+
+		//获取所有的组内容
+		
+		console.log(reg2.exec(str2))
+		console.log(reg2.exec(str2))
+		console.log(reg2.exec(str2))
+		// 
+		
+		let groups = [];
+		let group;
+		while(group = reg2.exec(str2)){
+			groups.push(group[1])
+		}
+		console.log(groups)
+
+
+		// 嵌套捕获组
+		
+		const str3 = "<span class = 'zmkt'>"
+
+		//const reg3 = /<((\w+)\s+(.+?))>/
+		//
+		const reg3 = /<((\w+)\s+([^>]+))>/
+
+		console.log(str3.match(reg3))
+
+
+		// 可选捕获组
+		
+		const str4 = "zm";
+		const reg4 = /z(m)?(k)?(t)?/
+
+		console.log(str4.match(reg4))
+
+		//命名捕获组
+		
+		const str5 = "2015-10-10"
+		const reg5 = /(?<year>\d{4})-(?<month>\d{1,})-(?<day>\d\d?)/
+		const match = str5.match(reg5)
+		console.log(match)
+		console.log(match[1])
+		console.log(match[2])
+		console.log(match[3])
+		console.log(match.groups.year)
+		console.log(match.groups.month)
+		console.log(match.groups.day)
+
+
+		// 非捕获组
+		
+		const str6 = "go";
+		const reg6 = /(?:go)+/
+
+		console.log(str6.match(reg6))
+
+
+		//eg 获取 3位 或者 6位 颜色值
+		const str7 = "color: #3f3; background-color: #AA00ef;and:#abcd";
+
+		const reg7 = /#[a-f0-9]{3}([a-f0-9]{3})?/ig
+
+		//const reg7 = /#([a-f0-9]{3}){1,2}/ig
+
+		console.log(str7.match(reg7))
+
+
+
+
+
+
+
+
+	</script>
+
+	
+</body>
+</html>
