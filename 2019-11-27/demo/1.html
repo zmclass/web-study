@@ -7,6 +7,8 @@
 <body>
 
 	<script>
+		// 'aaaabbbcccd'.replace(/(\w)\1+/ig, '$1');
+		// [01]\d|2[0-3]:[0-5]\d/g
 		//捕获组
 		const reg = /z(mk)+t/;
 		const str = "zmkt"
@@ -89,7 +91,74 @@
 		console.log(str7.match(reg7))
 
 
+		// 反向引用 $n
+		// 
+		const str8 = "zmkt web";
+		const reg8 = /(zmkt) (web)/
+		console.log(str8.replace(reg8,"$2 $1"))
 
+		// \n
+		
+		const str9 = "11 22 33 14 56"
+		const reg9 = /(\d)\1/g
+		console.log(str9.match(reg9))
+
+		//eg 将 aaaabbbccd 替换成 abcds
+		//
+		const str10 = "aaaabbbccd";
+		const reg10 =  /(\w)\1+/g
+		console.log(str10.match(reg10))
+		console.log(str10.replace(reg10,"$1"))
+
+
+		// 选择符 ｜
+		
+		const str11 = "First HTMl appeared, then css, then java then Javascript"
+		const reg11 = /html|css|java(script)?/ig
+
+		console.log(str11.match(reg11))
+		
+		// /html/
+		// /css/
+		// /java(script)?/
+		// 
+		
+
+		// eg 匹配时间 hh:mm
+		// hh 01开头 后面跟 0-9
+		// 	2 开头 后面跟 0-3
+		// 	mm 0-5 开头 后面跟 0-9
+		// 	
+		const str12 = "23:61"
+
+		const reg12 = /([01]\d|[2][0-3]):[0-5]\d/
+
+		console.log(str12.match(reg12))
+
+		// 开始符^ 和 结束符$
+		// [^123] [12^3]
+
+		const str13 = "cccb";
+		const reg13 = /^aa|b$/
+		const reg14 = /^(aa|b)$/
+		console.log(str13.match(reg13))
+		console.log(str13.match(reg14))
+		const reg15 = /^$/
+
+		// 环视 断言
+		//前瞻断言
+		const str16 = "1 trukey cost 30$";
+		const reg16 = /\d+(?=\$)/g
+		//const reg16 = /\d+(?!\$)/g
+		console.log(str16.match(reg16))
+
+		//后瞻断言
+		
+		const str17 = "1 trukey cost $30"
+
+		//const reg17 = /(?<=\$)\d+/
+		const reg17 = /(?<!\$)\d+/
+		console.log(str17.match(reg17))
 
 
 
