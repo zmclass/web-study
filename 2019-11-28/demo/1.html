@@ -108,12 +108,88 @@
 			//return p1.toUpperCase()
 		}))
 
+		// RegExp#test
+		
+		//const str14 = "I love zmkt";
+		const str14 = "I love Javascript"
+		const reg14 = /zmkt/
+
+		console.log(reg14.test(str14))  //true|false
+
+		//RegExp#exec
+		
+		const str15 = "zmkt is the best web zmkt";
+
+		//const reg15 = /zm(kt)/
+		const reg15 = /zm(kt)/g
+		//--------------------------
+		// console.log(reg15.lastIndex)
+		// console.log(reg15.exec(str15))
+		// console.log(reg15.lastIndex)
+		// console.log(reg15.exec(str15))
+		// console.log(reg15.lastIndex)
+		// console.log(reg15.exec(str15))
+		// console.log(reg15.lastIndex)
+		//console.log(str15.match(reg15))
+		//
+		
+		// let result1;
+
+		// while(result1 = reg15.exec(str15)){
+
+		// 	console.log(reg15.lastIndex,result1)
+
+		// }
 
 
+		// 指定位置开始搜索
+		
+		const str16 = "zmkt is the best web zmkt";
+		const reg16 = /zm(kt)/g
+		reg16.lastIndex = 10;
 
+		// console.log(str16.match(reg16))
+		console.log(reg16.exec(str16))
 
+		console.log(reg16.exec(str16))
 
+		// y修饰符
+		
+		const str17 = "zmkt is the best web zmkt";
+		const reg17 = /zm(kt)/gy
+		reg17.lastIndex = 10;
+		console.log(str16.match(reg17))
 
+		//m 修饰符
+		//开始位置
+		const str18 = `1st place: zhangsan
+2nd place: lisi
+33rd place: wangwu`;
+
+		const reg18 = /^\d+/g
+
+		console.log(str18.match(reg18))
+
+		//结束位置
+
+		const reg19 = /\w+$/gm
+
+		console.log(str18.match(reg19))
+
+		//匹配位置的字符
+		//^ $ (?=y) (?!y) (?<=y)(?<!y) \b
+		//
+		//
+	
+
+		const str20 = "2019-11-27"
+		const reg20 =/(\d{4})-(\d{1,2})-(\d{1,2})/
+
+		const result20 = str20.replace(reg20,function(str,year,month,day){
+			return `${year}年${month}月${day}日`
+		})
+
+		console.log(result20)
 
 
 
