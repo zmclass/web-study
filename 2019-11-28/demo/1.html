@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式</title>
+</head>
+<body>
+	<script>
+		//边界符 \b
+		const str = "Hello, Zmkt!"
+		const reg = /\bHello\b/
+		const reg1 = /\bHell\b/
+		const reg2 = /\bZmkt\b/
+		const reg3 = /\bZmkt!\b/
+		console.log(str.match(reg))
+		console.log(str.match(reg1))
+		console.log(str.match(reg2))
+		console.log(str.match(reg3))
+
+		const str2 = "追梦 课堂"
+		const reg5 = /\b追梦\b/;
+		console.log(str2.match(reg5))
+
+		//eg:
+		
+		const str1 = "1 23 456 78"; //=> 23   48
+		const reg4 = /\b\d\d\b/g
+
+		console.log(str1.match(reg4))
+
+
+		//String#search
+		
+		const str3 = "A drop of ink may make a millon think"
+
+		console.log(str3.search('a'))
+
+		console.log(str3.search(/a/i))
+
+		// String#match
+		// 没有g
+		const str4 = "追梦前端课堂是临汾首家专业的前端培训机构"
+		const reg6 = /(前)端/;
+		const result = str4.match(reg6)
+		console.log(result)
+		console.log(result[0])
+		console.log(result[1])
+		console.log(result.index)
+		console.log(result.input)
+
+		// 有g
+		
+		const str7 = "Go-go-go" 
+		const reg7 = /g(o)/ig
+		console.log(str7.match(reg7))
+
+		//String#split
+		const str8 = "Go     go			go";
+		const reg8 = /\s+/
+
+		console.log(str8.split(reg8))
+
+		//Sring#replace
+		
+		const str9 = "12-34-56"
+		console.log(str9.replace("-",":"))
+		const reg9 = /-/g
+		console.log(str9.replace(reg9,":"))
+
+		console.log(str9.replace(reg9,"$&|"))
+		console.log(str9.replace(reg9,"*$`*"))
+
+		const str10 = "12-34-56"
+		const reg10 = /(\d{2})-(\d{2})-(\d{2})/
+
+		console.log(str10.replace(reg10,"$3-$2-$1"))
+
+
+		const str11 = "GO  Go go            ZMKT"
+		const reg11 = /\w{2,}/ig
+
+		const fn = function(str,offset,s){
+			console.log(`Found ${str} at position ${offset} in string ${s}`)
+			return str.toLowerCase()
+		}
+
+		console.log(str11.replace(reg11,fn))
+
+
+		const str12 = "GO  Gm gn"
+		const reg12 = /\w(\w)/ig
+
+		const fn1 = function(str,p1,offset,s){
+			console.log(str,p1)
+		}
+
+		console.log(str12.replace(reg12,fn1))
+
+
+		// 将字符串 border-left-width 转换成驼峰名
+		
+		const str13 = "border-left-width";
+		//const reg13 = /-\w/ig
+		const reg13 = /-(\w)/ig
+
+		console.log(str13.replace(reg13,function(str,p1,offset,s){
+			//return str[1].toUpperCase()
+			//return p1.toUpperCase()
+		}))
+
+
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
