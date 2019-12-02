@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数声明</title>
+</head>
+<body>
+
+	<script>
+		
+		// 函数声明创建函数
+		
+		// function myFuncitonName(arg1,arg2){
+
+		// 	//函数体
+
+		// }
+
+		// 局部变量
+		
+		// function myFunctionName(){
+		// 	let message = "hello world";
+		// 	console.log("message")
+		// }
+
+		// console.log(message)
+
+		// 外部变量
+		// let name = "追梦课堂";
+
+		// function showMessage(){
+		// 	let message = `I love ${name}`;
+		// 	console.log(message)
+		// }
+		// showMessage()
+		
+		// 修改外部变量
+		// let name = "追梦课堂";
+		// function showMessage(){
+		// 	name = "追梦前端课堂"
+		// 	let message = `I love ${name}`;
+		// 	console.log(message)
+		// }
+		// showMessage()
+		// console.log(name)		
+
+		// 遮蔽外部变量
+		
+		// let name = "追梦课堂"
+		// function showMessage(){
+		// 	let name = "追梦课堂";
+		// 	console.log(name)
+		// }
+
+		// showMessage()
+
+		let name = "追梦课堂"
+		function showMessage(){
+
+			 //let name = "追梦前端课堂"
+
+			 function fn(){
+			 	//let name = "追梦前端web课堂";
+			 	console.log(name)
+			 }
+
+			 fn()
+		}
+
+		showMessage()
+
+
+		// 变量提升 
+		// console.log(scope);  
+		// var scope = "global";
+		
+		// function fn(){
+		// 	scope = "local"
+		// }
+		// console.log(scope)
+
+
+		// var scope;
+		// console.log(scope);  //undefined
+		// scope = "global"
+		// function fn(){
+		// 	scope = "local"
+		// }
+
+		// console.log(scope) //global
+
+		// 隐式声明变量
+	
+		// function fn(){
+		// 	scope = "local"
+		// }
+		// fn()
+		// console.log(scope)
+
+
+		// 函数声明提升
+		// fn()
+		// function fn(){
+		// 	console.log('hello world')
+		// }
+		// fn()
+
+		// function fn(){
+
+		// }
+		// fn()
+		// fn()
+
+		// 变量提升 和 函数 声明的优先级
+
+		// var fn;
+		// function fn(){
+
+		// }
+
+		// function fn(){
+
+		// }
+		// var fn;
+
+		// console.log(typeof fn)
+		
+		// 声明变量同时赋值
+		// function fn(){
+
+		// }
+		// //var fn;
+		// fn = 1;
+
+		// console.log(typeof fn)
+		// 
+		// // 
+		// function fn(){
+		// 	console.log('hello world')
+		// }
+		// console.log(fn())
+		// let fn = 1;
+
+		// console.log(fn)
+
+
+		// function fn(a,b){
+		// 	a = 1;
+
+		// 	console.log(a)
+		// }
+
+		// fn(3,2)
+		// console.log(a)
+		// 
+		// 
+		getName()
+		var getName = function(){
+			console.log("closure")
+		}
+		function getName(){
+			console.log("function")
+		}
+
+		getName()
+
+
+		// function getName(){
+		// 	console.log('function')
+		// }
+		// getName()
+
+		// getName = function(){
+		// 	console.log("closure")
+		// }
+
+		// getName()
+		// 
+		// 
+		// 函数表达式
+		
+		let a = 1;
+		function fn(a){
+			return a
+		}
+
+		let obj = {
+			b : 1
+		}
+
+		console.log(fn(a),obj.b)
+
+		// function fn(){
+
+		// }
+		let fnc1 = function(){
+			console.log('hello world')
+		}
+		let fnc2 = fnc1
+
+		fnc1()
+		fnc2()
+		// 回调函数
+		const arr = [2,1,5];
+
+		arr.sort(function(a,b){
+			return a -b
+		})
+		arr.map(function(item,index){
+			return item
+		})
+
+		// 函数声明 vs 函数表达式
+		// 
+		fnc3()
+		function fnc3(){
+			console.log(1)
+		}
+
+		let fnc4 = function(){
+			console.log(2)
+		}
+
+		fnc4()
+
+		// 立即函数
+		
+		// 标准调用方式
+		function fnc5(){
+
+
+		}
+
+		fnc5()
+
+		// 立即调用表达式
+		// 
+		let fnc6 = function(){
+
+		}
+		fnc6();
+		(function(){
+			console.log(2)
+		})();
+		(function(a,b){
+			console.log(a,b)
+		})(1,2)
+
+
+		// 构造函数 创建函数
+		
+		const fnc7 = new Function("a","b","return a + b");
+
+		console.log(fnc7(1,2))
+		// 多行语句
+		
+		const fnc8 = new Function("a","b",`
+
+				a = 4;
+				b = 5;
+				return a + b
+			`);
+
+		// const fnc8 =  new Function("a","b","a=4;"+
+		// 	"b = 5;"+
+		// 	"return a + b"
+		// 	)
+		console.log(fnc8(1,2))
+
+
+
+
+	</script>
+	
+</body>
+</html>
