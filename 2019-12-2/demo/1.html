@@ -54,20 +54,20 @@
 
 		// showMessage()
 
-		let name = "追梦课堂"
-		function showMessage(){
+		// let name = "追梦课堂"
+		// function showMessage(){
 
-			 //let name = "追梦前端课堂"
+		// 	 //let name = "追梦前端课堂"
 
-			 function fn(){
-			 	//let name = "追梦前端web课堂";
-			 	console.log(name)
-			 }
+		// 	 function fn(){
+		// 	 	//let name = "追梦前端web课堂";
+		// 	 	console.log(name)
+		// 	 }
 
-			 fn()
-		}
+		// 	 fn()
+		// }
 
-		showMessage()
+		// showMessage()
 
 
 		// 变量提升 
@@ -154,15 +154,15 @@
 		// console.log(a)
 		// 
 		// 
-		getName()
-		var getName = function(){
-			console.log("closure")
-		}
-		function getName(){
-			console.log("function")
-		}
+		// getName()
+		// var getName = function(){
+		// 	console.log("closure")
+		// }
+		// function getName(){
+		// 	console.log("function")
+		// }
 
-		getName()
+		// getName()
 
 
 		// function getName(){
@@ -179,94 +179,370 @@
 		// 
 		// 函数表达式
 		
-		let a = 1;
-		function fn(a){
-			return a
-		}
+		// let a = 1;
+		// function fn(a){
+		// 	return a
+		// }
 
-		let obj = {
-			b : 1
-		}
+		// let obj = {
+		// 	b : 1
+		// }
 
-		console.log(fn(a),obj.b)
+		// console.log(fn(a),obj.b)
 
 		// function fn(){
 
 		// }
-		let fnc1 = function(){
-			console.log('hello world')
-		}
-		let fnc2 = fnc1
+		// let fnc1 = function(){
+		// 	console.log('hello world')
+		// }
+		// let fnc2 = fnc1
 
-		fnc1()
-		fnc2()
-		// 回调函数
-		const arr = [2,1,5];
+		// fnc1()
+		// fnc2()
+		// // 回调函数
+		// const arr = [2,1,5];
 
-		arr.sort(function(a,b){
-			return a -b
-		})
-		arr.map(function(item,index){
-			return item
-		})
+		// arr.sort(function(a,b){
+		// 	return a -b
+		// })
+		// arr.map(function(item,index){
+		// 	return item
+		// })
 
 		// 函数声明 vs 函数表达式
 		// 
-		fnc3()
-		function fnc3(){
-			console.log(1)
-		}
+		// fnc3()
+		// function fnc3(){
+		// 	console.log(1)
+		// }
 
-		let fnc4 = function(){
-			console.log(2)
-		}
+		// let fnc4 = function(){
+		// 	console.log(2)
+		// }
 
-		fnc4()
+		// fnc4()
+
+
+
+		// 在严格模式下 函数声明 块级作用域
+		
+		 //"use strict"
+		 // let age = 18;
+		 // if(age < 18) {
+		 // 	function welcome(){
+		 // 		console.log('欢迎小朋友，来到追梦课堂')
+		 // 	}
+		 // }else {
+		 // 	welcome()
+		 // 	function welcome(){
+		 // 		console.log('欢迎小哥哥，来到追梦课堂')
+		 // 	}
+		 // 	welcome()
+		 // }
+
+		 // welcome()
+
+
+		 // 规避这个问题
+		 // let age = 18;
+		 // let welcome;
+		 // if(age < 18) {
+		 // 	welcome = function(){
+		 // 		console.log('欢迎小朋友，来到追梦课堂')
+		 // 	}
+		 // }else {
+		 // 	welcome = function(){
+		 // 		console.log('欢迎小哥哥，来到追梦课堂')
+		 // 	}
+		 
+		 // }
+
+		 // welcome()
+		 
+		 // let welcome = age < 18 
+		 // 	 ?function(){console.log('欢迎小朋友，来到追梦课堂')}
+			//  :function(){
+			//  	console.log('欢迎小哥哥，来到追梦课堂')
+			//  }
+
+		let age = 18;
+		 if(age < 18) {
+		 	function welcome(){
+		 		console.log('欢迎小朋友，来到追梦课堂')
+		 	}
+		 }else {
+		 	welcome()
+		 	function welcome(){
+		 		console.log('欢迎小哥哥，来到追梦课堂')
+		 	}
+		 	welcome()
+		 }
+
+		 welcome()
+
+
+
 
 		// 立即函数
 		
 		// 标准调用方式
-		function fnc5(){
+		// function fnc5(){
 
 
-		}
+		// }
 
-		fnc5()
+		// fnc5()
 
-		// 立即调用表达式
-		// 
-		let fnc6 = function(){
+		// // 立即调用表达式
+		// // 
+		// let fnc6 = function(){
 
-		}
-		fnc6();
-		(function(){
-			console.log(2)
-		})();
-		(function(a,b){
-			console.log(a,b)
-		})(1,2)
+		// }
+		// fnc6();
+		// (function(){
+		// 	console.log(2)
+		// })();
+		// (function(a,b){
+		// 	console.log(a,b)
+		// })(1,2)
 
 
 		// 构造函数 创建函数
 		
-		const fnc7 = new Function("a","b","return a + b");
+		// const fnc7 = new Function("a","b","return a + b");
 
-		console.log(fnc7(1,2))
-		// 多行语句
+		// console.log(fnc7(1,2))
+		// // 多行语句
 		
-		const fnc8 = new Function("a","b",`
+		// const fnc8 = new Function("a","b",`
 
-				a = 4;
-				b = 5;
-				return a + b
-			`);
+		// 		a = 4;
+		// 		b = 5;
+		// 		return a + b
+		// 	`);
 
-		// const fnc8 =  new Function("a","b","a=4;"+
-		// 	"b = 5;"+
-		// 	"return a + b"
-		// 	)
-		console.log(fnc8(1,2))
+		// // const fnc8 =  new Function("a","b","a=4;"+
+		// // 	"b = 5;"+
+		// // 	"return a + b"
+		// // 	)
+		// console.log(fnc8(1,2))
+		// 
+		// 
+		//箭头函数
+		
+		//const arr = [5,2,3,6];
+		// arr.sort(function(a,b){
+		// 	return a - b
+		// })
 
+		// arr.sort((a,b) => a-b)
+
+		// console.log(arr)
+
+
+		// 1个参数
+		// function double(n){
+		// 	return n * 2
+		// }
+		// let double = n => n*2
+
+		// 没有参数
+		
+		// function sayHi(){
+		// 	console.log('hello world')
+		// }
+
+		// let sayHi = ()=> console.log('hello wrold')
+
+		// 2个参数
+		
+		// function sum(a,b){
+		// 	return a + b
+		// }
+		// let sum = (a,b) => a + b
+
+		// // 多行语句
+		
+		// let sum1 = (a,b) => {
+		// 	let result = a + b;
+		// 	return result
+		// }
+
+
+		// const arr = [1,2,3,4,5,6];
+		// const newArr = arr.map(function(item,index){
+		// 	return item * 2
+		// })
+
+		// const newArr = arr.map((item,index)=>item*2)
+
+
+		//形参 实参
+		
+		// function sum(a,b){
+		// 	console.log(a,b)
+		// 	return a + b
+		// }
+		
+		// sum(1,2);
+
+		// console.log(sum(1));
+		// console.log(sum(1,2,3));
+
+		// console.log([...[1,2,3]]);
+		// console.log({...{a:1,b:2}});
+		// console.log([..."hello"])
+
+
+		// function aToS(...list){
+		// 	console.log(list)
+		// }
+
+		// aToS(1,2,3,4,5,6)
+
+
+		// function getValue(value,...list){
+		// 	return value *  (Math.min.apply(null,list))
+		// }
+
+		// console.log(getValue(1,2,3,4,5,6))
+
+		// function sum(a,b){
+		// 	return a + b
+		// }
+
+		// function sum(...list){
+
+		// 	return list.reduce(function(sum,item){
+		// 		return sum + item
+		// 	},0)
+
+		// }
+
+		// console.log(sum(1))
+		// console.log(sum(1,2))
+		// console.log(sum(1,2,3))
+		// console.log(sum(1,2,3,4))
+		// 错误的
+		// function fn(...value,list){}
+		// 
+		// 
+		// 默认值
+		// function sum(a,b){
+		// 	if(typeof b === "undefined"){
+		// 		b = 2
+		// 	}
+		// 	return a + b
+		// }
+
+		// function sum(a = 1,b = 2){
+		// 	return a + b
+		// }
+
+
+		// console.log(sum(5))
+		// console.log(sum(5,3))
+
+		// console.log(sum(undefined,3))
+
+		// 解构数组
+		// let [a,b,c] = [1,2,3];
+		// let [,,c] = [1,2,3]
+
+		// function sum([a = 1,b = 2] = []){
+		// 	console.log(a,b)
+		// 	return a + b
+		// }
+
+		// sum()
+		// sum([1,2])
+		// sum([,3])
+		// sum([2])
+		// sum([])
+		//[a,b] = [1,2]
+		//
+		//解构对象
+
+		// function sum({a = 1,b = 2} = {}){
+
+		// 	console.log(a,b)
+		// 	return a + b
+
+		// }
+
+		// sum() //const {a = 1, b = 2} = {}
+		// sum({b:10})
+		// sum({a:10})
+		// sum({a:10,b:5})
+
+		
+
+		// 函数的内部属性（隐含参数）
+		
+		function sum() {
+			console.log(arguments)
+			console.log(arguments.length)
+		}
+
+		// 函数重载
+		
+		// function fn(a){
+		// 	console.log('我只有1个参数') 
+		// }
+
+		// function fn(a,b){
+		// 	console.log('我只有2个参数')
+		// }
+		// 模拟函数重载
+		// function fn(){
+		// 	if(arguments.length === 1){
+		// 		console.log('我只有1个参数')
+		// 	}else{
+		// 		console.log('我只有2个参数')
+		// 	}
+		// }
+
+		// fn(1)
+		// fn(1,2)
+		// 求和
+		// function sum(){
+
+		// 	let sum = 0;
+		// 	for(let value of argumetns){
+		// 		sum += value
+		// 	}
+
+		// 	return sum
+		// }
+		// 'use strict'
+		//function sum(){
+			
+		// 	console.log(arguments)
+		// 	const args = [...arguments];
+		// 	const args = Array.from(arguments)
+		// 	return args.reduce((sum,item)=>{
+		// 		return sum + item
+		// 	},0)
+		// }
+		// sum()
+		// 
+		function sum(a,b = 1){
+
+			console.log(arguments)
+
+			a = 3
+
+			console.log(arguments)
+
+			arguments[0] = 8
+
+			console.log(a)
+
+		}
+
+		sum(1,2)
+		
 
 
 
