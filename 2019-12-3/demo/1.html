@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深入函数2</title>
+</head>
+<body>
+	<script>
+		
+		// arguments 在箭头函数中不存在
+		// 
+		// let getName = (name) => {
+		// 	console.log(arguments)
+		// 	return name;
+		// }
+
+		// let getName = new Function("...name",`
+		// 	console.log(arguments)
+		// 	console.log(name)
+		// 	return name
+		// `)
+
+		// getName("张三")
+
+		// 函数调用
+		// 基本调用
+
+		// function sum(a,b){
+		// 	a = 3;
+		// 	b = 4;
+		// 	return a + b
+		// }
+
+		// sum(1,2)
+
+		// (function(a,b){
+		// 	a = 3;
+		// 	b = 4;
+		// 	return a + b	
+		// })(1,2)
+
+		// let sum = function(a,b){
+
+		// 	return a + b
+		// }
+
+		// sum(1,2)
+
+
+		// 作为对象的方法
+		
+		const student = {
+			name: "张三",
+			playBasktetball:function(){
+				console.log("会打篮球")
+			}
+		}
+
+		//student.playBasktetball()
+
+
+
+		// call() apply()  bind()
+		
+
+		function sum(a,b){
+			return a + b
+		}
+
+		// 2个参数
+		// 第一个参数 设置 this 的值 // 不改变 传入 null
+		// 第二个参数  调用函数的参数
+		// call 与 apply的区别  apply 参数是传入数组
+		// 
+		// 
+		// 
+		console.log(sum.call(null,1,2))
+
+		console.log(sum.apply(null,[1,2]))
+
+		student.playBasktetball.call()
+
+		console.log(Math.max(1,2,3,4,5,6,7))
+		console.log(Math.max.call(null,1,2,3,4,5,6,7))
+		console.log(Math.max.apply(null,[1,2,3,4,5,6,7]))
+
+		// 创建一个函数
+		let bindSum = sum.bind();
+
+		// 调用方式
+		console.log(sum.bind(null,1,2)())
+		console.log(sum.bind()(1,2))
+
+		console.log(bindSum === sum) //false
+
+		// 赋值给变量
+		let sum1 = sum;
+
+		console.log(sum1 === sum) //true
+
+
+
+
+		// this 的值
+		
+		 // function fn(){
+		 // 	console.log(this) 
+		 // }
+
+		 // fn() === window.fn() // window
+		 // var a = 1;
+		 // var RegExp = 1;
+		 // let b = 1
+		 // console.log(new RegExp())
+		 // 
+		 // 
+		// function fn(){
+		// 	'use strict'
+		// 	console.log(this)  // undefined
+
+		// }
+		// fn()
+		// 
+		
+		// const obj = {
+		// 	name:"张三",
+		// 	fn:function(){
+		// 		console.log(this.name)  // obj
+		// 	}
+		// }
+
+		// obj.fn()
+
+
+
+
+		// 从不同的对象中调用 同一个方法 可能会有不一样的this值
+		
+		let student1 = {
+			name: "张三"
+		}
+		let student2 = {
+			name : "李四"
+		}
+
+		function play(){
+			console.log(this)
+		}
+
+		student1.fn = play;
+		student2.fn = play;
+
+		console.log(student1,student2)
+
+
+		student1.fn()  //student1
+		student2.fn()  //student2
+
+		// 丢失的this
+		
+		const fn = student1.fn;
+
+		//const fn = function play(){
+		//}
+
+		// fn() // window 或者 undefined
+
+
+		// const obj = {
+		// 	name : "张三",
+
+		// 	getName: function(){
+
+		// 		console.log(this)   //  obj
+
+		// 		function fn(){
+
+		// 			console.log(this)  //undefined 或者 window
+		// 		}
+
+		// 		fn()   
+				
+		// 	}
+
+
+		// }
+
+		// obj.getName()
+	 
+		// 改变this值
+		const obj = {
+			age : 30,
+
+			// getName: function(){
+
+			// 	const that = this
+
+			// 	function fn(){
+			// 		console.log(that.age)  // window
+			// 	}
+			// 	fn()  
+				
+			// }
+
+			getName: function(){
+
+
+
+				function fn(){
+					console.log(this.age)  // window
+				}
+				//fn.call(obj)
+				//fn.apply(obj)
+				fn.bind(obj)()
+
+				//箭头函数
+				// const fn = ()=>{
+				// 	console.log(this.age)
+				// }
+				
+			}
+
+
+		}
+		obj.getName()
+
+		//eg
+		const person1 = {
+			name : "张三",
+			getName : function(){
+				console.log(this.name)
+			}
+		}
+
+		const person2 = {
+			name : "李四",
+			getName : function(){
+				console.log(this.name)
+			}
+		}
+
+
+		person1.getName()
+		person1.getName.call(person2)
+
+		// 数组方法中的this  
+		// 
+		
+		// const obj3 = {
+		// 	getName:function(fn){
+
+		// 		fn()
+		// 	}
+		// } 
+		
+		// obj3.getName(function(){
+		// 	consoel.log(this)
+		// })
+
+
+		// const arr1 = [1,2,3,4,5];
+		// const arr2 = [8,9,10,11];
+
+		// const newArr1 = arr1.filter(function(item,index){
+		// 	console.log(this)
+		// 	return item > 3
+		// })
+		// const newArr2 = arr1.filter(function(item,index){
+		// 	console.log(this)
+		// 	return item > 3
+		// },arr2)
+		// console.log(newArr1)
+		// console.log(newArr2)
+
+
+		const set = new Set();
+		// set.add(1)
+		// set.add(2)
+		// 
+		set.add(1).add(2).add(3)  //链式调用
+			//set     set
+		console.log(set)
+
+
+		// 推箱子
+		
+		const chest = {
+			step: 0,
+			up : function(){
+				this.step++
+				return this
+			},
+			down: function(){
+				this.step++
+				return this
+			},
+			showStep:function(){
+				console.log(this.step)
+				return this
+			}
+		};
+
+
+		// chest.up();  chest
+		// chest.up();
+		// chest.down();
+		// chest.down();
+		// chest.up();
+
+
+		chest.up().up().down().down().up().showStep().up().up().showStep()
+	
+
+		// 借用方法
+		
+		// function join(){
+		// 	let str = ""
+		// 	for(let value of arguments){
+		// 		str+=value+","
+
+		// 	}
+		// 	return str.replace(/,$/,"")
+		// }
+
+		function join(){
+			return [].join.call(arguments,",")
+		}
+		function toArray(){
+			return [].slice.call(arguments)
+		}
+
+
+
+		console.log(join(1,2,3,4,5,6))
+		console.log(toArray(1,2,3,4,5,6))
+
+
+
+		// 箭头函数的 this
+		
+	
+
+		let fn1 = ()=>{
+			console.log(this)  // window
+		}
+
+		const obj2 = {
+			fn:function(){
+				console.log(this)
+				let fn1 = ()=>{
+					console.log(this)  // obj
+				}
+				function fn2(){
+
+					console.log(this)  //undefined /window
+				}
+				fn1()
+				fn2()
+			}
+
+		}
+
+		obj2.fn()
+
+
+	
+
+		// 闭包
+		
+		// debugger;
+		function makeWorker(){
+			let name = "张三";
+			return function(){
+				console.log(name)
+			}
+		}
+		
+		let name = "李四";
+
+		let work = makeWorker()
+
+		work()
+		// 
+		// 
+		
+		// let name = "张三"
+		// function sayHi(){
+		// 	console.log(name)
+		//  }
+		// sayHi()
+		// console.log(name)
+
+		function makeCouter(){
+			let counter = 0;  //1
+			return function(){
+				counter++
+				console.log(counter)
+			}
+		}
+
+		let counter = makeCouter();
+		const counter1 = makeCouter()
+
+		// counter = null;
+
+		console.log(counter === counter1)
+
+		counter()
+		counter()
+		counter()
+		counter()
+
+		counter1()
+		counter1()
+		counter1()
+		counter1()
+		// makeCouter()()   //1
+		// makeCouter()()   //2
+		// makeCouter()()   //3
+		// makeCouter()()   //4
+
+		// 词法环境与 垃圾回收
+		
+		// function f(){
+		// 	let value1 = "张三";
+		// 	let value2 = "李四"
+		// }
+
+		// f()
+
+		// console.log(value1,value2)
+
+
+
+		// eg
+		// 
+		
+		// function sum(a,b){
+		// 	return a + b
+		// }
+
+		// sum(1,2)  =>  sum(1)(2)
+		// 
+		
+		function sum(a){
+
+			return function(b){
+
+				return a + b
+
+			}
+		}
+
+		console.log(sum(1)(2))
+
+
+
+
+		let user = [
+			{ name : "张三", age : 20, height: 165},
+			{ name : "李四", age : 18, height: 180},
+			{ name : "王五",  age : 19, height: 175}
+		]
+		// 按照字段进行排序
+		function byFiled(filed){
+			return function(a,b){
+				return a[filed] - b[filed]
+			}
+		}
+		user.sort(byFiled('height'))
+
+		console.log(user)
+
+		// 数组
+		const arr = [1,2,3,4,5,6];
+		console.log(arr.filter(function(item,index){
+			return item >=3 && item <=6
+		}))
+
+		
+		function inBetween(min,max){
+			return function(item,index){
+				return item >= min && item <= max
+			}
+		}
+		console.log(arr.filter(inBetween(1,4)))
+		
+
+		const arr1 = [1,2,3,4,5,6,7];
+
+		//[1,2,10] => [1,2]
+		//
+		//
+		
+		function makeFunction(){
+			const arr =[]
+			for(var i = 0; i < 5; i++){
+				arr.push(function(){
+					console.log(i)
+				})
+			}
+
+			return arr
+
+		}
+
+		makeFunction().forEach((item) =>{
+			item()
+		})
+	
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+	
+	
+	
+</body>
+</html>
