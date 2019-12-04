@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>递归 和 调度</title>
+</head>
+<body>
+	
+	<script>
+		// #1 sum(1)(2)
+		function sum(a){
+			return function(b){
+				return a + b
+			}
+		}
+
+		// #2 按字段排序
+		const user = [
+			{ name : "张三", age : 20, height: 165},
+			{ name : "李四", age : 18, height: 180},
+			{ name : "王五",  age : 19, height: 175}
+		]
+
+		// 初级程序员
+		// function byFiled(filed){
+		// 	return user.sort(function(a,b){
+		// 		return a[filed] - b[filed]
+		// 	})
+		// }
+
+		// 高级手段
+		function byFiled(filed){
+			return function(a,b){
+				return a[filed] - b[filed]
+			}
+		}
+		user.sort(byFiled('age'))
+
+		//# 3 找寻 a和b 之间的元素
+
+		const arr = [1,2,3,4,5,6]
+
+		function inBetween(min,max){
+			return function(item,index){
+				return item >= min && item <= max
+			}
+		}
+		console.log(arr.filter(inBetween(3,6)))
+
+
+		//# 4 找寻给定数组包含值(交集)
+		function inArray(value){
+			return function(item,index){
+				return value.includes(item)
+			}
+		}
+		console.log(arr.filter(inArray([1,2,10,3])))
+
+
+		//  x 的 n 次方
+		// 迭代思路：for
+		function pow(x,n){
+			let result = 1;
+			for(let i = 0; i < n; i++){
+				result = result * x
+			}
+			return result
+		} 
+
+		// 递归思路
+		function pow(x,n){
+			if(n === 1){
+				return x
+			}
+			return x * pow(x,n-1)
+		}
+
+
+	{
+	const arr = [
+		{
+			label: "一级 1",
+			child:[
+
+				{
+					label: "二级 1 - 1",
+					child:[
+
+						{
+							label: "三级 1 - 1 -1 ",
+							child: [
+
+								{
+									label: "四级 1- 1 -1 -1"
+								}
+
+							]
+						}
+
+					]
+				},
+				{
+					label: "二级 1 - 2"
+				},
+				{
+					label: "二级 1 - 3"
+				}
+			]
+		},
+		{
+			label: "一级 2",
+			child:[
+
+				{
+					label: "二级 2 - 1"
+				},
+				{
+					label: "二级 2 - 2"
+				},
+				{
+					label: "二级 2 -3"
+				}
+			]
+		}
+
+	]
+
+
+	function showAllLabel(arr){
+
+		for (let i = 0; i< arr.length;i++){
+
+			if(typeof arr[i]['label'] !== "undefined"){
+
+				console.log(arr[i]['label'])
+			}
+			if(typeof arr[i]['child'] !== "undefined" && typeof arr[i]['child']['length'] !== 0){
+				arguments.callee(arr[i]['child'])
+			}	
+		}
+	}
+
+	showAllLabel(arr)
+
+	// for(let i = 0; i< arr.length; i++){
+
+
+	// 	if(typeof arr[i]['label'] !== 'undefined'){
+
+	// 		console.log(arr[i]['label'])
+	// 	}
+
+	// 	if(typeof arr[i]['child'] !== 'undefined') {
+
+	// 		for(let j = 0; j< arr[i]['child'].length;j++){
+
+
+
+	// 			console.log(arr[i]['child'][j]['label'])
+	// 		}
+
+
+	// 	}
+
+	// }
+
+}
+
+		// 对数字求和 到指定值
+		
+		// 迭代
+		(function(){
+			function sumTo(n){
+				let sum = 0;
+				for(let i = 5000;i >= 1; i--){
+					sum+=i
+				}
+				return sum
+			}
+			console.log(sumTo(5000))
+
+		})();
+
+
+		// 数学公式
+		(function(){
+			function sumTo(n){
+				return (n + 1) * (n / 2)
+			}
+
+			console.log(sumTo(5000))
+
+		})();
+
+
+		// 递归
+		(function(){
+			function sumTo(n){
+				// if(n === 1){
+				// 	return n
+				// }
+				// return n + sumTo(n - 1)
+				// 
+				return n === 1 ? 1 : n + arguments.callee(n - 1)
+			}
+
+			sumTo(3)
+		})()
+
+		//5000 + 4999 + 4998 + ... +1
+		//
+		// 求阶乘 6! = 6 * 5 * 4 * 3 * 2 * 1
+		function factorial(n){
+
+			if( n === 1){
+				return n
+			}
+			return n * factorial(n-1)
+
+		}
+
+
+
+		{
+			// 获取所有省份和城市
+			const maps = {
+		        "province" : [{
+		                "id" : 110000,
+		                "name" : "北京"
+
+		            }, {
+		                "id" : 120000,
+		                "name" : "天津"
+		            }, {
+		                "id" : 130000,
+		                "name" : "河北"
+		            }
+		        ],
+		        "city" : {
+		            "110000" : [{
+		                    "id" : 110100,
+		                    "name" : "北京市"
+		                }
+		            ],
+		            "120000" : [{
+		                    "id" : 120100,
+		                    "name" : "天津市"
+		                }
+		            ],
+		            "130000" : [{
+		                    "id" : 130100,
+		                    "name" : "石家庄市"
+		                }, {
+		                    "id" : 130200,
+		                    "name" : "唐山市"
+		                }, {
+		                    "id" : 130300,
+		                    "name" : "秦皇岛市"
+		                }, {
+		                    "id" : 130400,
+		                    "name" : "邯郸市"
+		                }, {
+		                    "id" : 130500,
+		                    "name" : "邢台市"
+		                }, {
+		                    "id" : 130600,
+		                    "name" : "保定市"
+		                }, {
+		                    "id" : 130700,
+		                    "name" : "张家口市"
+		                }, {
+		                    "id" : 130800,
+		                    "name" : "承德市"
+		                }, {
+		                    "id" : 130900,
+		                    "name" : "沧州市"
+		                }, {
+		                    "id" : 131000,
+		                    "name" : "廊坊市"
+		                }, {
+		                    "id" : 131100,
+		                    "name" : "衡水市"
+		                }
+		            ]
+	            }
+	    	}
+
+	    	function showMapName(obj){
+				for(let province of maps.province){
+					console.log(province.name)
+					for(let mapsKey in maps.city) {
+						if(+mapsKey === province.id) {
+							for(let city of maps.city[mapsKey]) {
+								console.log(`\t${city.name}`)
+							}
+						}
+					}
+				}
+			}
+
+			showMapName(maps)
+		}
+
+
+		// 函数属性
+		
+
+		function fn(){}
+
+		console.log(fn.name)
+
+		{
+			let fn = function(){}
+
+			console.log(fn.name)
+		}
+
+		{
+			function fn(f = function(){}){
+				console.log(f.name)
+			}
+
+			fn()
+		}
+
+		{
+			const obj = {
+				fn:function(){
+
+				}
+			}
+
+			console.log(obj.fn.name)
+		}
+
+		{
+
+			const arr = [function(){}]
+
+			console.log(arr[0].name)
+		}
+
+
+		{
+			const fn = function fn1(){
+				console.log(fn1)
+			}
+			//console.log(fn1)
+			//
+			fn()
+		}
+		// length
+
+		{
+			function fn1(a){}
+			function fn2(a,b){}
+			function fn3(a,b,...rest){}
+
+			console.log(fn1.length)
+			console.log(fn2.length)
+			console.log(fn3.length)
+		}
+
+		// 自定义属性
+		{
+			// 记录函数的运行次数
+			
+			// let count = 0;
+			// function fn(){
+			// 	count++
+			// }
+
+			// fn()
+			// fn()
+			// fn()
+
+			//console.log(count)
+			//自定义属性
+			// function fn(){
+			// 	fn.count++
+			// 	console.log(fn.count)
+			// }
+			// fn.count = 0
+
+			// fn()
+			// fn()
+			// fn()
+			// fn()
+			// 闭包
+			// 
+			function fn(){
+				fn.count = 0
+				return function(){
+					fn.count ++
+					console.log(fn.count)
+				}
+
+			}
+	 		
+	 		const count = fn()
+	 		count()  //1
+	 		count() //2
+	 		count() //3
+	 		count() //4
+
+	 		console.log(fn.count)
+			// console.log(fn.count)
+			
+		}
+
+		{
+			// 调度函数
+			
+			// function fn(){
+			// 	console.log('hello')
+			// }
+
+			// setTimeout(fn,4000)
+
+			// function fn1(name){
+			// 	console.log(name)
+			// }
+
+			// let timeId = setTimeout(fn1,5000,"world")
+
+			// console.log(11111,timeId)
+		
+			// setTimeout("console.log('我爱追梦课堂')",6000)
+
+			// //undefined
+			
+			// function fn2(){
+			// 	return function(){
+
+			// 		console.log("123")
+			// 	}
+			// 	//return "console.log('123')"
+			// }
+			// let timeId1 = setTimeout(fn2(),7000)
+
+			// console.log(console.log(22222111,timeId1))
+			// clearTimeout(timeId1);
+			// 
+			// 
+			// setInterval
+			
+			// let timeId =setInterval(function(){
+			// 	console.log("hello")
+			// },2000)
+
+			//5秒之后停止输出
+			// setTimeout(function(){
+
+			// 	clearInterval(timeId)
+
+			// },6000)
+
+		}
+
+		{
+			function sum(n){
+
+				for(let i = 0 ;i < n;i++){
+
+					console.log(i)
+				}
+
+			}
+		
+			// setInterval(function(){
+			// 	sum(500)
+		
+			// },100)
+
+			// 递归版的 setInterval
+			// 
+			// 
+			// setTimeout(function run(){
+			// 	sum(10)
+			// 	setTimeout(run,100)
+			// },100)
+
+
+			// 异步
+			setTimeout(function(){
+				console.log('world')
+			},0)
+			//console.log('world')
+			console.log('hello')
+
+
+		}
+
+
+	</script>
+
+	
+</body>
+</html>
