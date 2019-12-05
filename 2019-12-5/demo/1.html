@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>调度</title>
+</head>
+<body>
+	<script>
+		
+	// case 1
+	{
+		function printNumbers(from,to){
+
+			const timerId = setInterval(()=>{
+
+				// if(from <= to){
+				// 	console.log(from++)
+				// }else{
+				// 	clearInterval(timerId)
+				// }
+				// 
+				if(from === to){
+					clearInterval(timerId)
+				}
+				console.log(from++)
+
+			},1000)
+
+
+
+		}
+	}
+	{
+		function printNumbers(from,to){
+			console.log(from)
+			const timerId = setInterval(()=>{
+				console.log(++from)
+
+				if(from === to){
+					clearInterval(timerId)
+				}
+
+			},1000)
+
+		}
+	}
+
+
+
+	{
+
+		function printNumbers(from,to){
+			console.log(from)
+
+
+			// const fn = function(){
+			// 	// 10
+
+			// 	if(from < to){
+
+			// 		setTimeout(fn,1000)
+			// 	}
+			// }
+
+			// setTimeout(fn,1000)
+
+
+			setTimeout(function fn(){
+
+				console.log(from++)
+				if(from < to){
+					setTimeout(fn,1000)
+				}
+
+			},1000)
+			// 
+			
+
+
+
+
+
+		}
+
+
+
+	}
+	//猜猜输出什么
+	{
+		let i = 0;
+		setTimeout(function(){
+			console.log(i)
+		},1000)
+
+		for(;i<100;i++){}
+	}
+
+	// setTimeout 中的this
+	
+	{
+
+		// function setTimeout1(fn,delay){
+
+		// 	await delay
+
+		// 	fn()
+		// }
+
+
+		const obj = {
+			name: "追梦课堂",
+			fn: function(){
+				console.log(this.name)
+
+			}
+		}
+		//setTimeout(obj.fn,1000)
+
+
+		// 修正这个this
+		setTimeout(function(){
+			obj.fn()
+		},1000)
+
+		//
+		
+		setTimeout(obj.fn.bind(obj),1000)
+
+
+
+		// bind 不能重复指定 this
+		
+		function fn(){
+
+			console.log(this.name)
+
+		}
+	
+		const fn1 = fn.bind({name:"追梦web课堂"}).bind({name:"追梦前端课堂"})
+		fn1()
+	}
+	// eg
+	// 
+	{
+		function fn(){}
+		fn.count = 1
+
+		const fn1 = fn.bind()
+
+		console.log(fn1.count)
+
+
+	}
+
+	//eg 红绿灯
+	{
+
+		// wait 
+		// stop
+		// go
+
+
+	}
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
