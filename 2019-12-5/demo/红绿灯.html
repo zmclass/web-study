@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>红绿灯</title>
+</head>
+<body>
+	<script>
+		
+		//版本一
+		// (function reset(){
+		// 	console.log("wait")
+		// 	setTimeout(()=>{
+		// 		console.log("stop")
+		// 		setTimeout(()=>{
+		// 			console.log("pass")
+		// 			setTimeout(()=>{
+		// 				reset()
+		// 			},2000)
+		// 		},2000)
+		// 	},2000)
+		// })()
+
+
+		//版本二
+		//const stateList = ["wait","stop","pass"]
+
+		// setInterval(function(){
+
+		// 	currentIndex++; //1 2
+
+		// 	console.log(stateList[currentIndex]) //1 2
+		// 	if(currentIndex === stateList.length-1){
+		// 		currentIndex = -1
+		// 	}
+
+		// },2000)
+		// 
+
+
+
+		// function reset(stateList){
+		// 	let currentIndex = 0
+		// 	console.log(stateList[currentIndex])
+		// 	setInterval(function(){
+		// 		currentIndex = (currentIndex + 1) % stateList.length
+		// 		console.log(stateList[currentIndex])
+
+		// 	},2000)
+
+		// }
+		// 
+		
+		// reset(stateList)
+
+
+		// 版本三
+		const stateList = [
+			{
+				state: "wait",
+				delay: 2000
+			},
+			{
+				state: "stop",
+				delay: 3000
+
+			},
+			{
+				state: "pass",
+				delay: 3000
+			}
+		] 
+		
+		function reset(stateList){
+			function apply(index){
+				const {state,delay} = stateList[index]
+				const nextIndex = (index+1) % stateList.length
+				setTimeout(function(){
+
+					console.log(state)
+
+					apply(nextIndex)
+				},delay)
+
+
+			}
+			apply(0)
+		}
+
+		reset(stateList)
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
