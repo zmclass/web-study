@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深入对象</title>
+</head>
+<body>
+
+	<script>
+		
+		//创建对象
+		const student = {
+			name: "张三",
+			age: 20
+		}
+
+		console.log(student)
+
+		// const student = new Object()
+	
+		// console.log(student.toString())
+		 
+		console.log(new String("123"))
+
+		// 创建一个无原型的对象
+		
+		const cat = Object.create(null);
+		cat.name = "tom";
+		cat.sayHi = function(){
+			console.log("hello world")
+		}
+		// 照猫画虎
+		const tiger = Object.create(cat);
+		tiger.name = "tom-1";
+		console.log(tiger)
+
+		// 定义属性
+		// .  []
+		
+		{
+
+			const obj = {};
+			obj.name = "张三",
+			obj["age"] = 30
+
+			// 多词 属性
+			//obj.user name = 123
+			obj["user name"] = 123
+
+
+		}
+
+		// 读取属性
+		{
+			const obj = {
+				name : "张三"
+			}
+			console.log(obj.name,obj["name"])
+		}
+
+		// 删除属性
+		{
+			const obj = {
+				name : "张三"
+			}
+			delete obj.name
+			console.log(obj)
+
+		}
+
+		// 可计算属性
+		{
+			const fruit = "apple"
+			const subName = Symbol("别名")
+			const obj = {
+				name: "张三",
+				fruit:10,
+				[fruit]:10,
+				[fruit*6]:60,
+				for : 123,
+				while:789,
+				1:123,
+				[subName]:1,
+			
+			}
+			
+			//obj[fruit] = 10;
+			obj[fruit + 5] = 10
+			console.log(obj)
+
+
+		}
+
+		// 属性简写
+		{
+
+			const name = "张三";
+			const age = 30;
+
+			// const obj = {
+			// 	name: name,
+			// 	age: age
+			// }
+
+			// cosnt obj = {name,age}
+
+
+
+			// 方法简写
+			
+			// const obj = {
+			// 	showName:function(){
+
+			// 	}
+			// }
+
+			const obj = {
+				showName(){
+
+				}
+			}
+
+
+
+		}
+		// 存在值检测 (通过访问对象的属性)
+		{
+
+			const obj = {
+				name: "张三",
+				age: 20,
+				weight: undefined
+			}
+
+			//访问不存在的属性返回undefined
+			// “” null false undefined 0
+			 
+			// if(obj.weight){
+			// 	console.log("doSomething")
+			// }else{
+			// 	console.log("属性不存在")
+			// }
+			if(obj.weight !== undefined){
+				console.log("doSomething")
+			}else{
+				console.log("属性不存在")
+			}
+
+		}
+		//存在值检测 (in操作符)
+		{
+
+			const obj = {
+				name: "张三",
+				age: 20,
+				weight: 0
+			}
+
+			console.log("name" in obj)
+			console.log("weight" in obj)
+
+			const age = "age";
+
+			console.log(age in obj)
+			// 检测原型的属性
+			console.log("toString" in obj)
+
+		}
+		//存在值检测 (hasOwnProperty)
+		{
+
+			const obj = {
+				name: "张三"
+			}
+
+			console.log(obj.hasOwnProperty("name"))
+
+			console.log(obj.hasOwnProperty("toString"))
+
+		}
+
+		// 枚举属性
+		{
+			const obj = {
+				name: "张三",
+				age: 30
+			}
+
+			for(const key in obj ){
+				console.log(key)
+			}
+
+
+			const obj1 = Object.create(obj)
+			// Symbol()会过滤
+			obj1[Symbol()] = 123
+			const id = Symbol("id");
+			obj1[id] = 123
+			obj1['weight'] = 80
+
+
+			console.log(obj1)
+
+			// for(const key in obj1 ){
+			// 	console.log(key)
+			// }
+
+			// 如何 迭代 自有的属性
+			for(const key in obj1 ){
+				if(obj1.hasOwnProperty(key)){
+					console.log(key)
+				}
+			}
+
+			// 获取 自有的属性（Object.keys()）
+
+			console.log(Object.keys(obj1))
+
+		}
+
+		// 枚举 排序
+		{
+			const obj = {
+				a: 1,
+				2: 2,
+				c: 3,
+				3.2: 4,
+				d: 5,
+				0: 1
+			}
+
+			for(const key in obj) {
+				console.log(key)
+			}
+
+			console.log(Object.keys(obj))
+
+		}
+
+
+		// 引用复制
+		
+		{
+
+			const obj = {name: "张三"};
+
+			const obj1 = obj
+
+			obj1.age = 30
+
+			console.log(obj,obj1)
+
+			// obj1 = null
+			// obj = null
+			//对象就被回收
+
+
+		}
+
+		// 比较引用
+		{
+
+			const obj = {name: "张三"}
+			const obj1 = obj
+
+			console.log(obj == obj1)
+			console.log(obj === obj1)
+
+			const obj2 = {name: "张三"}
+
+
+
+
+			console.log(obj === obj2)
+
+
+
+
+		}
+
+
+	</script>
+	
+</body>
+</html>
