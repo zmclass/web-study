@@ -268,11 +268,104 @@
 
 			const obj2 = {name: "张三"}
 
-
-
-
 			console.log(obj === obj2)
 
+		}
+
+		// 判断一个对象是空对象 
+		{
+			function isEmptyObject(obj){
+				// for(const key in obj){
+
+				// 	if(obj.hasOwnProperty(key)){
+
+				// 		return false
+
+				// 	}
+
+				// }
+				// return true
+				
+				const keyList = Object.keys(obj);
+				const keyListLength = keyList.length;
+
+				if(keyListLength){
+					return false
+				}
+
+				return true
+				
+			}
+			console.log(isEmptyObject({name: "张三"}))
+			console.log(isEmptyObject({}))
+
+			
+
+		}
+		// const 常量
+		// 
+		// 
+		{
+
+			const name = "张三";
+
+			const obj = {
+				name: "张三"
+			}
+
+			obj.name = "李四"
+
+			//obj = {name:"李四"}
+
+			console.log(obj.name)
+
+
+		}
+
+		// 复制 和。合并 Object.assign()
+		// 
+		{
+			const user = {
+				name: "张三",
+				age: 30,
+				sizes: {
+					height: 180,
+					weight:60
+				}
+			}
+			// 浅拷贝
+			//const user1 = user;
+
+			
+			// const user1 = {};
+
+			// for(const key in user){
+
+			// 	user1[key] = user[key]
+
+			// }
+
+
+			const user1 = Object.assign({},user,{name:"李四"})
+
+			user1.sizes.height = 200
+
+			console.log(user,user1)
+
+
+
+			// eg 深度拷贝
+			// 
+			// const arr = [1,2,[[[1,2,3],2,3],2,3],{name:"张三",sizes:{}]
+			// const obj = {
+			// 	name: "张三",
+			// 	books:[1,2,3],
+			// 	sizes:{
+			// 		height: 100;
+			// 		weight:80
+			// 	}
+			// 
+			// }
 
 
 
