@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+		
+		const arr = [];
+		// const fn = function(i){
+		// 	return function(){
+		// 		console.log(i)
+		// 	}
+		// }
+
+		for(let i = 0; i < 5; i++){
+			arr.push(function(){
+				console.log(i)
+			})
+		}
+
+		arr.forEach((item,i) => item())
+
+
+		// 函数生成一个整数 初始化 100
+		// 每一次执行 + 1
+		
+		function createInt(){
+			let int = 100;
+			return function(){
+				return int++
+				//return int++
+			}
+		}
+
+		const fn = createInt();
+		fn();
+		fn();
+		fn();
+
+
+		// console.log(createInt()())
+		// console.log(createInt()())
+		// console.log(createInt()())
+
+		// 求和公式
+		//sum(0)(1)(2)(3)(4)(5)
+
+		function sum(a){
+			let currentValue = a
+			function f(b){
+				currentValue+=b
+				return f
+			}
+			// f.valueOf = function(){
+
+			// 	return currentValue
+
+			// }
+			f[Symbol.toPrimitive] = function(hint){
+
+				if(hint == "number"){
+					return currentValue
+				}
+
+			}
+			return f
+		}
+
+
+		console.log(+sum(0)(1)(2))
+
+		// 对象类型值 转换
+		
+		//toPrimitive
+		//
+		const obj = {};
+		const obj1 = {
+			age: 30,
+			toString(){
+				return "lisi"
+			},
+			valueOf(){
+				return 2
+			}
+		};
+
+		
+
+		// obj1[Symbol.toPrimitive] = function(hint){
+
+			
+		// 	if(hint == "string"){
+
+		// 		return "zhangsan"
+
+		// 	}
+
+		// 	if(hint == "number"){
+
+		// 		return this.age
+
+		// 	}
+
+		// 	return "hello world"
+
+
+		// }
+
+		// 期待值为 string
+		// 
+		obj[obj1] = 2
+		// 期待值为 number
+		// 
+		console.log(Number(obj1),+obj1)
+		// 期待值不明确 default
+	
+		console.log(obj1 + 1)
+		console.log(obj1 == 1)
+
+
+		// toString/ valueOf
+		
+		console.log(obj)
+		console.log(+obj1)
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
