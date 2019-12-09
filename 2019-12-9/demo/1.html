@@ -275,7 +275,7 @@
 			//
 			// 实现一个接口，让外部可以访问并且设置，函数内部的私有变量
 			function fn(){
-				let name = 123;
+				let _name = 123;
 				return function(...args){
 					if(args.length === 0){
 						return name
@@ -283,14 +283,42 @@
 					name = args[0]
 				}
 			}
-
-
 			const fn1 = fn();
 			// 获取name值
 			console.log(fn1())
 			// 设置name值
 			fn1("李四")
 			fn1("王五")
+
+
+			function fn_1(){
+
+				let _name = 123;
+				function setName(value){
+					_name = value
+				}
+				functoin getName(){
+					return _name
+				}
+
+				return {
+					setName,
+					getName
+				}
+
+			}
+
+			const fn_2 = fn_1()
+
+			fn_2.getName()
+			fn_2.setName("李四")
+
+
+
+
+
+
+
 			
 			// 访问器属性实现
 			function fn2(){
@@ -418,7 +446,7 @@
 
 		console.log(Object.isExtensible(user10))
 
-	 
+
 		
 
 
