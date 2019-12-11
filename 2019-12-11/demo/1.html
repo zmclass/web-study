@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>偏函数和柯里化函数</title>
+</head>
+<body>
+	<script>
+		
+		// 偏函数
+		
+		function mul(a,b){
+			return a * b
+		}
+
+		mul(3,2)
+		mul(3,3)
+		mul(3,4)
+		mul(3,5)
+
+
+		function sum(a,b,c){
+
+			return a + b + c
+		}
+
+
+
+
+		// bind
+		
+		const triple = mul.bind(null,3)
+
+		triple(2)  //6
+		triple(3)  //9
+		triple(4)  //12
+
+
+		function partial(fn,...params){
+			console.log(params)
+			return function(...args){
+				console.log(args)
+				//fn.call(this,...params,...args)
+				return fn.apply(this,[...params,...args])
+			}
+		}
+
+		const dobule = partial(mul,2)
+
+		console.log(dobule(3))
+		console.log(dobule(4))
+
+
+		const sum1 = partial(sum,1,3)
+
+		sum(1,3,1)
+		sum(1,3,2)
+		sum(1,3,3)
+		sum(1,3,4)
+
+		console.log(sum1(1)) // 5
+		console.log(sum1(2))  // 6
+		console.log(sum1(3))  // 7
+		console.log(sum1(4))  //8
+
+
+
+		//柯里化
+		
+		{
+			
+			function sum(a,b){
+				return a + b
+			}
+			sum(1,2)
+			
+			const sum1 = curry(sum);
+
+			console.,log(sum1(1))
+			console.log(sum1(1)(2))
+
+
+			// function curry(fn){
+			// 	return function(a){
+			// 		return function(b){
+			// 			return fn(a,b)
+			// 		}
+			// 	}
+			// }
+			function curry(fn){
+				return function curried(...arg){
+					if(fn.length === arg.length){
+						return fn.apply(this,arg)
+					}
+					return function(...arg2){
+						return curried.apply(this,[...arg,...arg2])
+					}
+				}
+			}
+	
+		}
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
