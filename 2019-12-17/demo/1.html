@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象</title>
+</head>
+<body>
+
+	<script>
+		
+		// 版本一 创建汽车1
+		{
+			const car1 = {
+				color: "white",
+				mileage: 0,
+				move(){
+					this.mileage++
+				}
+			}
+			// 创建汽车2
+			const car2 = {
+				color: "black",
+				mileage: 0,
+				move(){
+					this.mileage++
+				}
+			}
+		}
+
+		// 工厂函数
+		// 
+		
+
+		// 版本二
+		// 
+		// function createCar(obj,color){
+		// 	obj.color = color;
+		// 	obj.mileage = 0;
+		// 	obj.move = function(){
+		// 		obj.mileage++
+		// 	}
+		// 	return obj
+		// }
+		// // 移动 
+		// function move(obj){
+		// 	obj.mileage++
+		// }
+		// // 启动
+		// function on(){
+		// 	console.log("启动汽车")
+		// }
+		// // 关闭
+		// function off(){
+		// 	console.log("关闭启动")
+		// }
+
+		let methods = {
+			//移动
+			move(){
+				this.mileage++
+			},
+			//启动
+			on(){
+				console.log('启动汽车')
+			},
+			//关闭
+			off(){
+				console.log('关闭启动')
+			},
+		}
+		//版本三(需要维护2处地方)
+		// function createCar(obj,color){
+		// 	obj.color = color;
+		// 	obj.mileage = 0;
+		// 	obj.move = methods.move;
+		// 	obj.on = methods.on;
+		// 	obj.off = methods.off;
+		// 	return obj
+		// }
+		// 
+		// 
+		
+		//版本四
+		// function extend(target,source){
+
+		// 	for(let key in source){
+		// 		target[key] = source[key]
+		// 	}
+		// 	return target
+		// 	//return Object.assign(target,source)
+
+		// }
+		
+		
+		// function createCar(obj,color){
+		// 	extend(obj,methods)
+		// 	obj.color = color;
+		// 	obj.mileage = 0;
+		
+		// 	return obj
+		// }
+
+		// 版本五
+		
+		function createCar(color){
+			
+			let obj = Object.create(methods)
+			obj.color = color;
+			obj.mileage = 0;
+	
+			return obj
+		}
+
+
+
+
+		const car1 = createCar("white")
+		car1.on()
+		car1.move()
+		car1.move()
+		car1.move()
+		car1.off()
+
+		const car2 = createCar("black")
+
+		const car3 = createCar("orange")
+
+
+
+		const arr = new Array()
+		const arr1 = new Array()
+
+
+
+
+
+		// 原型
+		
+		const obj = {
+			toString(){
+				console.log('toString')
+			}
+		};
+
+		//const obj = new Object()
+
+		console.log(Object.prototype)
+
+
+		//const arr = []
+
+		// const arr = new Array()
+
+
+		// arr.push(1)
+
+		console.log(Array.prototype)
+
+
+		//const str = "zmkt"
+		const str = new String("zmkt")
+		console.log(String.prototype)
+
+
+		const user = {
+			name: "张三",
+			age: 30
+		}
+
+		const user1 = Object.create(user)
+		user.name = "李四"
+		console.log(user1)
+		console.log(user1.name)
+
+
+		// 设置原型
+		const animal = {
+			eats: true
+		}
+		const str1 = "123"
+		const rabbit = {
+			jump: true,
+			//错误的__proto__:str1
+			//__proto__:animal
+		}
+
+		// setPrototypeOf()
+		//Object.setPrototypeOf(rabbit,animal)
+		//console.log(rabbit)
+		//console.log(rabbit.eats)
+		//
+		//返回的具有原型的空对象
+		const rabbit1 =  Object.create(animal,{
+			jump:{
+				value: true,
+				enumberalbe: true,
+				writable: true,
+				configurable: true
+			}
+		})
+
+		console.log(rabbit1)
+		
+
+		// 获取原型
+		
+		console.log(rabbit1.__proto__)
+		console.log([].__proto__)
+
+		console.log({}.__proto__)
+
+
+		console.log(Object.getPrototypeOf(rabbit1))
+		
+		// 检测是否为某个对象的原型
+		{
+			const obj1 = {
+				x: 1
+			}
+			const obj = {}
+
+			Object.setPrototypeOf(obj,obj1)
+
+			console.log(obj.x)
+
+			if(obj1.isPrototypeOf(obj)){
+				console.log(true)
+			}else{
+				console.log(false)
+			}
+
+			console.log(Object.prototype.isPrototypeOf({}))
+
+			console.log(Object.getPrototypeOf(Object.prototype))
+
+			// 创建一个没有原型的对象
+			
+			console.log(Object.create(null))
+		}
+		
+		{
+			// 获取不可枚举的属性
+			const test = Symbol("自定义")
+			const obj = {
+				x: 1,
+				y: 2,
+				[test]:8
+			}
+
+			Object.defineProperties(obj,{
+
+				z: {
+
+					value: 3,
+					enumberable: false,
+					writable: true,
+					configurable: true
+				},
+
+				l: {
+					value: 4,
+					emuberable: false,
+					writalbe: true,
+					configuralbe: true
+				}
+
+			})
+
+			console.log(obj)
+			// 获取所有可枚举
+			console.log(Object.keys(obj))
+			// 获取所有可枚举 和 不可枚举的属性
+			console.log(Object.getOwnPropertyNames(obj))
+			//获取所有Symbol属性
+			console.log(Object.getOwnPropertySymbols(obj))
+
+
+			// 函数的原型
+			
+			{
+
+
+				function fn(){}
+				console.log(fn.prototype)
+
+
+				const arr = new Array()
+				arr.push(1)
+				console.log(Array.prototype)
+			}
+
+
+
+		}
+
+
+		{
+			//eg
+			//
+			const obj = Object.create(null,{
+				toString:{
+					value:function(){
+
+					},
+					enumberalbe: false,
+					writable: true,
+					configurable: true
+
+				}
+			})
+			obj.x = 1;
+			obj.y = 2
+		}
+
+
+		{
+			// 构造函数 (伪类)
+			// 
+			function Car(color){
+				this.color = color;
+				this.mileage = 0
+				// this.move = function(){
+				// 	this.mileage++
+				// }
+			}
+			// 内部操作
+			// function Car(color){
+
+			// 	const obj = {};
+			// 	obj.color = color;
+			// 	this.mileage = 0;
+
+			// 	return obj
+
+			// }
+
+			Car.prototype.move = function(){
+				this.mileage++
+			}
+
+			const car1 = new Car("white");
+			const car2 = new Car("black");
+
+			console.log(car1,car2);
+			console.log(car1 instanceof Car);
+			console.log(car2 instanceof Car);
+			console.log(car2 instanceof Object)
+
+			// 内部属性
+			// [[call]] [[construct]]
+
+			car1.move()
+			console.log(car1)
+
+		}
+
+
+		{
+			// 汽车类
+			function Car(color){
+				this.color = color;
+				this.mileage = 0;
+				// 属性共享问题
+				this.test = []
+			}
+			Car.prototype.move = function(){
+				this.mileage++
+			}
+			Car.prototype.on = function(){
+				console.log("汽车启动")
+			}
+
+			//警车类
+			// function PoliceCar(){
+			// 	this.isCall = false
+			// }
+
+			// PoliceCar.prototype.call = function(){
+			// 	this.isCall = true;
+			// 	console.log('滴答滴答')
+			// }
+
+			// const policeCar1 = new PoliceCar()
+
+
+			// 继承
+			// 原型继承
+			function PoliceCar(){
+				this.isCall = false
+			}
+
+			PoliceCar.prototype =  new Car("white")
+
+			const policeCar1 = new PoliceCar()
+
+			console.log(PoliceCar.prototype)
+
+			policeCar1.move()
+
+
+			console.log(policeCar1.constructor)
+			const policeCar2 = new PoliceCar()
+
+			// 属性共享问题
+			policeCar1.test.push(1)
+
+			console.log(policeCar2.test)
+
+
+
+			console.log(Object)
+			console.log(Object.prototype)
+
+
+
+		}
+
+
+		{
+			
+
+			// 汽车类
+			function Car(color){
+				this.color = color;
+				this.mileage = 0;
+				// 属性共享问题
+				this.test = [];
+			}
+			Car.prototype.move = function(){
+				this.mileage++
+			}
+			Car.prototype.on = function(){
+				console.log("汽车启动")
+			}
+
+			// 借用构造函数 继承
+			function PoliceCar(color){
+
+				Car.call(this,color)
+
+				this.isCall = false
+			}
+
+
+			const policeCar1 = new PoliceCar("white");
+
+			const policeCar2 = new PoliceCar("black");
+
+
+			console.log(policeCar1.color)
+			console.log(policeCar2.color)
+
+
+			console.log(policeCar1.test.push(1))
+
+			console.log(policeCar1.test)
+			console.log(policeCar2.test)
+
+			console.log(policeCar1.move)
+		}
+
+
+		{
+
+			// 组合继承
+			
+			// 汽车类
+			function Car(color){
+				this.color = color;
+				this.mileage = 0;
+				this.test = [];
+			}
+			Car.prototype.move = function(){
+				this.mileage++
+			}
+			Car.prototype.on = function(){
+				console.log("汽车启动")
+			}
+
+			// 借用构造函数 继承
+			function PoliceCar(color){
+
+				Car.call(this,color)
+
+				this.isCall = false
+			}
+
+			console.log(PoliceCar.prototype) //{constrouctor: PoliceCar}
+			// 原型继承
+			PoliceCar.prototype = new Car();
+			// 修正 constructor的指向问题
+			PoliceCar.prototype.constrouctor = PoliceCar
+
+
+			// Object.assign({},new Car(),{constrouctor:PoliceCar})
+			// 
+			// 
+
+
+			const policeCar1 = new PoliceCar("white");
+			const policeCar2 = new PoliceCar("black");
+
+
+			console.log(policeCar1)
+			console.log(PoliceCar.prototype)
+
+			console.log(policeCar1.color)
+			console.log(policeCar2.color)
+
+		}
+
+		{
+			//最佳实践
+			// 汽车类
+			function Car(color){
+				this.color = color;
+				this.mileage = 0;
+				// 属性共享问题
+				this.test = [];
+			}
+			Car.prototype.move = function(){
+				this.mileage++
+			}
+			Car.prototype.on = function(){
+				console.log("汽车启动")
+			}
+
+			// 借用构造函数 继承
+			function PoliceCar(color){
+
+				Car.call(this,color)
+
+				this.isCall = false
+			}
+
+
+			// PoloiceCar.prototype = Car.prototype
+			// // 修正 constructor的指向问题
+			// PoliceCar.prototype.constrouctor = PoliceCar
+
+			inheritPrototype(PoliceCar,Car)
+
+
+			//继承原型
+			function inheritPrototype(subType,superType)	{
+				// const prototype = Object.create(superType.prototype)
+				// prototype.constrouctor = subType
+				// subType.prototype = prototype
+				// 
+				
+				const Fn = function(){}
+				Fn.prototype = superType.prototype
+				Fn.prototype.constrouctor = subType
+				subType.prototype = new Fn()
+
+			}
+
+
+
+
+		}
+
+	</script>
+	
+</body>
+</html>
