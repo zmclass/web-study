@@ -316,6 +316,559 @@
 
 
 
+		{
+			// 静态方法 和 静态属性
+			function User(name,age){
+				this.name = name
+				this.age = age
+			}
+
+			// 静态方法
+			User.isUser = function(){
+				console.log("isUser")
+			}
+
+			User.prototype.sayHi = function(){
+				console.log("hi")
+			}
+
+			const user = new User("张三",30)
+
+
+			// const arr = [];
+			// arr.push()
+			// arr.pop()
+			// Array.isArray(arr)
+
+			// Object.defineProperty()
+			// Object.keys()
+
+
+
+
+			class User1 {
+
+				constructor(name,age){
+
+					this.name = name;
+					this.age = age;
+				}
+				sayHi(){
+					console.log("hi")
+				}
+				// 静态方法
+				static isUser(){
+					console.log("isUser")
+				}
+			}
+
+
+			User1.isUser()
+
+
+			// eg
+			// 
+			
+			// class Article{
+			// 	from = "zmkt"
+			// 	constructor(title){
+			// 		this.title = title;
+			// 		this.date = new Date()
+			// 	}
+			// }
+			// const article1 = new Article("深入理解闭包");
+			// const article2 = new Article("深入理解面向对象")
+			// console.log(article1,article2)
+
+			class Article{
+				from = "zmkt"
+				constructor(title){
+					this.title = title;
+					this.date = new Date()
+				}
+
+				static createArticle(title){
+					return new Article(title)
+				}
+			}
+			const article1 = Article.createArticle("深入理解闭包")
+			const article2 = Article.createArticle("深入理解面向对象")
+			console.log(article1,article2)
+
+		}
+
+		{
+
+			// 静态方法 和属性 是可以被继承的
+			
+			// function Car(color){
+			// 	this.color = color;
+			// }
+			// Car.staticMethod = function(){
+
+			// 	console.log("这是一个静态方法")
+			// }
+			// Car.prototype.on = function(){
+			// 	conosle.log("启动汽车")
+			// }
+
+
+			// function Taxi(color){
+			// 	Car.call(this,color)
+			// 	this.meter = 0;
+			// }
+
+			// Taxi.prototype = Car.prototype;
+
+			// Taxi.prototype.constructor = Taxi;
+
+
+			// const taxi = new Taxi("white")
+			// this.meter = 6;
+
+			// Taxi.staticMethod()
+
+
+			class Car{
+
+				constructor(color){
+					this.color = color
+				}
+				on(){
+					console.log("启动汽车")
+				}
+				static staticMethod(){
+					console.log("这是一个静态方法")
+				}
+			}
+
+			class Taxi extends Car{
+				meter = 0
+				constructor(color,ad){
+					super(color)
+					this.ad = ad
+				}
+
+			}
+
+			console.log(Taxi.staticMethod())
+
+		}
+
+		{
+			//封装
+			
+			const user = {
+				name: "张三",
+				_age: 30,
+				get age(){
+					return this._age
+				}
+			}
+			user.age = 100;
+			console.log(user.age)
+
+
+			const user1 = (function(){
+
+				const _age = 30;
+
+				return {
+					get age(){
+						return _age
+					}
+				}
+
+			})()
+
+			console.log(user1.age)
+
+			// 创建咖啡类
+			
+			class CoffeeMachine {
+				//受保护的私有属性
+				_waterAmount = 0;
+
+				constructor(power){
+					this._power = power
+				}
+
+				get power(){
+					return this._power
+				}
+
+				getWaterAmount(){
+					return this._waterAmount
+
+				}
+
+				setWaterAmount(value){
+					if(value > 500) {
+						console.log("水位太高")
+						return
+					}
+					if(value < 10){
+						console.log("水位太低")
+						return
+					}
+
+					this._waterAmount = value
+
+				}
+				// set waterAmount(value){
+
+				// 	if(value > 500) {
+				// 		console.log("水位太高")
+				// 		return
+				// 	}
+				// 	if(value < 10){
+				// 		console.log("水位太低")
+				// 		return
+				// 	}
+
+				// 	this._waterAmount = value
+
+				// }
+
+				// get waterAmount(){
+
+				// 	return this._waterAmount
+				// }
+
+
+			}
+
+			const coffee = new CoffeeMachine(100);
+
+			//coffee.waterAmount = 10
+
+			//console.log(coffee.waterAmount)
+
+			coffee.setWaterAmount(10)
+
+			console.log(coffee.getWaterAmount())
+
+			coffee.power = 200;
+
+			console.log(coffee.power)
+
+
+
+		}
+
+
+		{
+			// 私有属性
+			class CoffeeMachine {
+				//受保护的私有属性
+				#waterAmount = 0;
+
+				// constructor(power){
+				// 	this.#power = power
+				// }
+
+				// get power(){
+				// 	return this.#power
+				// }
+
+				getWaterAmount(){
+					return this.#waterAmount
+				}
+
+				setWaterAmount(value){
+					if(value > 500) {
+						console.log("水位太高")
+						return
+					}
+					if(value < 10){
+						console.log("水位太低")
+						return
+					}
+					this.#waterAmount = value
+				}
+				// set waterAmount(value){
+
+				// 	if(value > 500) {
+				// 		console.log("水位太高")
+				// 		return
+				// 	}
+				// 	if(value < 10){
+				// 		console.log("水位太低")
+				// 		return
+				// 	}
+
+				// 	this._waterAmount = value
+
+				// }
+
+				// get waterAmount(){
+
+				// 	return this._waterAmount
+				// }
+
+
+			}
+
+
+			const coffee = new CoffeeMachine(100);
+
+			console.log(coffee.getWaterAmount())
+
+
+			// 私有属性和方法 是不能继承的
+			class Test extends CoffeeMachine{
+
+
+				test(){
+					//console.log(this.#waterAmount)
+				}
+
+			}
+
+
+			// console.log(new Test(100).test())
+
+
+		}
+
+		{
+			// 继承内置类
+			
+			// Array,Object,String,Boolean,Function,Set,Map
+			
+			// 构造函数实现内置类继承，有问题
+			// 
+			// function MyArray(...rest){
+			// 	Array.apply(this,rest)
+			// }
+
+			// MyArray.prototype = Array.prototype;
+			// MyArray.constructor = MyArray
+
+			// MyArray.prototype.isEmpty = function(){
+			// 	return this.length === 0
+			// }
+			// const arr = new MyArray(1,2)
+			// arr.push(1,2,3)
+			// arr.length = 0
+			// console.log(arr.length)
+			// console.log(arr)
+			// 
+			
+
+			class MyArray extends Array{
+
+
+				isEmpty(){
+					return this.length === 0
+				}
+				// 静态getter方法，自定义返回值的类型
+				static get [Symbol.species](){
+					return Array
+				}
+
+			}
+
+
+			const arr = new MyArray(1,2,4)
+
+			//arr.length = 0;
+
+			const arr1 = arr.filter(function(item,index){
+				return item > 2
+			})
+
+			console.log(arr1 instanceof MyArray)
+
+			console.log(arr,arr1)
+
+			//console.log(arr1.isEmpty())
+
+			console.log(MyArray.isArray(arr1))
+
+			console.log(arr1.constructor)
+
+
+
+
+
+			// 注意： 构造函数声明的类 也是可以继承的
+
+
+
+
+		}
+
+		{
+			// instanceof
+
+			class Car {
+
+				static [Symbol.hasInstance](obj){
+					// 自定义检测规则
+					// 
+					console.log(obj)
+					
+					return obj.__proto__ === Car.prototype
+					
+				}
+
+
+			}
+			const car = new Car;
+
+			car.move = function(){}
+
+			console.log(car instanceof Car)
+			console.log(car instanceof Object)
+
+
+
+			const arr = [];
+
+			console.log(arr instanceof Array)
+
+
+			console.log(arr instanceof Object)
+
+
+			//console.log(arr.__proto__.__proto__ === Object.prototype)
+
+
+			//自定义 设置instanceof 的检测规则
+			//静态方法 hasInstance
+			//
+			//
+			//
+			//
+
+		}
+
+		{
+
+
+			class User{
+				// 自定义 toString()输出
+				[Symbol.toStringTag] = "User"
+
+			}
+
+
+
+
+
+
+			//类型判定
+			
+			console.log(typeof 1)
+			console.log(typeof "hello")
+			console.log(typeof true)
+			console.log(typeof null) // object
+			console.log(typeof undefined)
+			console.log(typeof []) // object
+			console.log(typeof function fn(){})
+			console.log(typeof {}) // object
+
+
+			// 对象转换成 字符串
+			console.log({}.toString())  // [object Object]
+			console.log({}.toString.call([]))
+			console.log({}.toString.call(null))
+			console.log({}.toString.call(1))
+			console.log({}.toString.call("hello"))
+			console.log({}.toString.call(undefined))
+			console.log({}.toString.call(function fn(){}))
+
+
+			console.log(Object.prototype)
+			console.log(Object.prototype.toString.call({}))
+			console.log(Object.prototype.toString.call([]))
+			console.log(Object.prototype.toString.call(null))
+			console.log(Object.prototype.toString.call(1))
+			console.log(Object.prototype.toString.call("hello"))
+			console.log(Object.prototype.toString.call(true))
+			console.log(Object.prototype.toString.call(undefined))
+			console.log(Object.prototype.toString.call(function fn(){}))
+			console.log(Object.prototype.toString.call(new User()))
+		}
+
+
+		{
+
+			//eg
+			//
+			function A(){}
+			function B(){}
+
+			A.prototype = B.prototype = {}
+
+			console.log(A.prototype,B.prototype)
+
+			let a = new A;
+
+			console.log(a instanceof B)
+
+			a.__proto__ === B.prototype
+			a.__proto__.__proto__ === B.prototype
+			a.__proto__.__proto__.__proto__ === B.prototype
+		}
+
+
+		{
+			// 安全调用类
+			
+			// function User(name){
+			// 	if(this instanceof User){
+			// 		this.name = name
+			// 	}else{
+
+			// 		return new User(name)
+			// 	}
+				
+			// }
+			function User(name){
+				if(new.target === User){
+					this.name = name
+				}else{
+
+					return new User(name)
+				}
+				
+			}
+			const user = User("张三")
+			const user1 = new User("李四")
+
+
+
+			class Car{
+				constructor(color){
+
+					if(new.target === Car){
+
+						console.log("必须new 子类")
+
+						return false
+
+					}
+					this.color = color
+				}
+			}
+
+			class Taxi extends Car {
+				isMeter = false
+			}
+
+
+			console.log(new Car("white"))
+
+			// new Car
+
+		}
+
+
+
+
+
 	</script>
 	
 </body>
