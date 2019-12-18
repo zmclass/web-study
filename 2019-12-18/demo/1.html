@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class 基本语法</title>
+</head>
+<body>
+
+	<script>
+		
+		// 汽车类
+		// 
+		{
+			// 构造函数创建类
+			function Car(color){
+				this.color = color;
+				this.mileage = 0;
+			}
+
+			// Car.prototype = {
+			// 	constructor: Car,
+			// 	move(){
+			// 		this.mileage++
+			// 	}
+			// }
+			Car.prototype.move = function(){
+				this.mileage++
+			}
+
+			const car = new Car("white");
+			console.log(car)
+			console.log(Object.keys(Car.prototype))
+		}
+
+		{
+			// Class语法(类声明)
+			class Car {
+				constructor(color){
+					this.color = color
+					this.mileage = 0
+				}
+				move(){
+					this.mileage++
+				}
+			}
+			const car = new Car("white");
+			console.log(car)
+
+
+			// 方法无法枚举
+			console.log(Object.keys(Car.prototype))
+
+			console.log(Object.getOwnPropertyNames(Car.prototype))
+
+
+			// 类其实也是函数
+			
+			console.log(typeof Car)
+
+			// 必须 new 来调用
+			
+			//Car("white")
+			
+		}
+
+		{
+			// 类表达式
+			const Car = class {
+				constructor(color){
+					this.color = color
+					this.mileage = 0
+				}
+				move(){
+					this.mileage++
+				}
+			}
+
+			const car = new Car("white");
+
+		}
+		{
+			// 类 也是一等公民，
+			// 可以使用多种方式调用类
+			
+			function CreateCar(className){
+
+				return new className()
+			}
+
+
+			const car = CreateCar(class {
+
+				move(){
+
+				}
+
+			})
+
+			console.log(car)
+
+
+
+			// 立即调用类
+			
+			!function(){}()
+
+
+			const user = new class {
+
+				constructor(name,age){
+					this.name = name;
+					this.age = age
+				}
+
+				sayHi(){
+					console.log("hello")
+				}
+
+
+			}("张三",30)
+
+			console.log(user)
+
+
+			// 动态返回类
+			
+			function makeClass(){
+
+				return class {
+
+					move(){
+
+					}
+
+				}
+
+			}
+
+			const Car = makeClass()
+
+			new Car()
+
+
+
+		}
+
+		{
+			// 类 也可以像 字面量一样，包含 访问器属性、计算属性
+			
+			class User {
+
+				constructor(name){
+					this.name = name
+				}
+
+				// get name(){
+
+				// 	return this._name
+
+				// }
+				// set name(value){
+
+				// 	if(value.length < 4){
+
+				// 		console.log("名字太短")
+
+				// 		return
+
+				// 	}
+				// 	this._name = value
+
+				// }
+
+			}
+
+		
+			Object.defineProperty(User.prototype,"name",{
+
+				get (){
+
+					return this._name
+
+				},
+				set (value){
+
+					if(value.length < 4){
+
+						console.log("名字太短")
+
+						return
+
+					}
+					this._name = value
+
+				},				
+
+				enumberable: false,
+				configurable: false
+
+
+
+			})
+
+			const user = new User("kitty");
+
+			console.log(user.name)
+
+			console.log(User.prototype)
+
+
+
+			// 计算属性
+			
+			function fn(){
+				return "sayHello"
+			}
+			
+			class User1 {
+				[fn()](){
+					console.log("hello")
+				}
+			}
+
+			new User1().sayHello()
+
+
+
+		}
+
+		{
+			//class属性
+			//
+			class User {
+				age = 18
+				constructor(name){
+					this.name = name
+				}
+			}
+
+
+			const user = new User("张三")
+			const user1 = new User("李四")
+
+
+			console.log(user)
+
+
+		}
+
+
+
+		{
+			//继承
+			
+			class Car{
+				// 公里数
+				mileage = 0
+				constructor(color){
+					this.color = color
+				}
+
+				move(){
+					this.mileage++
+				}
+			}
+
+			class Taxi extends Car{
+				//计价表
+				meter = 0
+				// 重写属性
+				constructor(ad,color){
+					super(color)
+					this.ad = ad
+				}
+
+				setMeter(value){
+					this.meter = value
+				}
+				// 重写方法
+
+				move(){
+					super.move()
+					console.log(this.mileage)
+				}
+
+			}
+
+
+			const taxi = new Taxi("zmkt","white")
+
+			taxi.move()
+
+			// 对象字面量上的 super，指向对象的原型
+			
+			const obj1 = {
+				method1(){
+					console.log("method1")
+				}
+			}
+
+			const obj2 = {
+				method2(){
+					super.method1()
+				}
+			}
+
+			Object.setPrototypeOf(obj2,obj1)
+
+
+			obj2.method2()
+			
+
+
+
+		}
+
+
+
+	</script>
+	
+</body>
+</html>
