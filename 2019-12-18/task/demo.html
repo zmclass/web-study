@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易购物车</title>
+</head>
+<body>
+	<script>
+		// 购物车类
+		class ShoppingCart	{
+			//商品数量
+			_itemCount = 0;
+			//商品总价格
+			_totalPrice = 0;
+			//商品列表
+			_itemList = [];
+			// 获取商品数量
+			get itemCount(){
+				return this._itemCount
+			}
+			// 获取商品总价格
+			get totalPrice(){
+				return this._totalPrice
+			}
+			// 加入购物车
+			addItem(value){
+				this._itemList.push(value);
+				this._itemCount++;
+				this._totalPrice += value.price
+			}
+
+			//清空购物车
+			static clearShoppingcart(obj){
+				obj._item = [];
+				obj._itemCount = 0;
+				obj._totalPrice = 0
+			}
+			
+		}
+
+
+		const shoppingCart = new ShoppingCart();
+		// 添加商品
+		shoppingCart.addItem({
+			name: "苹果笔记本",
+			price: 16800,
+		})
+
+		//显示购物车数量
+		console.log(shoppingCart.itemCount)
+		//显示商品总价格
+		console.log(shoppingCart.totalPrice)
+
+		// 清空购物车
+		ShoppingCart.clearShoppingcart(shoppingCart)
+
+		//显示购物车数量
+		console.log(shoppingCart.itemCount)
+		//显示商品总价格
+		console.log(shoppingCart.totalPrice)
+
+
+		
+
+
+
+	</script>
+</body>
+</html>

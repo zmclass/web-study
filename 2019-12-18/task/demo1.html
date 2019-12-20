@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易虚拟账户</title>
+</head>
+<body>
+
+	<script>
+		// 虚拟账户类
+		class VirtualAccount(){
+			//账户Id
+			_accoutId = 10000;
+			//账户创建时间
+			_createTime = +new Date();
+			//账户余额
+			_balance = 0;
+			// 账户余额变更时间
+			_changeTime = this._createTime
+			// 获取账户Id
+			get accoutId(){
+				return this._accoutId
+			}
+			// 获取创建时间
+			get createTime(){
+				return this._createTime
+			}
+
+			// 充值
+			recharge(value){
+				this._balance += value;
+				_changeTime = +new Date();
+			}
+			// 消费
+			cost(value){
+				this._balance -= value;
+				_changeTime = +new Date();
+			}
+		}
+
+		
+
+
+
+
+	</script>
+	
+</body>
+</html>

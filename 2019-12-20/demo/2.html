@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子节点</title>
+</head>
+<body>
+	<div>zmkt</div>
+	<ul>
+		<li>javascript</li>
+		<li>html</li>
+		<li>css</li>
+	</ul>
+	<div>临汾最好的前端课堂</div>
+	<script>
+		
+		// 获取body下的字节点
+		
+		const body = document.body ;
+
+		const nodeList = body.childNodes
+
+		// 获取第一个子节点
+		
+		console.log(body.firstChild)
+
+		// 获取最后一个节点
+		
+		console.log(body.lastChild)
+
+		//const aNodeList = [...nodeList];
+		const aNodeList = Array.from(nodeList)
+		console.log(Array.isArray(aNodeList))
+
+	</script>
+	
+	<div>123</div>
+
+
+	<script>
+		console.log(nodeList)
+
+		for(let key in nodeList){
+			console.log(key)
+		}
+
+		for(let key of nodeList){
+			console.log(key)
+		}
+	</script>
+
+</body>
+</html>
