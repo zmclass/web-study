@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点类型 、名称 、内容</title>
+</head>
+<body><!--注释-->
+	<div>zmkt</div>
+	<div class="content">追梦课堂</div>
+	<div id="elem">hello<b>world</b></div>
+	<div class="hello">world</div>
+	<div class="web">追梦前端课堂</div>
+	<div id = "news">
+		<h1>追梦课堂</h1>
+		<p>临汾最好的前端课堂</p>
+	</div>
+
+	<div id="none">前端课堂</div>
+	<input type="text" id="elem1" value="123">
+	<script>
+		// 节点类型
+		const div = document.querySelector("div");
+		console.log(div.nodeType)
+		console.log(document.body.firstChild.nodeType)
+		console.log(div.firstChild.nodeType)
+		console.log(document.nodeType)
+
+		// 节点标签名
+		
+		console.log(div.nodeName,div.tagName)
+
+		console.log(document.body.firstChild.nodeName)
+		console.log(div.firstChild.nodeName)
+
+
+		// 节点 内容
+		
+		console.log(div.innerHTML)
+		//替换内容
+		div.innerHTML = "<span style='color:red'>web</span>"
+
+		console.log(div.innerHTML)
+
+
+		// outerHTML
+		console.log(elem.innerHTML)
+		console.log(elem.outerHTML)
+
+
+		const hello = document.querySelector(".hello")
+
+		hello.outerHTML = "<p>追梦课堂</p>"
+		console.log(hello)
+
+
+
+		//nodeValue / data 获取文本节点的内容
+		const divWeb = document.querySelector(".web")
+		console.log(divWeb.firstChild.data)
+		console.log(divWeb.firstChild.nodeValue)
+
+
+		// 获取节点 纯文本内容 textContent
+		
+		console.log(news.textContent.replace(/\s+/g,""))
+	 
+		setTimeout(function(){
+
+			none.hidden = true
+
+			setTimeout(function(){
+				none.hidden= false
+			},5000)
+
+		},5000)
+
+
+	
+
+
+		
+
+		  console.log(elem1.type); // "text"
+		  console.log(elem1.id); // "elem1"
+		  console.log(elem1.value); // 123
+
+
+
+	</script>
+</body>
+</html>

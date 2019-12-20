@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>检测元素关系是否匹配</title>
+</head>
+<body>
+	<a href="http://www.zmclass.com/file.zip"></a>
+	<a href="http://www.zmclass.com/file.rar"></a>
+	<a href="http://www.zmclass.com/file.zip"></a>
+	<a href="http://www.zmclass.com/file.doc"></a>
+
+
+	<h1>contents</h1>
+	<div class="contents">
+		<ul class="book">
+			<li class="chapter">章节 1</li>
+			<li class="chapter">章节 2</li>
+		</ul>
+	</div>
+	<script>
+		
+
+		for(let key of document.body.children) {
+
+			if(key.matches("[href$=zip]")){
+				console.log(key)
+			}
+
+		}
+
+
+
+		const chapter = document.querySelector(".chapter")
+
+		console.log(chapter.closest(".book"))
+
+
+
+		const div = document.querySelector(".contents")
+		const h1 = document.querySelector("h1")
+
+		console.log(div.contains(chapter))
+		console.log(h1.contains(chapter))
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

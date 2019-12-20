@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>live集合 和 static 集合</title>
+</head>
+<body>
+	
+	<!--这是节点-->
+	<ul>
+		<li>123</li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<div>first div</div>
+	<script>
+		const div = document.getElementsByTagName("div")
+		const div1 = document.querySelectorAll("div")
+		console.log(div.length,div)
+		console.log(div1.length,div1)
+
+		const list = document.querySelector("ul").querySelectorAll("li")
+
+		console.log(list)
+
+	</script>
+
+	<div>second div</div>
+	<script>
+
+		console.log(div.length,div)
+		console.log(div1.length,div1)
+	</script>
+	
+</body>
+</html>

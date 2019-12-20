@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取页面上的任意元素</title>
+</head>
+<body>
+	<div id = "elem">
+		<div id = "elem-content"></div>	
+	</div>
+	<ul>
+		<li>香蕉</li>
+		<li>苹果</li>
+	</ul>
+	<ul>
+		<li>饼干</li>
+		<li>蛋糕</li>
+	</ul>
+
+	<script>
+		
+		console.log(document.getElementById("elem"))
+		//console.log(elem)
+		//
+		// const elem = 1;
+
+		// console.log(elem)
+		// 
+		// 
+		console.log(document.getElementsByTagName("div"))
+
+		console.log(document.getElementById('elem').getElementsByTagName("div"))
+
+		console.log(document.getElementsByTagName("*"))
+
+
+		// 根据选择器来获取元素
+		console.log(document.querySelector("#elem"))
+		console.log(document.querySelector("div"))
+
+		console.log(document.querySelectorAll("ul > li:last-child"))
+
+		//console.log(document.getElementByName())
+
+	</script>	
+</body>
+</html>
