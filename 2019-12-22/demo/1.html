@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>特征和属性</title>
+</head>
+<body>
+
+	<div id = "div"  someThing = "none"></div>
+	<input type="text" value = "zmkt" >
+	<input type="radio" checked>
+
+	<div id = "div1" style = "color:red,font-size:20px">zmkt</div>
+
+	<a id = "a" href="#hello">zmkt</a>
+	
+	<div id="div2" data-someThing = "2"></div>
+
+	<script>
+		
+		const div = document.querySelector("#div");
+		const input = document.querySelector("input");
+		const radio = document.querySelector("[type = radio]")
+
+		console.log(div.id)
+		console.log(div.someThing)
+		console.dir(div)
+
+		console.log(input.type)
+
+
+		// 获取 不规范的特征
+		// 判断 元素是否包含某个特征
+		console.log(div.hasAttribute("someThing"))
+		console.log(div.hasAttribute("id"))
+		// 获取 元素的特征值
+		console.log(div.getAttribute("id"))
+		console.log(div.getAttribute("someThing"))
+
+		// 设置 元素的特征值
+		div.id = "newDiv"
+		console.log(div.outerHTML)
+
+		div.setAttribute("id","newDiv1")
+		console.log(div.outerHTML)
+
+		// 移出 特征值
+		//div.removeAttribute("someThing")
+		console.log(div.outerHTML)
+
+		// 获取元素的所有的特征（集合）
+		// 
+		console.log(div.attributes)
+
+		// 循环 div.attributes
+		
+		for(let attribute of div.attributes){
+			console.log(attribute.name)
+			console.log(attribute.value)
+		}
+		for(let {name,value} of div.attributes){
+			console.log(name)
+			console.log(value)
+		}
+
+
+		// 特征和属性的同步
+		
+		div.id = "zmkt";
+
+		console.log(div.id)
+
+		console.log(div.outerHTML)
+
+
+		div.setAttribute("id","zmwebkt")
+
+		console.log(div.outerHTML)
+
+		console.log(div.id)
+
+
+		// 不同步的个例
+		
+		input.value = "zmwebkt";
+		console.dir(input)
+
+		console.log(input.outerHTML)
+
+		input.setAttribute("value","test")
+
+		console.log(input.value)
+
+
+		// dom 节点的值 不一定是字符串
+		
+		console.dir(radio)
+
+		console.log(radio.checked)
+
+		console.log(radio.getAttribute("radio"))
+
+
+		console.log(typeof div1.getAttribute("style"))
+
+		console.log(div1.style.color = "green")
+
+		// dom 节点的属性值 和  特征属性值 字符串 ，有可能不一样
+		
+		console.log(a.href) 
+		console.log(a.getAttribute("href"))
+
+		a.setAttribute("href","http://www.zmclass.com/#hello")
+
+		console.log(a.href) 
+		console.log(a.getAttribute("href"))
+
+		// 获取数据属性的值
+		console.log(div2.dataset.something)
+
+		div2.dataset.something = "test"
+		console.log(div2.dataset.something)
+		console.log(div2.outerHTML)
+
+		// 特征值不区分大小写
+		console.log(div.getAttribute("Id"))
+
+
+
+	
+
+
+
+	</script>
+	
+</body>
+</html>

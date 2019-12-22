@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom节点的新增、删除、插入</title>
+	<style>
+		
+		.alert{
+
+			padding: 10px;
+			border: 1px #ddd solid;
+			border-radius:  5px;
+
+		}
+		.alert-success {
+			background: #ff0000;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<ul class = "language">
+		<li>html</li>
+
+	</ul>
+
+	<ul class  = "fruit">
+		
+	</ul>
+
+
+	<ul class="animal">
+		<li>狮子</li>
+
+		<li>老虎</li>
+	</ul>
+
+
+	<div class="html">zmkt</div>
+	<script>
+		
+	
+
+		// 生成成功提示信息
+		
+		let div = document.createElement("div");
+
+		div.className = "alert alert-success"
+
+		div.innerHTML = "<strong>Hi</strong>,欢迎来到追梦课堂"
+
+		console.log(div)
+
+		// 插入节点 到文档中
+
+		document.body.appendChild(div)
+
+
+		//创建元素节点
+		
+		let li = document.createElement("li")
+
+		console.dir(li)
+
+		// 创建文本节点
+		
+		let textContent = document.createTextNode("css");
+		li.appendChild(textContent)
+
+		let languageUl = document.querySelector(".language");
+		languageUl.appendChild(li)
+
+		console.dir(textContent)
+
+		// 在某个节点之前插入节点
+		let li1 = document.createElement("li");
+
+		li1.textContent = "javascript";
+		console.log(li1)
+
+		languageUl.insertBefore(li1,languageUl.firstChild)
+
+
+		const fruit = ["apple","orange","banana"];
+
+
+		let fruitUl = document.querySelector(".fruit");
+
+		for(let value of fruit){
+			const li = document.createElement("li");
+			li.textContent = value
+			fruitUl.appendChild(li)
+		}
+
+
+		// 删除节点
+		languageUl.removeChild(languageUl.lastChild)
+
+
+
+
+		// 新的接口
+
+		const animalUl = document.querySelector(".animal");
+		const animalLi = document.createElement("li");
+		const textContentNode = document.createTextNode("猫")
+
+		animalLi.append(textContentNode)
+
+		//animalUl.append(animalLi)
+		//animalUl.prepend(animalLi)
+
+		// animalUl.before(animalLi)
+		// animalUl.after(animalLi)
+		// 
+		// 
+		// 
+		// 
+		animalUl.firstElementChild.after(animalLi)
+
+
+		animalUl.before("<p>hello world</p>",document.createElement("div"))
+
+
+
+
+		// document.querySelector(".html").innerHTML = "zmkt"
+
+
+		// 任意位置插入 html
+		
+		document.querySelector(".html").insertAdjacentHTML("beforebegin",'<p style="color: red">web1<p>')
+		 document.querySelector(".html").insertAdjacentHTML("beforeend",'<p style="color: red">web2<p>')
+		 document.querySelector(".html").insertAdjacentHTML("afterbegin",'<p style="color: red">web3<p>')
+		 document.querySelector(".html").insertAdjacentHTML("afterend",'<p style="color: red">web4<p>')
+
+
+		 // 克隆节点
+
+		 const deepClone = languageUl.cloneNode(true)
+
+		 const clone = languageUl.cloneNode(false)
+
+
+		 console.log(deepClone,clone)
+
+
+	</script>
+
+
+
+</body>
+</html>
