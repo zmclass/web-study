@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DocumentFragment 和 移除节点</title>
+</head>
+<body>
+	<ul id="list"></ul>
+
+	<ul id = "language">
+		<li>html</li>
+		<li>css</li>
+		<li>javascript</li>
+	</ul>
+	<script>
+
+
+
+
+
+		document.write("<p>hello world<p>")
+		
+		const list = document.querySelector('#list');
+		const fruits = ['Apple', 'Orange', 'Banana', 'Melon'];
+
+
+
+		// for(let value of fruits){
+		// 	const li = document.createElement("li");
+		// 	li.textContent = value;
+		// 	list.append(li)
+		// }
+
+
+
+
+
+		const fragment = document.createDocumentFragment();
+
+		fruits.forEach(fruit => {
+		  const li = document.createElement('li');
+		  li.innerHTML = fruit;
+		  fragment.appendChild(li);
+		});
+
+		list.appendChild(fragment);
+
+
+
+		// 移除节点
+		
+		const languageUl = document.querySelector("#language")
+
+		//languageUl.removeChild(languageUl.firstElementChild)
+
+		const languageLi = document.querySelector("ul#language > li:first-child")
+
+		languageLi.remove();
+
+
+
+		
+
+
+	</script>
+	
+</body>
+</html>

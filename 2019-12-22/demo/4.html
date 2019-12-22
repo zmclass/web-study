@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>样式和className</title>
+
+	<style>
+		.web{
+			font-size:125%;
+			color: red;
+			margin: 50px;
+		}
+		.web1 {
+			font-size:  30px;
+			color:  green;
+		}
+
+		.web::before{
+
+			content: "我是伪类before";
+		
+			color: "yellow"
+
+
+		}
+	</style>
+</head>
+<body>
+<!-- 	<div class = "web page" style = "padding:20px;background-color:red">zmkt</div> -->
+
+<div class = "web" >zmkt</div>
+
+	<label for="test"></label>
+	<input type="text">
+	
+	<script>
+		// className
+		
+		const div = document.querySelector(".web")
+		
+		// setTimeout(()=>{
+
+		// 	div.className = "web1 page"
+		// 	console.log(div.outerHTML)
+
+		// },3000)
+
+
+		// classList
+		// 
+		// 
+		div.classList.add("page1");
+
+		div.classList.remove("page")
+
+
+		div.classList.toggle("page")
+		div.classList.toggle("page")
+
+
+		console.log(div.classList.contains("web1"))
+		console.log(div.classList.contains("web"))
+		console.log(div.outerHTML)
+		
+
+		// 修改样式
+		
+		console.log(div.style.padding)
+
+		div.style.padding = "100px"
+
+		console.log(div.style.backgroundColor)
+
+		// 计算属性值
+		
+		//const obj = getComputedStyle(div,"::before"); 获取伪类的样式
+		const obj = getComputedStyle(div);
+		console.log(obj)
+		console.log(obj.color)
+		console.log(obj.marginTop)
+
+
+
+		// -webkit-mask-image
+
+		// webkitMaskImage
+
+		// marginTop
+		// 
+		// 
+		// 重置样式
+		const input = document.querySelector("input")
+		//input.className = "input"
+		//
+
+		//input.style = "background-color:red;padding:50px"
+		// input.style.backgroundColor = "red"
+		// input.style.padding = "50px"
+
+		//input.style.cssText = "background-color:red;padding:50px"
+		//
+		input.setAttribute("style","background-color:red;padding:50px")
+
+
+	</script>
+	
+
+
+	
+</body>
+</html>

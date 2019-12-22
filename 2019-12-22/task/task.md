@@ -33,25 +33,3 @@
 
 ```
 
-# 3
-```
-let data = {
-  "Fish": {
-    "trout": {},
-    "salmon": {}
-  },
-
-  "Tree": {
-    "Huge": {
-      "sequoia": {},
-      "oak": {}
-    },
-    "Flowering": {
-      "apple tree": {},
-      "magnolia": {}
-    }
-  }
-};
-编写一个函数 createTree 将嵌套的对象生成 ul/li 的嵌套列表。
-
-```
