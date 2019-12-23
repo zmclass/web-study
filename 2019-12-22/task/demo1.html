@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ol id="elem">
+      <li>Hello</li>
+      <li>World</li>
+    </ol>
+
+
+    <script>
+    	function clear(elem){
+
+    		const childNodes = [...elem.children];
+
+    		console.log(childNodes)
+
+    		// childNodes.forEach(function(item){
+    		// 	item.remove()
+    		// })
+
+			childNodes.forEach(function(item){
+    			elem.removeChild(item)
+    		})
+
+
+
+    		// for(let node of childNodes){
+
+    		// 	debugger;
+
+    		// 	node.remove()
+    		// 	// node.remove()
+    		// }
+    	}
+
+
+    	clear(elem)
+
+
+    </script>
+	
+</body>
+</html>

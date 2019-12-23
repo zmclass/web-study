@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>元素的尺寸</title>
+		<style>
+			*{
+				margin:  0;
+				padding:  0;
+
+				/* box-sizing: border-box; */
+			}
+
+			body {
+				border: 10px solid #ff0000;
+				/* margin-left: 100px;
+				padding-left:  100px;*/
+			} 
+			#example {
+				width: 300px;
+				height: 200px;
+				border: 50px solid orange;
+				padding: 20px;
+				overflow: auto;
+				/* margin:100px auto; */
+				margin: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		
+
+	
+		
+		<div id="example" >
+			12月19日，全市审计发现问题整改工作推进会在市电子政务中心召开。市委常委、常务副市长常青出席，市政府办公室、市审计局、
+			<img src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=170d4a0653ee3d6d22c680cd7b2d0a1f/d0c8a786c9177f3e2139a5ac7acf3bc79f3d5605.jpg" alt="" width = 50 height = 50>
+			市住建局、市规划和自然资源局等部门有关负责人，17个县（市、区）及临汾经济开发区有关负责人参加了会议。
+			会议通报了全市审计发现问题整改不到位的情况，尧都区、隰县政府主要负责人作了表态发言。
+			　　常青指出，抓好审计发现问题整改工作是审计的基本要求，也是促进工作、补齐短板的重要手段，对于严肃审计纪律、维护审计权威，深入贯彻落实中央、省、市重大决策部署具有重要意义。各级各部门要提高思想认识，进一步增强审计整改的责任感和紧迫感，把审计整改纳入重要工作议程，进一步强化责任担当，提升依法行政水平，以实实在在的整改成效促进工作，实现规范管理。要本着高度负责的态度，围绕“审计——整改——规范——提高”的主线，切实采取有力举措，全力以赴抓好整改，不打折扣、不搞变通，确保审计发现问题在规定时限内全部整改到位。要加强制度建设，在抓好审计发现问题整改工作的同时，着力构建长效机制，从源头上、根本上解决问题，实现用制度管根本、管长远的目标。	  
+		</div>
+<!-- 
+		<span id = "span">追梦课堂</span> -->
+	
+
+		<script>
+			
+			console.log(example.offsetParent)
+
+			console.log(example.offsetLeft)
+			console.log(example.offsetTop)
+
+			console.log(example.offsetWidth)
+			console.log(example.offsetHeight)
+
+
+
+			console.log(example.clientTop)
+			console.log(example.clientLeft)
+
+
+
+			console.log(example.clientWidth)
+			console.log(example.clientHeight)
+
+
+			console.log(example.scrollHeight)
+			console.log(example.scrollWidth)
+
+
+			// 唯一可以修改的值
+			console.log(example.scrollTop)
+			console.log(example.scrollLeft)
+
+			example.scrollTop = 100
+
+			// setInterval(function(){
+			// 	example.scrollTop+=10
+			// },1500)
+			
+		</script>
+
+
+	</body>
+</html>

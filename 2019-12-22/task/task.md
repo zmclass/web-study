@@ -9,10 +9,7 @@
       <li><a href="http://nodejs.org">http://nodejs.org</a></li>
       <li><a href="http://internal.com/test">http://internal.com/test</a></li>
     </ul>
-
-
     改变所有链接的 style 属性，使链接变橙色。
-
     范围：
         href 包含有 ://
         但不是以 http://internal.com 开头。
@@ -24,9 +21,7 @@
       <li>Hello</li>
       <li>World</li>
     </ol>
-
     创建一个函数 clear(elem) 用来移除元素里的内容。
-
 ```
 # 3
 ```
