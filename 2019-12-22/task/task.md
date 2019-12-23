@@ -102,12 +102,31 @@ const data =  [
   }
 ]
 
-```
+  <ul>
+    <li>
+      一级一
+      <ul>
+        <li>
+          二级 1-1
+        <ul>
+          <li>三级 1-1-1</li>
+        </ul>
+        </li>
+      
+      </ul>
 
+    </li>
+    <li>一级二</li>
+    <li>一级三</li>
+  </ul>
+
+```
 
 # 5
 ```
   创建通知
   编写 showNotification(options) 通知函数
   通知 1.5秒后自动消失
+
+  参考：https://element.eleme.cn/#/zh-CN/component/notification
 ```
