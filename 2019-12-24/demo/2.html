@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动高度</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height:  2000px;
+		}
+	</style>
+
+</head>
+<body>
+	<script>
+		
+		console.log(document.documentElement.scrollTop)
+		console.log(document.body.scrollTop) //兼容
+
+		const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+
+		//推荐
+		console.log(window.pageXOffset,window.pageYOffset)
+
+		// setInterval(()=>{
+
+		// 	document.documentElement.scrollTop += 10
+
+		// },1500)
+		// 
+		//document.documentElement.scrollBy(0,500)
+
+		//document.documentElement.scrollTop = window.innerHeight;
+		// 相对定位
+		// document.documentElement.scrollBy(0,500)
+		// 绝对定位
+		// 
+		document.documentElement.scrollTo(0,500)
+		// 回到顶部
+		document.documentElement.scrollTo(0,0)
+
+
+		// 浏览器窗口的位置
+		
+		 const newWindow = window.open("http://www.baidu.com","test","width = 100,height = 100")
+
+		newWindow.moveTo(600,600) //
+
+		newWindow.moveBy(600,600)
+
+		newWindow.moveTo(100,100)
+
+
+		// 新窗口的宽度和高度
+		
+		newWindow.resizeTo(600,600)
+
+	</script>
+
+	
+</body>
+</html>

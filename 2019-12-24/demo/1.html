@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>window</title>
+
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+
+	<script>
+
+		
+
+		var test = "zmkt";
+
+		console.log(test)
+
+
+		function sum(a,b){
+			return a + b
+		}
+
+		console.log(sum(1,2))
+
+
+		// window窗口的位置
+		
+		console.log(window.screenX,window.screenLeft)
+		console.log(window.screenY,window.screenTop)
+
+
+		// 打开和关闭窗口
+		
+		// window.open("http://www.baidu.com","_self","left= 200,top=200,width = 300,height = 200")
+
+
+		let windowObjectReference;
+		let strWindowFeatures = `
+		    menubar=yes,
+		    location=yes,
+		    resizable=yes,
+		    scrollbars=yes,
+		    status=yes
+		`;
+
+		function openRequestedPopup() {
+		    windowObjectReference = 
+		    window.open(
+		        "http://www.baidu.com/", 
+		        "CNN_WindowName", 
+		        strWindowFeatures
+		    );
+		}
+
+		//openRequestedPopup()
+
+
+		// 关闭打开的窗口
+		// setTimeout(function(){
+
+		// 	windowObjectReference.close()
+		// 	console.log(windowObjectReference.closed)
+		// 	//windowObjectReference.opener.close()
+		// },5000)
+
+		// opener 父窗口的引用
+		// 
+		// closed  窗口是否关闭
+		// 
+		// 
+		//console.log(windowObjectReference.closed)
+
+		
+		
+		
+
+		// window.close()
+		// 
+		// 
+		// 
+		// // 系统对话框
+		
+		//alert("欢迎来到追梦课堂")
+
+		 //console.log(confirm("是否付款？"))
+
+
+		 console.log(prompt("请输入你要充值的金额"))
+
+
+
+		// 获取窗口的宽度和高度
+		
+		console.log(document.documentElement.clientWidth,document.documentElement.clientHeight)
+
+		//const width = document.documentElement.clientWidth || document.body.clientWidth
+
+		console.log(window.innerWidth,window.innerHeight)
+
+
+		// 获取浏览器的宽度和高度
+		console.log(window.outerWidth,window.outerHeight)
+
+
+		// 文档的宽度和高度
+		// 
+		const html = document.documentElement;
+		const body = document.body;
+
+		console.log(html.offsetHeight)
+		console.log(html.clientHeight)
+		console.log(html.scrollHeight)
+		console.log(body.offsetHeight)
+		console.log(body.clientHeight)
+		console.log(body.scrollHeight)
+
+		Math.max(html.offsetHeight,html.clientHeight,html.scrollHeight,body.offsetHeight,body.clientHeight,body.scrollHeight)
+	</script>
+
+
+
+	
+</body>
+</html>

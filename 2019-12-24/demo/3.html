@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>坐标</title>
+	<style>
+		* {
+			/* margin: 0;
+			padding:  0; */
+		}
+		body {
+			height:  2000px;
+		}
+		#example {
+			width:  100px;
+			height:  100px;
+			background:  #ff0000;
+		
+			/* position:absolute; */
+		/* 	top: 100px;
+			left: 100px; */
+		}
+	</style>
+</head>
+<body>
+
+	<div id="example">
+		
+
+
+
+	</div>
+	<script>
+		'use strict'
+		// 获取坐标
+		const obj = example.getBoundingClientRect();
+		console.log(obj)
+		console.log(obj.left)
+		console.log(obj.top)
+		console.log(obj.right)
+		console.log(obj.bottom)
+		// 通过坐标 获取 dom节点
+		console.log(document.elementFromPoint(8,8))
+		console.log(document.elementFromPoint(-100,8))
+	</script>
+
+	
+</body>
+</html>
