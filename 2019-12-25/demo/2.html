@@ -24,12 +24,28 @@
 	</section>
 
 	<script>
-		
+
+		// let click = 0;
+		// section.addEventListener("click",function(){
+		// 	click+=1;
+		// 	if(click % 2 === 0){
+		// 		section.style.backgroundColor = "red"
+		// 	}else{
+		// 		section.style.backgroundColor = "green"
+		// 	}
+		// })
+
+
+		let flag = false;
 		section.addEventListener("click",function(){
-
-			section.style.backgroundColor = "green"
-
+			flag = !flag
+			if(flag){
+				section.style.backgroundColor = "green"
+			}else{
+				section.style.backgroundColor = "red"
+			}
 		})
+
 
 	
 
