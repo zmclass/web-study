@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件处理器（事件注册）</title>
+</head>
+<body>
+
+	<!-- 
+		html属性
+
+		html 属性 不区分大小写
+		onClick ONCLICK 都一样
+		建议都小写
+	 -->
+<!-- 	<input type="button" value = "点击我" onclick = "console.log(event)"> -->
+	
+
+	<input type="button" value = "点击我" id = "btn">
+	<script>
+		btn.addEventListener("click",function(event){
+
+			console.log(event)
+
+		})
+
+	</script>
+
+	
+
+
+	
+</body>
+</html>

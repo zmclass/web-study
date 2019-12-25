@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>navigator对象</title>
+</head>
+<body style="padding-top:2000px">
+
+
+
+	<a id = "test" style = "">锚点</a>
+
+	<script>
+		// navigator 对象
+		console.dir(navigator);
+		console.log(navigator.platform);
+		// mac 系统 : macIntel
+		// win 系统 : win32
+		// 判定操作系统
+	
+		/mac/.test(navigator.platform);
+		/win/.test(navigator.platform);
+
+		console.log(navigator.userAgent)
+
+
+
+		// location 对象
+		console.log(window.location)
+		console.log(document.location === window.location)
+
+		console.log(location.protocol)
+		console.log(location.host)
+		console.log(location.hostname)
+		console.log(location.port)
+		console.log(location.search)
+		console.log(location.hash)
+
+		// 可读写 
+		console.log(location.href)
+		// 在新窗口中打开网页
+		// const newWindow = window.open()
+		// newWindow.location.href = "http://www.baidu.com"
+
+
+		// location.assign("http://www.baidu.com")
+		// location.replace("http://www.qq.com")
+
+		//location.reload()
+
+		// 小任务
+		// ?name=张三&age=30 => {name: "张三",age: 30}
+
+
+		// history 对象
+
+		console.log(history)
+
+		console.log(history.length)
+
+
+
+		//console.log(history.back())
+
+		//console.log(history.forward())
+		//
+		// history.go(-1)
+		// 
+		// 
+		// history.pushState({
+		// 	test: "test"
+		// },"test","/12.html")
+
+		// history.pushState({
+		// 	test: "替换"
+		// },"test","/11.html")
+	</script>
+	
+</body>
+</html>
