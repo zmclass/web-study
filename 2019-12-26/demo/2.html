@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽</title>
+	<style>
+		
+		* {
+			margin:  0;
+			padding:  0;
+		}
+		div {
+			width:  100px;
+			height:  100px;
+			background: green;
+			position: absolute;
+			left: 0;
+			top:  0;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div id = "div">
+		
+	</div>
+
+	<script>
+		
+		div.addEventListener("mousedown",(e) =>{
+
+
+			let x = e.clientX - div.getBoundingClientRect().left;
+			let y = e.clientY - div.getBoundingClientRect().top;
+
+			function moveTo(e){
+				div.style.top = e.pageY - y + "px";
+				div.style.left = e.pageX - x + "px"
+			}
+			document.addEventListener("mousemove",moveTo)
+
+			div.addEventListener("mouseup",(e)=>{
+				document.removeEventListener("mousemove", moveTo);
+			})
+
+		})
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

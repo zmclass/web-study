@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+  .slider {
+    border-radius: 5px;
+    background: #E0E0E0;
+    background: linear-gradient(left top, #E0E0E0, #EEEEEE);
+    width: 800px;
+    height: 10px;
+    margin: 50px;
+  }
+
+  .thumb {
+    width: 10px;
+    height: 25px;
+    border-radius: 3px;
+    position: relative;
+    left: 10px;
+    top: -8px;
+    background: #409eff;
+    cursor: pointer;
+  }
+
+
+
+
+</style>
+
+<body>
+
+  <div id="slider" class="slider">
+    <div class="thumb"></div>
+  </div>
+
+  <script>
+    
+    const thumb = document.querySelector(".thumb");
+
+    thumb.addEventListener("mousedown",(e) => {
+
+      let x = e.clientX - thumb.getBoundingClientRect().left;
+
+
+      function moveTo(e){
+
+        thumb.style.left = e.pageX - slider.getBoundingClientRect().left - x + "px"
+
+        if(slider.getBoundingClientRect().left > thumb.getBoundingClientRect().left){
+          thumb.style.left = 0
+
+        }
+
+        if(slider.getBoundingClientRect().right < thumb.getBoundingClientRect().right){
+
+            thumb.style.left = slider.offsetWidth - thumb.offsetWidth + "px"
+        }
+
+
+      }
+
+      document.addEventListener("mousemove",moveTo)
+
+      thumb.addEventListener("mouseup",(e)=>{
+        document.removeEventListener("mousemove", moveTo);
+      })   
+
+    })
+
+
+
+
+  </script>
+
+  
+
+</body>
+</html>

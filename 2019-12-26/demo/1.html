@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件类型</title>
+	<style>
+		body{
+			height:  2000px;
+		}
+		.parent {
+			width:  50px;
+			height:  50px;
+			margin-top: 500px;
+			background:  red;
+		}
+		.child {
+			width: 20px;
+			height:  20px;
+			background: green;
+		}
+		.lighthight {
+			background:  orange;
+		}
+	</style>
+</head>
+<body>
+
+	<div class = "parent">
+
+		追梦前端课堂
+		
+		<div class="child"></div>
+
+	</div>
+
+
+	<ul>
+		<li>html</li>
+		<li>css</li>
+		<li>javascript</li>
+		<li>node</li>
+		<li>canvas</li>
+	</ul>
+	<script>
+		
+	
+		
+		const parentNode = document.querySelector(".parent");
+		const childNode = document.querySelector(".child")
+		// 单击事件
+		// parentNode.addEventListener("click",function(e){
+
+		// 	console.log('我被点击了')
+
+		// })
+
+		// 双击事件
+		// parentNode.addEventListener("dblclick",function(e){
+
+		// 	console.log('我双击了')
+
+		// })
+		// 
+		// 右键菜单事件
+		// parentNode.addEventListener("contextmenu",function(e){
+
+		// 	console.log('右键菜单')
+
+
+		// 	e.preventDefault()
+
+		// })	
+
+		// // 鼠标进入事件
+		parentNode.addEventListener("mouseover",function(e){
+			console.log('鼠标进入')
+			console.log(e.target,e.relatedTarget)
+		})						
+
+		// 鼠标离开事件
+		parentNode.addEventListener("mouseout",function(e){
+			console.log('鼠标离开')
+		})	
+
+		// 鼠标进入事件 (不冒泡)
+		// parentNode.addEventListener("mouseenter",function(e){
+		// 	console.log('鼠标进入')
+		// })						
+
+		// // 鼠标离开事件
+		// parentNode.addEventListener("mouseleave",function(e){
+		// 	console.log('鼠标离开')
+		// })	
+
+
+		// parentNode.addEventListener("mouseover",function(e){
+		// 	console.log("鼠标进入2")
+		// })
+
+		// mousemove
+		// parentNode.addEventListener("mousemove",function(e){
+		// 	console.log('我鼠标移动了')
+		// })		
+
+
+		// 鼠标事件对象
+
+		// parentNode.addEventListener("click",function(e){
+		// 	console.log(e.clientX,e.clientY)
+		// 	console.log(e.pageX,e.pageY)
+		// 	console.log(e.screenX,e.screenY)
+		// })	
+
+		// 鼠标按键位置
+		// parentNode.addEventListener("click",function(e){
+		// 	console.log(e.button)
+		// })			
+		// parentNode.addEventListener("contextmenu",function(e){
+		// 	console.log(e.button)
+		// })
+
+		// parentNode.addEventListener("mousedown",function(e){
+		// 	console.log(e.which)
+		// })	
+
+		// 组合键	
+		// 
+		// parentNode.addEventListener("click",function(e){
+		// 	console.log(e.altKey,e.ctrlKey,e.shiftKey)
+
+		// })		
+		// 事件顺序
+		
+		// parentNode.addEventListener("click",function(e){
+
+		// 	console.log(3)
+		// })
+
+		// parentNode.addEventListener("mousedown",function(e){
+
+		// 	console.log(1)
+		// })
+		// parentNode.addEventListener("mouseup",function(e){
+
+		// 	console.log(2)
+		// })
+
+		// dblclick的问题(取消文本选择)
+		// 
+		// parentNode.addEventListener("dblclick",function(e){
+		// 	console.log("双击了")
+		// })
+
+		// parentNode.addEventListener("mousedown",function(e){
+
+		// 	e.preventDefault()
+		// })
+		// 
+		// 可选列表
+		
+		// const ul = document.querySelector("ul")
+		// let flag = null;
+		// ul.addEventListener("click",function(e){
+
+		// 	const target = e.target;
+			
+		// 	if(e.altKey){
+		// 		//多选
+		// 		//
+		// 		target.classList.add("lighthight")
+		// 	}else{
+		// 		console.log(flag)
+		// 		//单选
+		// 		if(flag){
+		// 			flag.classList.remove("lighthight")
+		// 		}
+		// 		// target.className = "lighthight"
+		// 		target.classList.add("lighthight")
+		// 		flag = target
+		// 	}
+
+
+		// })
+
+	
+
+
+		
+	</script>
+	
+</body>
+</html>
