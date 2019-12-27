@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单属性</title>
+</head>
+<body>
+	<form action="" name = "form1">
+		
+		<label for="">用户名</label><input type="text" name = "user">
+		<label for="">年龄</label><input type="text" name = "age">
+
+
+	</form>
+	<form action="" name = "form2">
+		
+		<input type="radio" name = "age" value = "20"> 20
+		<input type="radio" name = "age" value = "30"> 30
+
+	</form>
+	<form action="" name = "form3">
+		
+		<input type="text" name = "user">
+
+	</form>
+
+
+
+
+	<script>
+		
+		// 获取页面上所有表单的集合
+		
+		console.log(document.forms)
+
+		// 获取表单的索引
+		console.log(document.forms.form1)
+		console.log(document.forms[0])
+
+		// 获取表单元素的集合
+		
+		console.log(document.forms.form1.elements)
+
+		// 获取表单内元素的索引
+		document.forms.form1.elements[0]
+
+		document.forms.form1.elements.user
+
+
+		// 获取表单2的元素
+		console.log(document.forms.form2.elements.age)
+		console.log(document.forms.form2.elements.age[0].value)
+
+
+		// 更加简短 访问 form 表单内 元素
+		
+		 console.log(document.forms.form1.user)
+		 //	===
+		 console.log(document.forms.form1.elements.user)
+
+		 // 反向引用 elem.form  可以获取 当前元素所在的form 表单
+		 // 
+		 console.log(document.forms.form3.user.form)
+
+	</script>
+</body>
+</html>

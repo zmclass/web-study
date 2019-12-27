@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+</head>
+<body>
+
+	<input type="text" id = "search">
+<!-- 	//tabindex -->
+	<div id = "div" tabindex = "1">zmkt</div>
+
+	<div id="div1" contenteditable = "true">zmkt</div>
+	<script>
+		// 键盘按下
+		// document.addEventListener("keydown",function(event){
+		// 	const e = event || window.event
+
+		// 	console.log(1,e.key,e.code)
+
+		// })
+
+		// // 键盘释放
+		// document.addEventListener("keyup",function(event){
+
+		// 	console.log(event)
+
+		// })
+
+		// 有值的键会触发
+		// document.addEventListener("keypress",function(event){
+		// 	const e = event || window.event
+
+		// 	console.log(2,e.key,e.code)
+
+		// })		
+
+		// 可聚焦的元素上
+
+		search.addEventListener("keydown",function(e){
+
+			console.log(e.code,e.key)
+
+			if(e.code === "Enter"){
+
+				console.log("我生效了")
+
+			}
+
+		})
+
+		//普通的元素 是否 能绑定 键盘事件
+		//
+		div.addEventListener("keydown",function(e){
+
+			console.log("我触发了")
+		})
+
+
+
+		// contenteditable
+		
+
+
+
+
+	</script>
+
+	
+</body>
+</html>

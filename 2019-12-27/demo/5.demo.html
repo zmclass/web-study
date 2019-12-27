@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>可编辑div</title>
+	<style>
+		div {
+			width:  200px;
+			height:  100px;
+			border: 1px #ddd solid;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div id = "div">
+		追梦课堂是临汾最好的、最专业的前端课堂
+
+	</div>
+
+	<script>
+		const div = document.querySelector("#div")
+		// div.tabindex = "1"
+
+		div.addEventListener("click",function(e){
+
+			const textarea = document.createElement("textarea");
+			textarea.value = div.innerHTML
+
+			div.replaceWith(textarea)
+			textarea.focus()
+
+			textarea.addEventListener("blur",function(e){
+				div.innerHTML = textarea.value
+				textarea.replaceWith(div)
+		
+			})
+
+			textarea.addEventListener("keydown",function(e){
+				if(e.code === "Enter"){
+					div.innerHTML = textarea.value
+					textarea.replaceWith(div)
+
+				}
+
+
+			})
+
+		})
+
+
+
+
+	</script>
+
+	
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>聚焦事件</title>
+</head>
+<body>
+	<input type="text" id = "input1" autofocus>
+
+	<input type="text" id = "input2">
+
+
+	<div contenteditable id = 'div'> 追梦课堂</div>
+
+
+	<div tabindex = "0">追梦课堂</div>
+	<div tabindex = "3">追梦前端课堂</div>
+	<div tabindex = "-1">临汾追梦前端课堂</div>
+	<script>
+		
+		input1.addEventListener("focus",function(e){
+
+			console.log(e.relatedTarget)
+		})
+
+		input1.addEventListener("blur",function(e){
+
+			console.log("我失去焦点")
+		})
+
+		input2.addEventListener("focus",function(e){
+
+			console.log(e.relatedTarget)
+		})
+
+		input2.addEventListener("blur",function(e){
+
+			
+		})
+		input1.addEventListener("focusin",function(e){
+
+			console.log("元素获取焦点之前")
+		})
+
+		input1.addEventListener("focusout",function(e){
+
+			console.log("元素失去焦点之前")
+		})
+		div.addEventListener("focusin",function(e){
+
+			console.log("div获取焦点")
+		})
+
+		div.addEventListener("focusout",function(e){
+
+			console.log("div失去焦点")
+		})
+
+
+		// 聚焦 和 失去焦点方法
+		// focus() blur()
+		 input2.focus()
+		 setTimeout(function(){
+		 	input2.blur()
+		 },3000)
+	</script>
+
+
+	
+</body>
+</html>

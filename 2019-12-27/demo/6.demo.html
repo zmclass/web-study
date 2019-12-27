@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动div</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background:  red;
+			position: absolute;
+			top: 40px;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+
+	<div tabindex = "1" id = "div"></div>
+
+	<script>
+		div.focus()
+
+		div.addEventListener("keydown",function(e){
+
+			const code = e.code
+			if(code === "ArrowUp") {
+				// 向上移动
+				// 
+				div.style.top = parseInt(getComputedStyle(div).top) - div.offsetHeight   +"px"
+			}
+
+			if(code === "ArrowDown") {
+				// 向下移动
+				
+				div.style.top = div.offsetHeight  + parseInt(getComputedStyle(div).top) +"px"
+
+				
+			}
+
+			if(code === "ArrowLeft") {
+				// 向左移动
+				div.style.left =  parseInt(getComputedStyle(div).left) - div.offsetWidth +"px"
+			}
+			if(code === "ArrowRight") {
+				// 向右移动
+				div.style.left =  parseInt(getComputedStyle(div).left) + div.offsetWidth +"px"
+			}
+
+
+
+		})
+	
+	
+	</script>
+	
+</body>
+</html>

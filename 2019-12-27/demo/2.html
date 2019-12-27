@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单元素的值</title>
+</head>
+<body>
+
+	<form action="" name = "form1" >
+		
+		<input type="text" name = "user" value = "123">
+
+		<input type="radio" name = "age" value = "20"> 20
+		<input type="radio" name = "age" value = "30"> 30
+
+
+		<input type="checkbox" name = "fruit" value = "1" checked> 苹果
+		<input type="checkbox" name = "fruit" value = "2" checked> 香蕉
+		<input type="checkbox" name = "fruit" value = "3"> 橘子
+	<!-- 	//单选 -->
+		<select name="options" id="select">
+		
+			<option value="1">苹果</option>
+			<option value="2" selected>香蕉</option>
+			<option value="3">橘子</option>
+
+		</select>
+		<!-- 多选-->
+		<select name="options" id="select1" multiple>
+		
+			<option value="1">苹果</option>
+			<option value="2" >香蕉</option>
+			<option value="3">橘子</option>
+
+		</select>
+		<input type="submit" value = "提交数据">
+
+	</form>
+
+
+	<textarea name = "des" id = "textarea">
+		追梦课堂
+
+	</textarea>
+
+	<script>
+		
+		//document.querySelector("[name = form1]")
+
+		console.log(document.forms.form1.user.value)
+
+
+		// js 设置 单选框的默认选中
+		
+		document.forms.form1.age[1].checked = true
+
+		// 获取单选框选中的值
+
+		console.log(document.forms.form1.age.value)
+
+
+		// 获取多选框选中值
+		
+		const fruitList = []
+		for(let node of document.forms.form1.fruit){
+
+			if(node.checked){
+
+				fruitList.push(node.value)
+			}
+			
+		}
+
+		console.log(fruitList)
+
+
+
+		// 下拉菜单的属性
+		
+		// option元素的集合
+		// 
+		console.log(select.options)
+
+		// 所选选项的值
+		console.log(select.value)
+
+		// 所选选项的索引
+		console.log(select.selectedIndex)
+
+
+
+		// js设置 下来列表的选中值
+		
+		//select.options[2].selected = true;
+
+
+		//select.value = 3
+
+		 select.selectedIndex = 2
+
+		// 获取多选下拉菜单的值
+		
+		const arr = Array.from(select1.options).filter(function(item){
+			return item.selected
+		}).map(function(item){
+			return item.value
+		})
+		console.log(arr)
+		//[...select1.options]
+		//
+		//
+		// 设置选中的option
+		
+		const optionList = [1,3]
+
+		// console.log(select1.options[Symbol.iterator])
+
+		Array.from(select1.options).forEach(function(item,index){
+
+			//indexOf
+			if(optionList.includes(+item.value)){
+
+				item.selected = true
+				
+			}
+		})
+
+
+		// 创建option
+		
+		// const option = document.createElement("option");
+
+		// //option.textContent = "梨";
+		
+		// option.innerText = "梨";
+		// option.value = 4;
+		// option.selected = true
+		// select.append(option)
+		
+		//新的创建 option 的方式
+		//
+		//
+		const option = new Option("梨",4,true,true)
+
+		select.append(option)
+
+		// 3个属性
+		
+		console.log(option.selected)
+		console.log(option.index)
+		console.log(option.text)
+
+
+		// 多行文本
+		// innerHTML/textContent
+		//  获取是 旧的值
+		// 
+		// 
+		textarea.value = "追梦课堂是临汾专业的前端培训机构"
+		console.log(textarea.value)
+		
+
+	</script>
+	
+</body>
+</html>

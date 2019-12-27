@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>change / input</title>
+</head>
+<body>
+	<input type="text" id = "input">
+
+	<select name="select" id="select">
+		<option value="1">苹果</option>
+		<option value="2">香蕉</option>
+		<option value="3">梨</option>
+	</select>
+	<script>
+		// input.addEventListener("change",function(){
+
+			// console.log("change")
+
+		// })
+		// select.addEventListener("change",function(e){
+
+		// 	console.log(this.value)
+
+		// })
+
+		// input.addEventListener("input",function(){
+
+		// 	console.log(this.value)
+
+		// })
+		// input.addEventListener("copy",function(){
+
+		// 	console.log(this.value)
+
+		// })
+		input.addEventListener("paste",function(){
+
+			console.log(this.value)
+
+		})
+
+	</script>
+	
+</body>
+</html>

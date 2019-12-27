@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+
+	<style>
+		.tip {
+			color: red;
+		}
+		.error {
+			outline: 1px #ff0000 solid;
+		}
+	</style>
+</head>
+<body>
+
+	<input type="text" name = "user" placeholder="昵称" id = "input1" required>
+	<div id = "tip" class = "tip"></div>
+
+
+	<script>
+
+		input1.addEventListener("focus",function(e){
+
+			tip.innerHTML = "";
+
+			this.classList.remove("error")
+
+		})
+		
+		input1.addEventListener("blur",function(e){
+
+			if(!this.value) {
+
+				tip.innerHTML = "您的用户名不能为空";
+
+				this.classList.add("error")
+
+
+			}
+
+		})
+
+
+
+	</script>
+	
+</body>
+</html>
