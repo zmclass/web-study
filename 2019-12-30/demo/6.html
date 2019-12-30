@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>document.readyState</title>
+</head>
+<body>
+	<script>
+		console.log(document.readyState)
+
+		document.addEventListener("readystatechange",function(e){
+
+			// 文档构建完毕
+			if(document.readyState === "interactive"){
+
+				console.log(img)
+
+				console.log(img.offsetWidth,img.offsetHeight)
+			}
+			// 文档构建完毕，并且外部加载完成
+			if(document.readyState === "complete"){
+
+				console.log(img.offsetWidth,img.offsetHeight)
+			}
+
+
+			
+
+
+		})
+
+
+	</script>
+
+	<img id = "img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577682379647&di=c8714499dd6be325945e52389b1d115c&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F75%2F08%2F14300000868259128633084378553.jpg" alt="">
+
+	
+</body>
+</html>

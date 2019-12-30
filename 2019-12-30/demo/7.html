@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>输出顺序</title>
+</head>
+<body>
+
+	<script>
+		
+		console.log(`当前文档的状态:${document.readyState}`) //loading
+
+		document.addEventListener("readystatechange",(e)=>{console.log(`当前文档的状态:${document.readyState}`)}) // 2.interctive
+
+		//3 domcontent loaded
+
+		document.addEventListener("DOMContentLoaded",(e)=>{console.log("domcontentloaded")})
+
+		window.addEventListener("load",()=>{console.log("window onload")})
+	</script>
+
+	<iframe src="http://www.baidu.com" frameborder="0" onload = "console.log('iframe加载完毕')"></iframe>
+	
+	<img id = "img" src="http://a.hiphotos.baidu.com/image/pic/item/0ff41bd5ad6eddc40189fc4133dbb6fd52663319.jpg" alt="">
+
+	<script>
+		img.onload = function(){
+			console.log("img loaded")
+		}
+
+	</script>
+
+	
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>让div动起来</title>
+	<style>
+		#runway{
+			position: relative;
+			width: 800px;
+			height: 100px;
+			background: #e8e8ff;
+			
+		}
+		
+		#move {
+	        position: absolute;
+	        left: 0px;
+	        width: 100px;
+	        height: 100px;
+	        background: #a9ea00;
+		}
+
+	</style>
+
+	<script>
+
+		function animate({timing, draw, duration}) {
+
+		  let start = performance.now();
+		  requestAnimationFrame(function animate(time) {
+		    // timeFraction 从 0 增加到 1
+		    let timeFraction = (time - start) / duration;
+		    if (timeFraction > 1) timeFraction = 1;
+
+		    // 计算当前动画状态
+		    let progress = timing(timeFraction);
+
+		    draw(progress); // 绘制
+
+		    if (timeFraction < 1) {
+		      requestAnimationFrame(animate);
+		    }
+
+		  });
+		}
+
+
+
+		document.addEventListener("DOMContentLoaded",function(e){
+			// 获取运动轨道
+			const runwayNode = document.querySelector("#runway");
+			// 获取运动dom节点 
+			const moveNode =  document.querySelector("#move");
+			// 获取总的运动距离
+			const distance = runwayNode.offsetWidth - moveNode.offsetWidth;
+			// 获取运动开始的位置
+			let begin = parseInt(getComputedStyle(moveNode).left);
+			// 结束位置
+			const end = begin+ distance;
+			// 定义 fps
+			const fps = 50;
+			// 每相隔多少ms刷新一次
+			const interval = 1000 / fps;
+			// 动画完成时间
+			const duration = 2000
+			// 总共刷新多少次画面
+			const times = duration / interval
+			// 每次 移动多少距离
+			const step = distance / times
+
+			moveNode.addEventListener("click",function(e){
+
+
+			animate({
+				duration: 2000,
+				timing(per,x = 1.5) {
+				  return Math.pow(per, 2) * ((x + 1) * per - x)
+				},
+				draw(per){
+					moveNode.style.left = `${per*distance}px`
+				}
+			})
+
+				// const beginTime = new Date()
+
+				// const id = setInterval(function(){
+
+				// 	// 已经用掉的时间
+				// 	const t = new Date() - beginTime
+				// 	if(t >= duration){
+				// 		moveNode.style.left = `${end}px`
+				// 	}else{
+				// 		// 当前的进度
+				// 		const per = t / duration
+
+				// 		console.log(t,per)
+				// 		moveNode.style.left = `${begin + per*distance}px`
+				// 	}
+
+				// },interval)
+
+
+			})
+
+		})
+		
+	</script>
+</head>
+<body>
+	<div id = "runway">
+		<div id="move"></div>
+	</div>
+</body>
+</html>

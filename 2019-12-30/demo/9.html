@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>资源加载</title>
+
+</head>
+<body>
+	
+	<script>
+		// 动态创建脚本，是异步的
+		const js = document.createElement("script")
+
+		js.src = "https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"
+
+		document.head.append(js)
+
+		js.onload = function(){
+
+			console.log($)
+		}
+
+
+		// 动态创建图片
+		
+		const img = document.createElement("img")
+		img.src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577467233656&di=1ba6dbb02433304242aafd9232a632bf&imgtype=0&src=http%3A%2F%2Fwww.cssxt.com%2Fuploadfile%2F2017%2F0808%2F20170808113904928.jpg"
+		document.body.append(img)
+		// img.onload = function(e){
+		// 	console.log(img.offsetWidth,img.offsetHeight)
+
+		// }
+
+		// img.onerror = function(e){
+		// 	console.log("图片加载失败")
+		// }
+		// 
+
+
+
+		// iframe 不管成功还是失败 都会触发 load事件
+		
+
+		const iframe = document.createElement("iframe")
+		iframe.src = "http://www.baidu.com"
+		document.body.append(iframe)
+		iframe.onload = function(e){
+			console.log(e,"iframe")
+		}
+
+
+	</script>
+
+	
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>资源加载</title>
+</head>
+<body>
+
+	<script>
+		// load
+		// 
+		// error
+		// 
+		document.addEventListener("DOMContentLoaded",function(){
+			img.addEventListener("load",function(e){
+				console.log(img.offsetWidth,img.offsetHeight)
+			})
+			img.addEventListener("error",function(e){
+				console.log("图片加载过程中发生错误")
+			})
+		})
+	
+	</script>
+	<img id = "img" src="https://timgsa.baidu.com/timg?
+	image&quality=80&size=b9999_10000&sec=1577467233656&
+	di=1ba6dbb02433304242aafd9232a632bf&imgtype=0&src=
+	http%3A%2F%2Fwww.cssxt.com%2Fuploadfi
+	le%2F2017%2F0808%2F20170808113904928.jpg" alt="">
+
+	
+</body>
+</html>

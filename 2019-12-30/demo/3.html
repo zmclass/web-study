@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOMcontented 与样式</title>
+	<link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+	<script>
+	  // 在样式表加载之前，脚本都不会执行
+	  	console.log(getComputedStyle(document.body).marginTop);
+	</script>
+	<div></div>
+</body>
+</html>
