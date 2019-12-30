@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义事件</title>
+</head>
+<body>
+
+	<div id="parent">
+		父元素
+		<div id="child">子元素</div>
+	</div>
+	<script>
+		// 自定义事件
+		const event = new Event("zmkt",{
+			bubbles:true,
+			cancelable: true
+		})
+		event.name = "zmkt"
+		// //监听事件
+		// document.addEventListener("zmkt",function(e){
+
+		// 	console.log(e)
+
+		// 	console.log("zmkt触发了")
+		// })
+		// // 触发事件
+		// document.dispatchEvent(event)
+
+		// document.addEventListener("click",function(e){
+
+		// 	console.log(e.isTrusted)
+		// })
+
+
+		// parent.addEventListener("click",function(){
+		// 	console.log("click 被触发了")
+		// })
+
+		// child.addEventListener("zmkt",function(e){
+		// 	console.log("zmkt 被触发了")
+		// })
+
+		// child.dispatchEvent(event)
+
+
+
+
+		// 自定义 隐藏事件
+		
+		const hideEvent = new Event("hide",{
+			cancelable: true
+		})
+
+		child.addEventListener("hide",function(e){
+
+
+			console.log("hide 触发了")
+
+			e.preventDefault()
+
+		})
+
+		//自定义默认事件
+		
+		if(!child.dispatchEvent(hideEvent)){
+			child.hidden = false
+		}else{
+			child.hidden = true
+		}
+
+
+		// CustomEvent 构造器// 推荐使用
+		// 
+		
+		const testEvent = new CustomEvent("test",{
+			detail: {
+				name : "zmkt"
+			}
+		}) 
+
+		document.addEventListener("test",function(e){
+			console.log("test",e.detail)
+		})
+
+		document.dispatchEvent(testEvent)
+		
+	</script>
+
+
+</body>
+</html>

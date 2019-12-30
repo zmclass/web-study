@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取资源节点</title>
+	<link rel="stylesheet" href="css.css">
+
+	<style>
+		.move {
+			width: 100px;
+		}
+		.back {
+			width: 10px;
+		}
+	</style>
+
+	<style>
+		.move {
+			width: 100px;
+		}
+		.back {
+			width: 10px;
+		}
+	</style>
+
+
+
+</head>
+<body>
+
+	<a href="">链接1</a>
+	<a href="">链接2</a>
+	<a href="">链接3</a>
+
+	<img src="1.jpg" alt="">
+	<img src="2.jpg" alt="">
+	<!-- <iframe src="1.html" frameborder="0" id = "frame"></iframe> -->
+
+	<script>
+		console.log(document.documentElement) //html
+		console.log(document.body)
+		console.log(document.title)
+		console.log(document.head)
+
+		console.log(document.querySelectorAll("a"))
+		// 获取页面上所有的链接
+		console.log(document.links)
+
+		// 获取页面上所有的图片
+
+		console.log(document.images)
+
+		// 获取页面上所有iframes
+		
+		// console.log(document,window.frames)
+
+
+		// frame.onload = function(){
+		// 	console.log(this.contentWindow)
+		// 	console.log(this.contentDocument)
+		// 	console.log(this.contentDocument.body.innerHTML)
+
+		// }
+
+		// 获取css 规则
+		// 
+		const sheet = document.querySelector("style").sheet
+		// 添加一条规则
+		sheet.insertRule("#test{border:1px #ddd solid}",1)
+		// 删除一条规则
+		sheet.deleteRule(2)
+		console.log(sheet.cssRules)
+
+		// 获取所有的样式表
+		console.log(document.styleSheets[0])
+
+
+
+	</script>
+
+
+
+	
+
+	
+</body>
+</html>
