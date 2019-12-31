@@ -23,9 +23,28 @@
 
 	</style>
 
+	<script src = "easing.js"></script>
+
 	<script>
 
+// function animate({duration, draw, timing}) {
 
+//   let start = performance.now();
+
+//   requestAnimationFrame(function animate(time) {
+//     let timeFraction = (time - start) / duration;
+//     if (timeFraction > 1) timeFraction = 1;
+
+//     let progress = timing(timeFraction)
+
+//     draw(progress);
+
+//     if (timeFraction < 1) {
+//       requestAnimationFrame(animate);
+//     }
+
+//   });
+// }
 		document.addEventListener("DOMContentLoaded",function(e){
 			// 获取运动轨道
 			const runwayNode = document.querySelector("#runway");
@@ -50,7 +69,7 @@
 
 			moveNode.addEventListener("click",function(e){
 
-				const beginTime = new Date()
+				//const beginTime = new Date()
 				// const id = setInterval(function(){
 				// 	// 已经用掉的时间
 				// 	const t = new Date() - beginTime;
@@ -66,26 +85,57 @@
 				// 
 			
 				// 用 requestAnimationFrame来替代 setinterval
-			
+				
+				const beginTime = performance.now()
 				const requestId = requestAnimationFrame(function animate(time){
 					//已经用掉的时间
-					const t = Date.now() - beginTime
+					const t = time - beginTime
 					// 当前的进度
-					let per = t / duration
-
-					if(per >= 1) {
-						per = 1
+					let process = t / duration
+				
+					if(process >= 1) {
+						process = 1;
 						cancelAnimationFrame(requestId);
 					}
+
+					// (加入动画)
+					// 匀速运动
+					//let per = easing.linear(process)
+					// 加速运动 
+					// 2次幂
+					//let per = easing.quad(process)
+					// 3次幂
+					//let per = easing.cubic(process)
+					//4次幂
+					//let per = easing.quart(process)
+					//5次幂
+					//let per = easing.quint(process)
+					//圆弧
+					//let per = easing.circ(process)
+					//反弹
+					//let per = easing.back(process)
+					//弹跳\
+					//let per = easing.bounce(process)
+					//
+					
+					// easeOut
+					//let per = easing.easeOut(easing.bounce)(process)
+
+					// easeIntOUt
+					let per = easing.easeInOut(easing.bounce)(process)
+				
+					// 伸缩
+					//let per = easing.elastic(process)
 					moveNode.style.left = `${per*distance}px`
 					requestAnimationFrame(animate)
-				
 				})
-
-
 			})
 
 		})
+
+
+
+		console.log(+Date.now(),performance.now())
 		
 	</script>
 </head>

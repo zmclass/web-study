@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>改变宽度</title>
+	<style>
+		#div {
+			width: 1%;
+			height: 10px;
+			background:green;
+			border-radius: 3px;
+
+		}
+	</style>
+	<script src = "animate.js"></script>
+	<script src = "easing.js"></script>
+</head>
+<body>
+
+	<div id = "div"></div>
+
+
+	<script>
+		div.addEventListener("click",function(e){
+
+			animate(3000,function(per){
+
+				div.style.width = `${800 * per}px`
+
+			},
+			easing.easeInOut(easing.elastic)
+
+			)
+
+		})
+	</script>
+	
+</body>
+</html>

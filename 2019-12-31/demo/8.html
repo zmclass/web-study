@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>transtionend事件</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background: red;
+			transition: background 2s;
+		}
+	/* 	css 控制 */
+		div:hover {
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div id = "div"></div>
+	<script>
+		
+		div.addEventListener("click",function(){
+
+			div.style.background = "green"
+
+		})
+
+
+		
+		div.addEventListener("transitionend",function(e){
+
+			console.log("动画完成")
+			console.log(e.propertyName)
+			console.log(e.elapsedTime)
+
+		})
+
+
+
+
+
+	</script>
+</body>
+</html>

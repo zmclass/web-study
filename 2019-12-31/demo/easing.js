@@ -38,6 +38,7 @@ const easing = {
 	  return Math.pow(2, 10 * (timeFraction- 1)) * Math.cos(20 * Math.PI * x / 3 * timeFraction)
 	},
 	
+	//
 	easeOut(timing) {
 	  	return function(timeFraction) {
 	    	return 1 - timing(1 - timeFraction)
@@ -45,8 +46,8 @@ const easing = {
 		}
 	},
 	easeInOut(timing) {
-	  return function(per) {
-	    if (per < .5)
+	  return function(timeFraction) {
+	    if (timeFraction < .5)
 	      return timing(2 * timeFraction) / 2;
 	    else
 	      return (2 - timing(2 * (1 - timeFraction))) / 2;

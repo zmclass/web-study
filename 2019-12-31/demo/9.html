@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animation 暂停/开始动画</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background: red;
+	
+		}
+	
+		@keyframes test {
+			
+			30% {
+				background: blue;
+			}
+			to {
+
+				background: green;
+			}
+		}
+	
+	</style>
+</head>
+<body>
+	<div id="div"></div>
+
+	<button id = "btn">开始/停止</button>
+
+	<script>
+		div.addEventListener("click",function(e){
+			// 动态插入一帧
+			document.querySelector("style").sheet.cssRules[1].appendRule("50%{background:orange}")
+
+			div.style.animation = "test 10s "
+
+		})
+
+		let state = false
+		btn.addEventListener("click",function(e){
+
+			if(!state){
+				div.style.animationPlayState = "paused"
+			}else {
+
+				div.style.animationPlayState = "running"
+			}
+			state = !state
+
+		})
+
+
+
+
+	</script>
+	
+</body>
+</html>

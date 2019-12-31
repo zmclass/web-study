@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>step 动画</title>
+</head>
+<body>
+	<div id= "digit">
+		<div id= "stripe">0123456789</div>
+	</div>
+	<style>
+		#digit {
+			width: .5em;
+			overflow: hidden;
+			font: 32px monospace;
+			cursor: pointer; 
+
+		}
+		#stripe {
+			display: inline-block
+		}
+		#stripe.animate {
+			transform:translateX(-90%);
+			transition-property: transform;
+			transition-duration: 9s;
+			transition-timing-function: steps(9, end);
+		}
+	</style>
+	<script>
+		digit.onclick = function() {
+			stripe.classList.add("animate");
+		}
+	</script>
+
+</body>
+</html>
