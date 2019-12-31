@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>让div动起来</title>
+	<title>让div动起来(累加)</title>
 	<style>
 		#runway{
 			position: relative;
@@ -13,17 +13,26 @@
 		}
 		#move {
 	        position: absolute;
-	        left: 0px;
+	        left: 0;
 	        width: 20px;
 	        height: 20px;
 	        background: #a9ea00;
 		}
 
 	</style>
-
-
-
 	<script>
+
+
+	
+
+
+
+
+
+
+
+/**
+
 		document.addEventListener("DOMContentLoaded",function(e){
 			// // 获取运动轨道
 			const runwayNode = document.querySelector("#runway");
@@ -32,9 +41,9 @@
 			// 获取总的运动距离
 			const distance = runwayNode.offsetWidth - moveNode.offsetWidth;
 			// 获取运动开始的位置
-			let begin = parseInt(getComputedStyle(moveNode).left);
+			let begin = parseInt(getComputedStyle(moveNode).left); 0
 			// 结束位置
-			const end = begin + distance;
+			const end = begin + distance; 
 			// 定义 fps
 			const fps = 30;
 			// 每相隔多少ms刷新一次
@@ -65,12 +74,48 @@
 			})
 
 		})
-		
+	*/	
 	</script>
 </head>
 <body>
 	<div id = "runway">
 		<div id="move"></div>
 	</div>
+
+
+
+	<script>
+		// 获取运动轨道
+		const runway = document.querySelector("#runway");
+		// 获取运动的对象
+		const move = document.querySelector("#move");
+		// 运动的距离
+		const distance = runway.offsetWidth - move.offsetWidth;
+		// 开始位置
+		let begin = parseInt(getComputedStyle(move).left);
+		//动画完成的时间
+		const duration = 2000;
+		// 定义fps
+		const fps = 30;
+		// 更新一张画面 需要多长时间
+		const interval = 1000 / 30;
+		// 2000ms 需要更新多少画面
+		const times = 2000 / interval;
+		// 每次移动的距离
+		const step = distance / times;
+
+		move.addEventListener("click",function(e){
+			const timerId = setInterval(function(){
+				if(begin >= distance){
+					begin = distance
+					clearInterval(timerId)
+				}else{
+					begin+=step
+				}
+				move.style.left = `${begin}px`
+			},interval)
+		})
+
+	</script>
 </body>
 </html>

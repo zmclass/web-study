@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装函数</title>
+	<style>
+		#runway{
+			position: relative;
+			width: 800px;
+			height:20px;
+			background: #e8e8ff;
+		}
+		#move {
+	        position: absolute;
+	        left: 5px;
+	        width: 20px;
+	        height: 20px;
+	        background: #a9ea00;
+		}
+
+	</style>
+
+	<script>
+
+		/**
+		 * 动画方法
+		 * @param  {[type]}   duration [description]
+		 * @param  {Function} callback [description]
+		 * @return {[type]}            [description]
+		 */
+		// function animate(start,change,duration,callback){
+
+		// 	const beginTime = new Date();
+		// 	change = change - start;
+
+		// 	const timer = setInterval(function(){
+		// 		// 已过的时间
+		// 		const passTime = new Date() - beginTime
+		// 		// 当前完成的进度
+		// 		let per = passTime / duration;
+
+		// 		if(per >= 1){
+		// 			per = 1;
+		// 			clearInterval(timer);
+		// 		}
+		// 		const pass = change * per
+
+		// 		callback(pass)
+
+		// 	})
+
+		// }
+		// 
+
+		// function animate(start,change,duration,callback,timing = (timeFraction) => timeFraction){
+
+		// 	const beginTime = new Date();
+		// 	change = change - start;
+
+
+		// 	let requestId = requestAnimationFrame(function animate(passtime){
+		// 		// 已过的时间
+		// 		const passTime = new Date() - beginTime
+		// 		// 当前完成的进度
+		// 		let per = passTime / duration;
+		// 		console.log(per)
+		// 		if(per >= 1){
+		// 			per = 1;
+		// 			 cancelAnimationFrame(requestId);
+		// 		}
+		// 		const pass = start + change * timing(per)
+		// 		callback(pass)
+		// 		if(per < 1) {
+		// 			requestAnimationFrame(animate)
+		// 		}
+		// 	});
+
+			
+
+		// }
+
+
+
+
+		document.addEventListener("DOMContentLoaded",function(e){
+			// // 获取运动轨道
+			const runwayNode = document.querySelector("#runway");
+			// 获取运动dom节点 
+			//const moveNode =  document.querySelector("#move");
+			// 获取总的运动距离
+			//const distance = runwayNode.offsetWidth - moveNode.offsetWidth;
+			// 获取运动开始的位置
+			//let begin = parseInt(getComputedStyle(moveNode).left);
+			// 结束位置
+			//const end = begin + distance;
+			// 定义 fps
+			const fps = 30;
+			// 每相隔多少ms刷新一次
+			const interval = 1000 / fps;
+			// 动画完成时间
+			const duration = 2000
+			// 总共刷新多少次画面
+			const times = duration / interval
+			// 每次 移动多少距离
+			//const step = distance / times
+
+			btn.addEventListener("click",function(e){
+
+				animate(0,400,duration,(pass) =>{
+
+					this.style.height = pass+"px"
+
+					animate(400,0,duration,(pass) => {
+
+						this.style.height = pass+"px"
+					})
+
+					
+				})
+			})
+
+		})
+		
+	</script>
+</head>
+<body>
+	<div id = "runway">
+		<!-- <div id="move"></div> -->
+	</div>
+	<button id = "btn">开始</button>
+</body>
+</html>

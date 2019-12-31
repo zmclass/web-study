@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>让div动起来</title>
+	<title>让div动起来(进度)</title>
 	<style>
 		#runway{
 			position: relative;
 			width: 800px;
 			height: 20px;
 			background: #e8e8ff;
-			
+
+			left: 100px;
 		}
+		
 		#move {
 	        position: absolute;
 	        left: 0px;
@@ -21,11 +23,11 @@
 
 	</style>
 
-
-
 	<script>
+
+
 		document.addEventListener("DOMContentLoaded",function(e){
-			// // 获取运动轨道
+			// 获取运动轨道
 			const runwayNode = document.querySelector("#runway");
 			// 获取运动dom节点 
 			const moveNode =  document.querySelector("#move");
@@ -34,7 +36,7 @@
 			// 获取运动开始的位置
 			let begin = parseInt(getComputedStyle(moveNode).left);
 			// 结束位置
-			const end = begin + distance;
+			const end = begin+ distance;
 			// 定义 fps
 			const fps = 30;
 			// 每相隔多少ms刷新一次
@@ -48,18 +50,37 @@
 
 			moveNode.addEventListener("click",function(e){
 
-				const id = setInterval(function(){
+				const beginTime = new Date()
+				// const id = setInterval(function(){
+				// 	// 已经用掉的时间
+				// 	const t = new Date() - beginTime;
+				// 	// 当前的进度
+				// 	let per = t / duration
 
-					if(begin >= distance){
+				// 	if(per >= 1) {
+				// 		per = 1
+				// 		clearInterval(id);
+				// 	}
+				// 	moveNode.style.left = `${per*distance}px`
+				// },interval)
+				// 
+			
+				// 用 requestAnimationFrame来替代 setinterval
+			
+				const requestId = requestAnimationFrame(function animate(time){
+					//已经用掉的时间
+					const t = Date.now() - beginTime
+					// 当前的进度
+					let per = t / duration
 
-						moveNode.style.left = `${end}px`
-						clearInterval(id);
-					}else{
-						begin+=step
-						moveNode.style.left = `${begin}px`
+					if(per >= 1) {
+						per = 1
+						cancelAnimationFrame(requestId);
 					}
-
-				},interval)
+					moveNode.style.left = `${per*distance}px`
+					requestAnimationFrame(animate)
+				
+				})
 
 
 			})
