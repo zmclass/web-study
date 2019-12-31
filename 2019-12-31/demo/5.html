@@ -20,11 +20,27 @@
 	<div id = "div"></div>
 
 	<script>
+		let state = false;
+		let changeHeight = 200;
 		btn.addEventListener("click",function(e){
 			animate(1000,function(per){
-				div.style.height = `${200 * per}px`
+				let height = div.offsetHeight;
+				if(!state) {
+					height = changeHeight*per
+
+				}else {
+			
+					height = changeHeight + (- changeHeight * per)
+				}
+
+				div.style.height = `${height}px`
+
+				if(per === 1){
+					state = !state
+				}
+				
 			},
-			easing.easeOut(easing.circ)
+			// easing.easeOut(easing.circ)
 
 			)
 

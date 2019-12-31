@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<script src = "animate.js"></script>
+	<script src = "easing.js"></script>
+
+	<style>
+		#ball {
+			position: absolute;
+			top: 0;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: blue;
+
+		}
+
+		#runway {
+			width: 800px;
+			height: 500px;
+			border-bottom: 6px #000 solid;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+
+	<div id = "runway">
+		
+		<div id="ball"></div>
+
+
+	</div>
+
+	<script>
+
+		const distance = runway.offsetHeight - ball.offsetHeight;
+
+		console.log(distance)
+		
+		ball.addEventListener("click",function(e){
+			animate(3000,function(per){
+
+
+				ball.style.top = `${distance*per}px`
+
+			},easing.easeOut(easing.bounce))
+		})
+
+	
+	
+
+	</script>
+	
+</body>
+</html>
