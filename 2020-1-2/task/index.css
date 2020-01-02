@@ -1,0 +1,47 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.slide-list {
+	position: relative;
+	width: 800px;
+	height: 530px;
+}
+ul{
+	list-style: none;
+}
+.slide-list__item{
+	position: absolute;
+	opacity: 0;
+/* 	添加动画 */
+	transition:opacity 1s
+}
+.slide-list__item--selected{
+	opacity: 1;
+	/* 	添加动画 */
+	transition:opacity 1s
+}
+
+/* 小圆点样式 */
+.slide-list__controller{
+
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+
+}
+.slide-list__controller-button {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background: white;
+}
+.slide-list__controller-button__selected {
+	background: orange;
+}
+
+
+
