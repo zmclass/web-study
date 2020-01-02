@@ -43,5 +43,26 @@ ul{
 	background: orange;
 }
 
+.slide-list__next,.slide-list__previous {
+	position:absolute;
+	top: 50%;
+	width: 50px;
+	height: 50px;
+	background: rgba(0,0,0,0.5);
+	transform: translateY(-50%);
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	text-decoration: none
+}
+.slide-list__next {
+	right: 0;
+}
+.slide-list__previous::before {
+	content: "<";
+}
+.slide-list__next::before {
+	content: ">";
+}
 
 

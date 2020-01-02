@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<link rel="stylesheet" href="./index.css">
+
+	<script src="./index-2.js"></script>
+</head>
+<body>
+<div class = "slide-list" id = "my-slide">
+	<ul>
+		<li class="slide-list__item slide-list__item--selected"><img src = "./image/1.jpeg"></li>
+		<li class="slide-list__item"><img src = "./image/3.jpeg"></li>
+		<li class="slide-list__item"><img src = "./image/5.jpeg"></li>
+		<li class="slide-list__item"><img src = "./image/8.jpeg"></li>
+	</ul>
+	
+	<!--小圆点-->
+	<div class = "slide-list__controller">
+		<span class = "slide-list__controller-button slide-list__controller-button__selected"></span>
+		<span class = "slide-list__controller-button"></span>
+		<span class = "slide-list__controller-button"></span>
+		<span class = "slide-list__controller-button"></span>
+	</div>
+	<!--下一张-->
+	<a href="" class = "slide-list__next"></a>
+	<!--上一张-->
+	<a href="" class = "slide-list__previous"></a>
+</div>
+
+
+
+<script>
+
+	let slide = new Slide("my-slide",2000)
+
+	slide.autoStart()
+	
+
+
+</script>
+
+	
+</body>
+</html>
