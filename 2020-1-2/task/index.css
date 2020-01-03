@@ -2,7 +2,6 @@
 	margin: 0;
 	padding: 0;
 }
-
 .slide-list {
 	position: relative;
 	width: 800px;
@@ -24,7 +23,7 @@ ul{
 }
 
 /* 小圆点样式 */
-.slide-list__controller{
+.slide-list__controller,.slide-list__controller1{
 
 	position: absolute;
 	bottom: 20px;
@@ -32,14 +31,17 @@ ul{
 	transform: translateX(-50%);
 
 }
-.slide-list__controller-button {
+.slide-list__controller1 {
+	top: 20px;
+}
+.slide-list__controller-button,.slide-list__controller-button1 {
 	display: inline-block;
 	width: 15px;
 	height: 15px;
 	border-radius: 50%;
 	background: white;
 }
-.slide-list__controller-button__selected {
+.slide-list__controller-button__selected,.slide-list__controller-button__selected1 {
 	background: orange;
 }
 

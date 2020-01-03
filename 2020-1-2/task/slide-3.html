@@ -15,7 +15,7 @@
 		<li class="slide-list__item"><img src = "./image/5.jpeg"></li>
 		<li class="slide-list__item"><img src = "./image/8.jpeg"></li>
 	</ul>
-	
+
 	<!--小圆点-->
 	<div class = "slide-list__controller">
 		<span class = "slide-list__controller-button slide-list__controller-button__selected"></span>
@@ -34,12 +34,12 @@
 <script>
 
 	let slide = new Slide("my-slide",2000)
-	slide.registerPlugins(pluginController,previous,next)
+	slide.registerPlugins(pnColugintroller,previous,next)
 
 	slide.autoStart()
 	function pluginController(slider){
 
-		slider.buttons = slider.container.querySelectorAll(".slide-list__controller-button");
+		const buttons = slider.container.querySelectorAll(".slide-list__controller-button");
 		const controller = slider.container.querySelector(".slide-list__controller");
 		controller.addEventListener("mouseover",(e)=>{
 			const nextItemIndex = getControllerIndex(e.target);
@@ -57,9 +57,19 @@
 		})
 		function getControllerIndex(target){
 			const currentItem = target;
-			const nextItemIndex = Array.from(slider.buttons).indexOf(currentItem);
+			const nextItemIndex = Array.from(buttons).indexOf(currentItem);
 			return nextItemIndex
-		 } 
+		} 
+
+		slider.addSlideListener(function(nextIndex){
+			const currentButton = slider.container.querySelector(".slide-list__controller-button__selected")
+			const nextButton = buttons[nextIndex];
+
+			//取消 当前小圆点的状态 
+			currentButton.classList.remove("slide-list__controller-button__selected")
+			// 给下个小圆点 添加状态
+			nextButton.classList.add("slide-list__controller-button__selected") 
+		})
 	}
 	function next(slider){
 		// 获取下一张按钮

@@ -8,84 +8,141 @@
 	<script src="./index-4.js"></script>
 </head>
 <body>
-<div class = "slide-list" id = "my-slide">
-<!-- 	<ul>
-		<li class="slide-list__item slide-list__item--selected"><img src = "./image/1.jpeg"></li>
-		<li class="slide-list__item"><img src = "./image/3.jpeg"></li>
-		<li class="slide-list__item"><img src = "./image/5.jpeg"></li>
-		<li class="slide-list__item"><img src = "./image/8.jpeg"></li>
-	</ul> -->
-	
-	<!--小圆点-->
-<!-- 	<div class = "slide-list__controller">
-		<span class = "slide-list__controller-button slide-list__controller-button__selected"></span>
-		<span class = "slide-list__controller-button"></span>
-		<span class = "slide-list__controller-button"></span>
-		<span class = "slide-list__controller-button"></span>
-	</div> -->
-	<!--下一张-->
-<!-- 	<a href="" class = "slide-list__next"></a> -->
-	<!--上一张-->
-	<!-- <a href="" class = "slide-list__previous"></a> -->
-</div>
 
 
+
+<div class = "slide-list" id = "my-slide"></div>
+
+
+<div class = "slide-list" id = "my-slide-1"></div>
 
 <script>
+	const imgs = [
+		"./image/1.jpeg",
+		"./image/3.jpeg",
+		"./image/5.jpeg",
+		"./image/8.jpeg",
+	]
+	let slide = new Slide("my-slide",{
+		imgs,
+		interval:2000
+	})
+	const pluginController = {
+		render(imgs){
+			const div = document.createElement("div")
+			div.classList.add("slide-list__controller")
 
-	let slide = new Slide("my-slide",2000)
-	slide.registerPlugins(pluginController,previous,next)
+			imgs.forEach((img,index) => {
+
+				const span = document.createElement("span")
+				span.classList.add("slide-list__controller-button")
+				if(index === 0) {
+
+					span.classList.add("slide-list__controller-button__selected")
+
+				}
+				div.appendChild(span)
+			})
+			return div
+		},
+
+		handler(slider){
+			const buttons = slider.container.querySelectorAll(".slide-list__controller-button");
+			const controller = slider.container.querySelector(".slide-list__controller");
+			controller.addEventListener("mouseover",(e)=>{
+				const nextItemIndex = getControllerIndex(e.target);
+				if(nextItemIndex > -1){
+					// 停止轮播
+					slider.stop();
+					slider.slideTo(nextItemIndex);
+				}
+			})
+			controller.addEventListener("mouseout",(e)=>{
+				const nextItemIndex = getControllerIndex(e.target);
+				if(nextItemIndex > -1){
+					slider.autoStart();
+				}
+			})
+			function getControllerIndex(target){
+				const currentItem = target;
+				const nextItemIndex = Array.from(buttons).indexOf(currentItem);
+				return nextItemIndex
+			}
+			slider.addSlideListener(function(nextIndex){
+				const currentButton = slider.container.querySelector(".slide-list__controller-button__selected")
+				const nextButton = buttons[nextIndex];
+
+				//取消 当前小圆点的状态 
+				currentButton.classList.remove("slide-list__controller-button__selected")
+				// 给下个小圆点 添加状态
+				nextButton.classList.add("slide-list__controller-button__selected") 
+			})
+		}
+	}
+
+	slide.registerPlugins(pluginController)
 
 	slide.autoStart()
-	function pluginController(slider){
 
-		slider.buttons = slider.container.querySelectorAll(".slide-list__controller-button");
-		const controller = slider.container.querySelector(".slide-list__controller");
-		controller.addEventListener("mouseover",(e)=>{
-			const nextItemIndex = getControllerIndex(e.target);
-			if(nextItemIndex > -1){
-				// 停止轮播
-				slider.stop();
-				slider.slideTo(nextItemIndex);
-			}
-		})
-		controller.addEventListener("mouseout",(e)=>{
-			const nextItemIndex = getControllerIndex(e.target);
-			if(nextItemIndex > -1){
-				slider.autoStart();
-			}
-		})
-		function getControllerIndex(target){
-			const currentItem = target;
-			const nextItemIndex = Array.from(slider.buttons).indexOf(currentItem);
-			return nextItemIndex
-		 } 
+
+	const imgs1 = ["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578030460913&di=919433f55007cb2f2fc1a89a9d9a7fa6&imgtype=0&src=http%3A%2F%2Fblog.mydrivers.com%2Fimg%2F20170928%2F14adc4b06d754be8a3112f6498b20145.jpg","https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578030538962&di=c0adfd14e36fa0869693b3a12f404b3a&imgtype=0&src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fitem%2F201512%2F29%2F20151229114315_TNwtx.thumb.700_0.jpeg"]
+
+	let slide1 = new Slide("my-slide-1",{
+		imgs:imgs1,
+		interval:2000
+	})
+
+	const nextPlugs = {
+
+		render(){
+
+			const div = document.createElement("div");
+			div.classList.add("buttons")
+			div.classList.add("next")
+			div.textContent = "下一张"
+			return div
+
+		},
+		handler(slider){
+
+			const next = slider.container.querySelector(".next")
+
+			next.addEventListener("click",(e)=>{
+
+				console.log(11111)
+				slider.next()
+			})
+
+
+		}
+
+
+
+
 	}
-	// function next(slider){
-	// 	// 获取下一张按钮
-	// 	const nextButton =  slider.container.querySelector(".slide-list__next");
-	// 	// 给下一张按钮绑定事件
-	// 	nextButton.addEventListener("click",(e)=>{
-	// 		slider.stop()
-	// 		slider.next()
-	// 		slider.autoStart()
-	// 		e.preventDefault()
-	// 	})
-	// }
-	
-	// function previous(slider){
-	// 	const previousButton =  slider.container.querySelector(".slide-list__previous");
-	// 	previousButton.addEventListener("click",(e)=>{
-	// 		slider.stop();
-	// 		slider.previous();
-	// 		slider.autoStart();
-	// 		e.preventDefault();
-	// 	})
 
-	// }
+	slide1.registerPlugins(nextPlugs)
+	slide1.autoStart()
+
+
+
+
 
 
 </script>
+
+<style>
+	.buttons {
+
+		display: inline-block;
+		position: absolute;
+		width: 100px;
+		padding: 30px;
+		background: #ff0000;
+	}
+
+
+</style>
 
 	
 </body>

@@ -1,5 +1,5 @@
-class Slide{
 
+class Slide{
 	constructor(id,interval = 2000){
 		this.container = document.getElementById(id);
 		this.interval = interval;

@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded",function(e){
 	const controller = container.querySelector(".slide-list__controller");
 	// 获取 小圆点集合
 	const buttons = container.querySelectorAll(".slide-list__controller-button");
-
 	// 获取上一张按钮
 	const previousButton =  container.querySelector(".slide-list__previous")
 	// 获取下一张按钮
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded",function(e){
 	let timer = null;
 	// 多长时间轮播一张图片
 	const interval = 2000;
-
 	// 鼠标经过事件停止自动轮播
 	controller.addEventListener("mouseover",(e)=>{
 		const nextItemIndex = getControllerIndex(e.target)
@@ -24,11 +22,8 @@ document.addEventListener("DOMContentLoaded",function(e){
 			// 停止轮播
 			stop()
 			slideTo(nextItemIndex)
-
 		}
-
 	})
-
 	// 鼠标离开时候启动 自动轮播
 	controller.addEventListener("mouseout",(e)=>{
 		const nextItemIndex = getControllerIndex(e.target)
@@ -58,9 +53,6 @@ document.addEventListener("DOMContentLoaded",function(e){
 		autoStart()
 		e.preventDefault()
 	})
-
-
-
 	// 获取当前的图片dom节点
 	function getCurrentItem(){
 		return container.querySelector(".slide-list__item--selected")
