@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+<!-- 	<video  controls src = "http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4" poster = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578043140444&di=382f498a5e04480362e9e177d86ae4c4&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn06%2F277%2Fw2048h3029%2F20180523%2Fd2a0-hawmauc2025188.jpg"> -->
+	   <!--  <source src="test.mp4" type="video/mp4">
+	     <track default="true" kind="subtitles" srclang="ar" src="zimu.vtt" label="ar">-->
+<!-- 	    您的浏览器不支持内嵌视频  -->
+	<!-- </video> -->
+
+	
+	<!-- video 兼容 -->
+
+	<video controls id = "video" muted>
+		<source src = "test.ogg">
+		<source src = "http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4">
+
+		<!--添加字幕-->
+		<track defalut = "true" kind = "subtitles" srclang = "zh" src = "zimu.vtt" label = "中文">
+		<track defalut = "false" kind = "subtitles" srclang = "en" src = "zimu.vtt" label = "英文">
+		您的浏览器不支持内嵌视频
+	</video>
+
+	<script>
+		
+		setTimeout(()=>{
+			video.play()
+
+
+		},2000)
+
+		setTimeout(()=>{
+			console.log(`当前播放时间${video.currentTime}`)
+			console.log(`视频时长${video.duration}`)
+			console.log(`视频是否播放完毕${video.ended}`)
+
+			console.log(`视频默认的播放速度${video.defaultPlaybackRate}`)
+			video.playbackRate = 2
+			console.log(`视频当前的播放速度${video.playbackRate}`)
+			// video.currentTime = 7
+			video.pause()
+	
+		},5000)
+
+		// 绑定事件
+		video.addEventListener("canplay",function(e){
+
+			console.log("视频可以播放")
+
+		})
+
+
+		video.addEventListener("pause",function(e){
+
+			console.log("视频已暂停")
+
+		})	
+	
+		video.addEventListener("seeked",function(e){
+
+			console.log("视频位置改变")
+
+		})	
+
+	</script>
+
+
+
+
+	
+</body>
+</html>
