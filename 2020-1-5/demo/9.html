@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制图片</title>
+	<style>
+		#c {
+			border: 1px orange dashed;
+
+			position:absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+	/* 		width: 500px;
+			height: 500px; */
+		}
+	</style>
+</head>
+<body>
+	<canvas id = "c" width = "500" height = "500"></canvas>
+
+	<script>
+		// 获取 canvas 对象
+		const cvs = document.getElementById("c");
+		// 获取 绘制环境上下文对象
+		// const image = document.createElement("img");
+		// image.src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578207162705&di=6e929b692d0006ba7cb4465f774c31b1&imgtype=0&src=http%3A%2F%2Fimage11.m1905.cn%2Fuploadfile%2F2014%2F0626%2F20140626102415679997.jpg"
+		
+		const image = new Image();
+		image.src = "https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=c088ec926fd9f2d3201123e991d7ed2e/810a19d8bc3eb135888664c8ab1ea8d3fd1f4404.jpg"
+		const context = cvs.getContext("2d")
+		//context.drawImage(image,100,100,100,100)
+		image.onload = function(){
+			context.drawImage(image,100,100,100,100)
+		}
+		context.fillText("贾跃亭",120,80)
+		
+	
+	</script>
+	
+</body>
+</html>

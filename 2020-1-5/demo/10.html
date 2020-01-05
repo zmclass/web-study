@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#c {
+			border: 1px orange dashed;
+
+			position:absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+	/* 		width: 500px;
+			height: 500px; */
+		}
+	</style>
+</head>
+<body>
+	<canvas id = "c" width = "500" height = "500"></canvas>
+
+	<script>
+		// 获取 canvas 对象
+		const cvs = document.getElementById("c");
+		// 获取 绘制环境上下文对象
+		const context = cvs.getContext("2d");
+
+		context.strokeStyle = "red"
+		context.moveTo(150,50)
+		context.lineTo(300,50)
+		context.lineTo(80,100)
+		// context.lineTo(150,50)
+		context.closePath()
+		context.stroke()
+
+		context.beginPath()
+		context.strokeStyle = "blue"
+		context.moveTo(150,100)
+		context.lineTo(300,100)
+		context.lineTo(80,150)
+		// context.lineTo(150,50)
+		context.closePath()
+		context.stroke()
+		
+	
+	</script>
+	
+</body>
+</html>

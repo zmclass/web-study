@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制文本</title>
+	<style>
+		#c {
+			border: 1px orange dashed;
+
+			position:absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+	/* 		width: 500px;
+			height: 500px; */
+		}
+	</style>
+</head>
+<body>
+	<canvas id = "c" width = "500" height = "500"></canvas>
+
+	<script>
+		// 获取 canvas 对象
+		const cvs = document.getElementById("c");
+		// 获取 绘制环境上下文对象
+		const context = cvs.getContext("2d")
+		context.font = "bold 30px 黑体"
+		context.textAlgin = "center"
+		context.fillText("追梦课堂",50,100)
+		context.strokeText("前端课堂",50,200)
+		// 文字居中显示
+		console.log(context.measureText("前端课堂"))
+		// context.strokeText("临汾市",cvs.width/2 - context.measureText("前端课堂").width/2,300)
+	
+	</script>
+	
+</body>
+</html>

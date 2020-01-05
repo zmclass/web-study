@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制矩形</title>
+	<style>
+		#c {
+			border: 1px orange dashed;
+
+			position:absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+	/* 		width: 500px;
+			height: 500px; */
+		}
+	</style>
+</head>
+<body>
+
+	<canvas id = "c" width = "500" height = "500"></canvas>
+
+
+	<script>
+		// 获取 canvas 对象
+		const cvs = document.getElementById("c");
+		// 获取 绘制环境上下文对象
+		const context = cvs.getContext("2d")
+		//  开始绘制图形
+		//描边矩形
+		context.strokeRect(50,50,100,100)
+		//填充矩形
+		context.fillRect(50,200,100,100)
+
+		// rect方法需要配合使用 stroke()和 fill() 方法使用
+		context.rect(250,50,100,100)
+		context.stroke()
+
+		context.beginPath()
+		context.rect(250,200,100,100)
+		context.fill()
+
+	</script>
+	
+</body>
+</html>

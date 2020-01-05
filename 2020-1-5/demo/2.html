@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>直线绘制</title>
+	<style>
+		#c {
+			border: 1px orange dashed;
+
+			position:absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+	/* 		width: 500px;
+			height: 500px; */
+		}
+	</style>
+</head>
+<body>
+
+	<canvas id = "c" width = "500" height = "500"></canvas>
+
+
+	<script>
+		// 获取 canvas 对象
+		const cvs = document.getElementById("c");
+		// 获取 绘制环境上下文对象
+		const context = cvs.getContext("2d")
+		//  开始绘制图形
+		context.moveTo(50,50)
+		context.lineTo(200,50)
+		context.stroke()
+
+		context.moveTo(50,100)
+		context.lineTo(200,100)
+		context.stroke()
+
+
+		context.moveTo(50,200)
+		context.lineTo(200,200)
+		context.lineTo(200,300)
+		context.lineTo(50,300)
+		context.lineTo(50,200)
+		context.stroke()
+
+		context.beginPath()
+		context.moveTo(300,200)
+		context.lineTo(400,200)
+		context.lineTo(400,300)
+
+		//context.stroke()
+		context.fill()
+
+
+	</script>
+	
+</body>
+</html>

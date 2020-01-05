@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>描边样式 和 填充样式</title>
+	<style>
+		#c {
+			border: 1px orange dashed;
+
+			position:absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+	/* 		width: 500px;
+			height: 500px; */
+		}
+	</style>
+</head>
+<body>
+	<canvas id = "c" width = "500" height = "500"></canvas>
+
+	<script>
+		// 获取 canvas 对象
+		const cvs = document.getElementById("c");
+		// 获取 绘制环境上下文对象
+		const context = cvs.getContext("2d")
+	
+
+		context.strokeStyle = "red"
+		context.rect(250,50,100,100)
+		context.stroke()
+
+		context.beginPath()
+		context.fillStyle = "red"
+		context.rect(250,200,100,100)
+		context.fill()
+
+
+		context.beginPath()
+		context.strokeStyle = "red"
+		context.fillStyle = "#ffe8e8"
+		//描边矩形
+		context.strokeRect(50,50,100,100)
+		//填充矩形
+		context.fillRect(50,50,100,100)
+
+
+	</script>
+	
+</body>
+</html>
