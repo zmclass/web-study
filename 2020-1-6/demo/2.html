@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>填充背景图</title>
+	<style>
+		#c {
+			border: 1px red solid;
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+
+	<canvas id = "c" width = "500" height = "600"></canvas>
+
+	<script>
+		
+		const cvs = document.getElementById("c");
+		const context = cvs.getContext("2d");
+		const image = new Image();
+		image.src = "./1.png"
+
+		// context.fillStyle = "orange"
+		// context.fillRect(0,0,200,200)
+
+
+
+		image.addEventListener("load",(e) => {
+			
+			const pattern = context.createPattern(image,"")
+			context.fillStyle = pattern
+
+			context.fillRect(0,0,200,200)
+
+		})
+		
+
+
+	</script>
+	
+</body>
+</html>

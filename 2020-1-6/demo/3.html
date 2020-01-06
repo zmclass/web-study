@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>裁切图片</title>
+	<style>
+		#c {
+			border: 1px red solid;
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+
+	<canvas id = "c" width = "500" height = "600"></canvas>
+
+	<script>
+		
+		const cvs = document.getElementById("c");
+		const context = cvs.getContext("2d");
+		// 第一步绘制基本图形(不支持 fillRect 和 strokeRect)
+		// 圆形
+		//context.arc(100,100,50,0,360*Math.PI/180)
+		//context.strokeStyle = "orange"
+		//context.stroke()
+		// 矩形
+		context.rect(100,100,200,200)
+		context.stroke()
+	
+		// 第二步使我们基本图形称为裁切区域
+		context.clip()	
+		// 第三步绘制图片
+		const image = new Image();
+		image.src = "./1.jpg"
+
+		image.addEventListener("load",(e) => {
+			
+			context.drawImage(image,50,50,200,200)
+
+		})
+		
+
+
+	</script>
+	
+</body>
+</html>

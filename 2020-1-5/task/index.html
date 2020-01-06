@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>笑脸</title>
+	<style>
+		#c{
+		
+			background: #ddd;
+		}
+	</style>
+</head>
+<body>
+	<canvas id = "c" width = "500" height = "500"></canvas>
+	<script>
+		
+		const c = document.getElementById("c");
+		const context = c.getContext("2d");
+		context.fillStyle = "white"
+		context.arc(c.width/2,c.height/2,100,0,360*Math.PI/180)
+		context.fill()
+		context.beginPath()
+		context.fillStyle = "black"
+		context.arc(c.width/2 - 30,c.height/2 - 30,12,0,360*Math.PI/180)
+		context.fill()
+		context.beginPath()
+		context.fillStyle = "black"
+		context.arc(c.width/2 + 30,c.height/2 - 30,12,0,360*Math.PI/180)
+		context.fill()
+		context.beginPath()
+		context.fillStyle = "red"
+		context.arc(c.width/2,c.height/2+30,30,0,180*Math.PI/180)
+		context.fill()
+		context.beginPath()
+		context.strokeStyle = "pink"
+		context.lineWidth = 10
+		context.moveTo(160,255)
+		context.lineTo(180,255)
+		context.stroke()
+		context.beginPath()
+		context.strokeStyle = "pink"
+		context.lineWidth = 10
+		context.moveTo(340,255)
+		context.lineTo(320,255)
+		context.stroke()
+	</script>
+	
+</body>
+</html>
