@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>径向渐变</title>
+	<style>
+		#c {
+			border: 1px red solid;
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+	<canvas id = "c" width = "600" height = "600"></canvas>
+
+	<script>
+		
+		const cvs = document.getElementById("c");
+		const context = cvs.getContext("2d");
+
+		const radialGradient = context.createRadialGradient(50,100,50,150,100,50)
+		radialGradient.addColorStop(0.2,"orange")
+		
+		radialGradient.addColorStop(1,"green")
+		context.fillStyle = radialGradient
+		context.fillRect(10,10,300,250)
+
+
+
+	</script>
+	
+</body>
+</html>

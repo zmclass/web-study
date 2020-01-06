@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>改变图形的交叉方式</title>
+	<style>
+		#c {
+			border: 1px red solid;
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+
+	
+	
+	<canvas id = "c" width = "600" height = "600"></canvas>
+
+	<script>
+		
+		const cvs = document.getElementById("c");
+		const context = cvs.getContext("2d");
+
+		context.globalCompositeOperation = "screen";
+		context.fillStyle = "red";
+
+		context.fillRect(0,0,150,100)
+
+
+		context.fillStyle = "orange"
+
+		context.fillRect(100,0,150,100)
+
+
+
+
+
+
+		
+	
+
+
+
+	</script>
+	
+</body>
+</html>

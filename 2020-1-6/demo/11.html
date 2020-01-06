@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas状态</title>
+	<style>
+		#c {
+			border: 1px red solid;
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+	<canvas id = "c" width = "600" height = "600"></canvas>
+
+	<script>
+		
+		const cvs = document.getElementById("c");
+		const context = cvs.getContext("2d");
+
+		context.save()
+		context.lineWidth = 10
+		// context.save()
+		context.moveTo(10,10)
+		context.lineTo(100,10)
+		context.stroke()
+
+		context.beginPath();
+		context.lineWidth = 5
+		context.moveTo(10,30)
+		context.lineTo(100,30)
+		context.stroke()
+
+
+
+		context.restore()
+		context.moveTo(10,50)
+		context.lineTo(100,50)
+		context.stroke()
+
+
+
+	</script>
+	
+</body>
+</html>
