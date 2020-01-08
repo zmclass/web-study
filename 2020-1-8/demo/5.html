@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>粒子运动</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#c {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border: 1px orange dashed;
+			background: black;
+		}
+	</style>
+	<script src = "./ball.js"></script>
+</head>
+<body>
+
+	<canvas id = "c" width = "800" height = "600"></canvas>
+
+	<script>
+	    const canvas = document.getElementById("c");
+	    const context = canvas.getContext("2d");
+	    const balls = [];
+
+	    for(let i = 0; i < 50; i++){
+
+	    	const x = canvas.width / 2;
+	    	const y = canvas.height / 2;
+	    	const color = getRandomColor()
+	    	const radius = Math.random() * 12
+	    	const ball = new Ball(x,y,radius,color)
+	    	ball.vx = (Math.random() * 2 - 1) * 3
+	    	ball.vy = (Math.random() * 2 - 1) * 3
+	    	// ball.fill(context)
+
+	    	balls.push(ball)
+
+	    }
+
+
+	    requestAnimationFrame(function frame(){
+
+	    	context.clearRect(0,0,canvas.width,canvas.height)
+
+	    	balls.forEach((ball) => {
+
+	    		if(
+		    		ball.y < - ball.radius || 
+		    		ball.y > canvas.height + ball.radius || 
+		    		ball.x < -ball.radius || 
+		    		ball.x > canvas.width + ball.radius 
+		    	){
+		    		ball.x = canvas.width/2
+		    		ball.y = canvas.height/2
+
+		    	}else{
+		    		ball.x += ball.vx
+		    		ball.y += ball.vy
+		    	}
+
+		    	ball.fill(context)
+
+	    	})
+
+
+
+	    	requestAnimationFrame(frame)
+	    	
+
+	    })
+
+	    function getRandomColor(){
+	    	return `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`
+	    }
+	
+
+
+	</script>
+	
+</body>
+</html>
+	
+</body>
+</html>

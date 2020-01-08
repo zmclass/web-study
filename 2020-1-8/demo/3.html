@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边界环绕</title>
+</head>
+<body>
+
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圆周运动</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#c {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border: 1px orange dashed;
+			background: black;
+		}
+	</style>
+</head>
+<body>
+
+	<canvas id = "c" width = "300" height = "200"></canvas>
+
+	<script>
+	    const canvas = document.getElementById("c");
+	    const context = canvas.getContext("2d");
+
+	    // 定义小球的坐标
+	    const ball = {
+	    	x : 12,
+	    	y : canvas.height/2
+	    }
+
+	    context.fillStyle = "red"
+	    context.arc(ball.x,ball.y,12,0,360*Math.PI / 180)
+		context.fill()
+
+		const v = 3
+
+
+		document.addEventListener("keydown",(e)=>{
+
+			if(e.code === "ArrowUp") {
+				//清除画布
+				context.clearRect(0,0,canvas.width,canvas.height)
+
+				if(ball.y < - 12){
+					console.log("完全超出上边界")
+
+					ball.y = canvas.height - 12
+					
+				}else{
+					ball.y-=v
+				}
+
+				context.beginPath()
+			    context.arc(ball.x,ball.y,12,0,360*Math.PI / 180)
+				context.fill()
+
+
+
+
+
+			}
+			
+			if(e.code === "ArrowDown") {
+				context.clearRect(0,0,canvas.width,canvas.height)
+				
+
+				if(ball.y > canvas.height + 12){
+					console.log("完全超出下边界")
+					ball.y = 12
+
+				}else{
+					ball.y+=v
+				}
+				
+				context.beginPath()
+			    context.arc(ball.x,ball.y,12,0,360*Math.PI / 180)
+				context.fill()
+
+			}
+
+			if(e.code === "ArrowLeft") {
+				context.clearRect(0,0,canvas.width,canvas.height)
+
+				if(ball.x < -12){
+					console.log("完全超出左边界")
+					ball.x = canvas.width - 12
+				}else{
+					ball.x-=v
+				}
+				
+				context.beginPath()
+			    context.arc(ball.x,ball.y,12,0,360*Math.PI / 180)
+				context.fill()
+			}
+
+			if(e.code === "ArrowRight") {
+
+				context.clearRect(0,0,canvas.width,canvas.height)
+
+				if(ball.x > canvas.width + 12 ){
+					console.log("完全超出右边界")
+					ball.x = 12
+				}else{
+					ball.x+=v
+				}
+				
+
+				
+				context.beginPath()
+			    context.arc(ball.x,ball.y,12,0,360*Math.PI / 180)
+				context.fill()
+
+			}
+
+		})
+
+
+	</script>
+	
+</body>
+</html>
+	
+</body>
+</html>

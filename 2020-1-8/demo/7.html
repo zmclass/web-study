@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>外接矩形判定法</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#c {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border: 1px orange dashed;
+			background: black;
+		}
+	</style>
+	<script src = "./ball.js"></script>
+</head>
+<body>
+
+	<canvas id = "c" width = "800" height = "600"></canvas>
+
+	<script>
+	    const canvas = document.getElementById("c");
+	    const context = canvas.getContext("2d");
+	    
+
+	    let vx = 2
+
+	 	const ball1  = new Ball(30,canvas.height / 2,30,getRandomColor())
+	 	
+	 	ball1.fill(context)
+	 	const rect1 = {
+	 		x : ball1.x - ball1.radius,
+	 		y : ball1.y - ball1.radius,
+	 		width: ball1.radius * 2,
+	 		height: ball1.radius *2
+	 	}
+	 	context.beginPath()
+	 	context.strokeStyle = getRandomColor()
+	 	context.strokeRect(rect1.x,rect1.y,rect1.width,rect1.height)
+
+
+
+	 	const ball2 = new Ball(canvas.width - 30,canvas.height / 2,30,getRandomColor())
+	 	
+	 	ball2.fill(context)
+
+		const rect2 = {
+	 		x : ball2.x - ball2.radius,
+	 		y : ball2.y - ball2.radius,
+	 		width: ball2.radius * 2,
+	 		height: ball2.radius *2
+	 	}
+	 	context.beginPath()
+	 	context.strokeStyle = getRandomColor()
+	 	context.strokeRect(rect2.x,rect2.y,rect2.width,rect2.height)
+
+	    requestAnimationFrame(function frame(){
+
+	    	context.clearRect(0,0,canvas.width,canvas.height)
+
+	    	if(checkRect(rect1,rect2)) {
+
+
+	    		vx = -vx
+
+	    	}
+
+
+
+
+	    	ball1.x += vx;
+	    	rect1.x += vx;
+	    	ball1.fill(context);
+	    	context.beginPath()
+	 		context.strokeStyle = "blue"
+	 		context.strokeRect(rect1.x,rect1.y,rect1.width,rect1.height)
+	    	ball2.x += (-vx);
+	    	rect2.x += (-vx);
+	    	context.beginPath()
+	 		context.strokeStyle = "green"
+	 		context.strokeRect(rect2.x,rect2.y,rect2.width,rect2.height)
+	 		ball2.fill(context)
+
+	    	requestAnimationFrame(frame)
+	    	
+
+	    })
+
+
+   		// 矩形碰撞检测
+	    function checkRect(rect1,rect2){
+			return !(
+
+					rect1.x + rect1.width < rect2.x ||
+					rect2.x + rect2.width < rect1.x ||
+					rect1.y + rect1.height < rect2.y ||
+					rect2.y + rect2.height < rect1.y
+				)
+		}
+
+	    function getRandomColor(){
+	    	return `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`
+	    }
+	
+
+
+	</script>
+	
+</body>
+</html>
+	
+</body>
+</html>

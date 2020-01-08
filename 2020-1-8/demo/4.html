@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边界生成</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#c {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border: 1px orange dashed;
+			background: black;
+		}
+	</style>
+</head>
+<body>
+
+	<canvas id = "c" width = "800" height = "600"></canvas>
+
+	<script>
+	    const canvas = document.getElementById("c");
+	    const context = canvas.getContext("2d");
+
+	    // 定义小球的坐标
+	    const ball = {
+	    	x : canvas.width/2,
+	    	y : canvas.height/2
+	    }
+
+	    context.fillStyle = "red";
+	    context.arc(ball.x,ball.y,12,0,360*Math.PI/180)
+	    context.fill()
+
+	    const v = 3
+
+	    requestAnimationFrame(function frame(){
+
+	    	context.clearRect(0,0,canvas.width,canvas.height)
+
+	    	if(
+	    		ball.y < - 12 || 
+	    		ball.y > canvas.height + 12 || 
+	    		ball.x < -12 || 
+	    		ball.x > canvas.width + 12 
+	    	){
+
+	    		ball.x = canvas.width/2
+
+	    	}else{ball.x += 3}
+
+	    	context.beginPath();
+	    	context.fillStyle = "red";
+	    	context.arc(ball.x,ball.y,12,0,360*Math.PI/180)
+	    	context.fill()
+	    	requestAnimationFrame(frame)
+	    	
+
+	    })
+
+
+	
+
+
+	</script>
+	
+</body>
+</html>
+	
+</body>
+</html>

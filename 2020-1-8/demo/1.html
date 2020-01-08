@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圆周运动</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#c {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border: 1px orange dashed;
+			background: black;
+		}
+	</style>
+</head>
+<body>
+
+	<canvas id = "c" width = "200" height = "200"></canvas>
+
+	<script>
+	    const canvas = document.getElementById("c");
+	    const context = canvas.getContext("2d");
+
+	    context.fillStyle = "white";
+	    context.arc(canvas.width / 2,canvas.height / 2,50,0,360 * Math.PI/ 180);
+	    context.fill();
+
+	    // 红色小圆
+	    context.beginPath()
+	    context.fillStyle = "red"
+	    context.arc(canvas.width / 2,25,12,0,360 * Math.PI/ 180);
+	    context.fill();
+
+	   	let angle = 0
+	  
+	    requestAnimationFrame(function frame(time){
+	    	// 清除画布
+	    	context.clearRect(0,0,canvas.width,canvas.height)
+
+	    	context.fillStyle = "white";
+		    context.arc(canvas.width / 2,canvas.height / 2,50,0,360 * Math.PI/ 180);
+		    context.fill();
+		    angle += 0.01;
+
+		    const x = canvas.width / 2 + Math.cos(angle) * 50
+		    const y = canvas.height / 2 + Math.sin(angle) * 50
+
+		   	context.beginPath();
+		   	context.fillStyle = "red"
+		   	context.arc(x,y,12,0,360 * Math.PI/ 180);
+		   	context.fill()
+
+		    requestAnimationFrame(frame)
+
+	    })
+	</script>
+	
+</body>
+</html>

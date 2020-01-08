@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>俄罗斯方块简单原理</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#c {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border: 1px orange dashed;
+			background: black;
+		}
+	</style>
+	<script src = "./ball.js"></script>
+	<script src = "./box.js"></script>
+</head>
+<body>
+
+	<canvas id = "c" width = "800" height = "600"></canvas>
+
+	<script>
+	    const canvas = document.getElementById("c");
+	    const context = canvas.getContext("2d");
+	    
+	    const boxes = [];
+	    const vy = 2;
+	    let activeBox = createRect()
+	    boxes.push(activeBox)
+	    requestAnimationFrame(function frame(){
+	    	context.clearRect(0,0,canvas.width,canvas.height)
+	    	// 到达底部
+	    	if(activeBox.y > canvas.height - activeBox.height){
+	    		activeBox.y = canvas.height - activeBox.height
+	    		activeBox = createRect()
+	    		boxes.push(activeBox)
+	    	}else{
+	    		activeBox.y += vy
+	    	}
+	    	activeBox.fill(context)
+
+	    	// 是否碰撞
+	    	boxes.forEach((box) => {
+	    		if(activeBox !== box && checkRect(activeBox,box)){
+	    			activeBox = createRect()
+	    			boxes.push(activeBox)
+	    			console.log("发生碰撞了")
+	    		}
+	    		box.fill(context)
+	    	})
+	    	requestAnimationFrame(frame)
+	    })
+
+
+
+
+	    // 生成方块
+	    function createRect(){
+		    const x = Math.random() * canvas.width
+	    	const y = 0;
+	    	const width = Math.random() * 80 + 10;
+	    	const height = Math.random() * 50 + 10;
+	    	return new Box(x,y,width,height,getRandomColor())
+	    }
+	   	// 圆形碰撞检测
+	    function checkCircle(circle1,circle2){
+			const dx = circle2.x - circle1.x;
+			const dy = circle2.y - circle1.y;
+			const distance = Math.sqrt((dx * dx) + (dy * dy));
+			if(distance < (circle1.radius + circle2.radius)){
+				return true
+			}
+			return false
+		}
+   		// 矩形碰撞检测
+	    function checkRect(rect1,rect2){
+			return !(
+
+					rect1.x + rect1.width < rect2.x ||
+					rect2.x + rect2.width < rect1.x ||
+					rect1.y + rect1.height < rect2.y ||
+					rect2.y + rect2.height < rect1.y
+				)
+		}
+
+	    function getRandomColor(){
+	    	return `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`
+	    }
+	
+
+
+	</script>
+	
+</body>
+</html>
+	
+</body>
+</html>
