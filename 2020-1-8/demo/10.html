@@ -27,42 +27,36 @@
 	<script>
 	    const canvas = document.getElementById("c");
 	    const context = canvas.getContext("2d");
-	    const boxes = [];
-	    const vy = 2;
-	    let activeBox = createRect()
-	    boxes.push(activeBox)
-	    requestAnimationFrame(function frame(){
-	    	context.clearRect(0,0,canvas.width,canvas.height)
-	    	activeBox.y += vy
-	    	// 到达底部
-	    	if(activeBox.y > canvas.height - activeBox.height){
-	    		activeBox.y = canvas.height - activeBox.height
-	    		activeBox = createRect()
-	    	}
-
-	    	// 是否碰撞
-	    	boxes.forEach((box) => {
-	    		if(activeBox !== box && checkRect(activeBox,box)){
-	    			activeBox = createRect()
-	    		}
-	    		box.fill(context)
-	    	})
-	    	requestAnimationFrame(frame)
-	    })
+	  
+	    // requestAnimationFrame(function frame(){
+	    // 	context.clearRect(0,0,canvas.width,canvas.height)
+	    
+	    // 	requestAnimationFrame(frame)
+	    // })
 
 
+	    // 多物体碰撞检测
+	    
+	  	const balls = ["ball0","ball1","ball2","ball3"];
 
 
-	    // 生成方块
-	    function createRect(){
-		    const x = Math.random() * canvas.width
-	    	const y = 0;
-	    	const width = Math.random() * 80 + 10;
-	    	const height = Math.random() * 50 + 10;
-	    	const box = new Box(x,y,width,height,getRandomColor())
-	    	boxes.push(box)
-	    	return box
-	    }
+	  	for(let i = 0; i < balls.length; i++){
+	  		const ballA = balls[i]
+	  		for(let j = i + 1; i < balls.length; i++){
+	  			const ballB = balls[j]
+
+	  			if(checkCircle(ballA,ballB)) {
+
+	  				// 发生碰撞之后的业务逻辑
+
+	  			}
+
+	  		}
+
+	  	}
+
+
+	 
 	   	// 圆形碰撞检测
 	    function checkCircle(circle1,circle2){
 			const dx = circle2.x - circle1.x;

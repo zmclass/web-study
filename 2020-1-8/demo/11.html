@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>给粒子运动加上多物体碰撞效果</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#c {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border: 1px orange dashed;
+			background: black;
+		}
+	</style>
+	<script src = "./ball.js"></script>
+</head>
+<body>
+
+	<canvas id = "c" width = "800" height = "600"></canvas>
+
+	<script>
+	    const canvas = document.getElementById("c");
+	    const context = canvas.getContext("2d");
+	    const balls = [];
+
+	    for(let i = 0; i < 30; i++){
+
+	    	const x = Math.random()*canvas.width;
+	    	const y = Math.random()*canvas.height;
+	    	const color = getRandomColor();
+	    	const radius = Math.random() * 12;
+	    	const ball = new Ball(x,y,radius,color);
+	    	ball.vx = (Math.random() * 2 - 1) * 1;
+	    	ball.vy = (Math.random() * 2 - 1) * 1;
+	    	// ball.fill(context)
+
+	    	balls.push(ball)
+
+	    }
+
+
+	    requestAnimationFrame(function frame(){
+
+	    	context.clearRect(0,0,canvas.width,canvas.height)
+
+	    	balls.forEach((ball) => {
+
+	    		// 多物体发生碰撞
+	    		
+	    		for(let i = 0 ; i < balls.length; i++){
+	    			const ball1 = balls[i]
+	    			for(let j = i+1; j < balls.length; j++) {
+	    				const ball2 = balls[j]
+	    				// 发生碰撞了
+	    				if(checkCircle(ball1,ball2)) {
+
+	    					// 发生碰撞的2个小球的速度取反
+	    					ball1.vx = - ball1.vx;
+	    					ball1.vy = - ball1.vy;
+
+	    					ball2.vx = - ball2.vx;
+	    					ball2.vy = - ball2.vy;
+
+
+	    					if(ball1.vx > 0) {
+	    						ball1.x += ball1.radius
+	    					}else {
+	    						ball1.x -= ball1.radius
+	    					}
+	    					if(ball1.vy > 0) {
+	    						ball1.y += ball1.radius
+	    					}else{
+	    						ball1.y -= ball1.radius
+	    					}
+
+	    					if(ball2.vx > 0) {
+	    						ball2.x += ball2.radius
+	    					}else {
+	    						ball2.x -= ball2.radius
+	    					}
+	    					if(ball2.vy > 0) {
+	    						ball2.y += ball2.radius
+	    					}else  {
+	    						ball2.y -= ball2.radius
+	    					}	    						    					
+
+
+	    				}
+
+	    			}
+
+	    		}
+
+
+
+	    		// 碰到上边界
+	    		if(ball.y < ball.radius) {
+	    			ball.y = ball.radius
+	    			ball.vy = - ball.vy
+
+
+	    		}
+
+	    		// 碰到下边界
+	    		if(ball.y > canvas.height - ball.radius){
+	    			ball.y = canvas.height - ball.radius
+	    			ball.vy = -ball.vy
+	    		}
+	    		// 碰到左边界
+	    		if(ball.x < ball.radius){
+	    			ball.x = ball.radius
+
+	    			ball.vx = - ball.vx
+	    		}
+
+	    		// 碰到右边界
+	    		
+	    		if(ball.x > canvas.width - ball.radius){
+
+	    			ball.x = canvas.width - ball.radius;
+
+	    			ball.vx = - ball.vx
+	    		}
+
+
+	    		ball.x += ball.vx
+	    		ball.y += ball.vy
+
+
+	   
+
+		    	ball.fill(context)
+
+	    	})
+
+
+
+	    	requestAnimationFrame(frame)
+	    	
+
+	    })
+
+
+	      	// 圆形碰撞检测
+	    function checkCircle(circle1,circle2){
+			const dx = circle2.x - circle1.x;
+			const dy = circle2.y - circle1.y;
+			const distance = Math.sqrt((dx * dx) + (dy * dy));
+			if(distance < (circle1.radius + circle2.radius)){
+				return true
+			}
+			return false
+		}
+
+	    function getRandomColor(){
+	    	return `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`
+	    }
+	
+
+
+	</script>
+	
+</body>
+</html>
+	
+</body>
+</html>

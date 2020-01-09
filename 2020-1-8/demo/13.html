@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>捕捉圆形</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#c {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border: 1px orange dashed;
+			background: black;
+		}
+	</style>
+	<script src = "./ball.js"></script>
+</head>
+<body>
+
+	<canvas id = "c" width = "800" height = "600"></canvas>
+
+	<script>
+	    const canvas = document.getElementById("c");
+	    const context = canvas.getContext("2d");
+		
+	    const circle = {
+	    	x : 30,
+	    	y : canvas.height/2,
+	    	radius:30
+	    }
+		context.fillStyle = "hotPink"
+		// 物体是否被点击
+		let isMouseClick = false;
+		canvas.addEventListener("click",(e)=>{
+
+			// 静态物体捕获
+			if(checkMouseInCircle(e,circle)){
+				console.log("我捕捉了到圆形")
+				isMouseClick = true;
+			}else {
+				console.log("我没有捕捉到圆形")
+			}
+			// 
+			// 
+			// 动态物体捕获
+			
+
+
+			
+		})
+
+
+	    requestAnimationFrame(function frame(){
+
+	    	context.clearRect(0,0,canvas.width,canvas.height)
+
+	    	if(!isMouseClick){
+	    		circle.x += 1
+	    	}
+	    	context.beginPath()
+	    	context.arc(circle.x,circle.y,circle.radius,0,360*Math.PI/180)
+	    	context.fill()
+
+	    	requestAnimationFrame(frame)
+
+	    })
+	   	
+
+
+		// 判断鼠标是否在圆形上
+	    function checkMouseInCircle(mouseEvent,circle){
+	    	// 2条直角边的距离
+			const cx = mouseEvent.clientX - canvas.getBoundingClientRect().left - circle.x;
+			const cy = mouseEvent.clientY - canvas.getBoundingClientRect().top - circle.y;
+
+			const distance = Math.sqrt(cx * cx + cy * cy);
+			if(distance < circle.radius){
+				return true
+			}
+			return false
+		}
+
+
+		// 判断鼠标是否在矩形上
+	    function checkMouseInRect(mouseEvent,rect){
+	    	// 鼠标到画布的坐标
+			const mx = mouseEvent.clientX - canvas.getBoundingClientRect().left
+			const my = mouseEvent.clientY - canvas.getBoundingClientRect().top
+
+			if(
+				mx > rect.x &&
+				mx < rect.x + rect.width &&
+				my > rect.y &&
+				my < rect.y + rect.height
+			){
+				return true
+			}
+
+			return false
+
+		}
+
+
+	    // 圆形碰撞检测
+	    function checkCircle(circle1,circle2){
+			const dx = circle2.x - circle1.x;
+			const dy = circle2.y - circle1.y;
+			const distance = Math.sqrt((dx * dx) + (dy * dy));
+			if(distance < (circle1.radius + circle2.radius)){
+				return true
+			}
+			return false
+		}
+
+	    function getRandomColor(){
+	    	return `rgb(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255})`
+	    }
+	
+
+
+	</script>
+	
+</body>
+</html>
+	
+</body>
+</html>
