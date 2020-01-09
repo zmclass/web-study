@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>捕捉圆形</title>
+	<title>拖拽一个物体</title>
 	<style>
 		* {
 			padding: 0;
@@ -26,63 +26,42 @@
 	<script>
 	    const canvas = document.getElementById("c");
 	    const context = canvas.getContext("2d");
-		
-	    const circle = {
-	    	x : 30,
-	    	y : canvas.height/2,
-	    	radius:30
+	    const rect = {
+	    	x : canvas.width/2 - 100,
+	    	y : canvas.height/2 - 50,
+	    	width : 200,
+	    	height: 100
 	    }
 		context.fillStyle = "hotPink"
-		// 物体是否被点击
-		let isMouseClick = false;
-		canvas.addEventListener("click",(e)=>{
-
-			// 静态物体捕获
-			if(checkMouseInCircle(e,circle)){
-				console.log("我捕捉了到圆形")
-				isMouseClick = true;
-			}else {
-				console.log("我没有捕捉到圆形")
-			}
-			// 
-			// 
-			// 动态物体捕获
-			
-
-
-			
+		context.fillRect(rect.x,rect.y,rect.width,rect.height)
+		canvas.addEventListener("mousedown",(e)=>{
+			if(checkMouseInRect(e,rect)){
+				const distanceRectX = e.clientX - canvas.getBoundingClientRect().left - rect.x
+				const distanceRectY = e.clientY - canvas.getBoundingClientRect().top - rect.y
+				rect.distanceRectX = distanceRectX
+				rect.distanceRectY = distanceRectY
+				canvas.addEventListener("mousemove",move)
+				canvas.addEventListener("mouseup",up)
+			}	
 		})
-
-	    requestAnimationFrame(function frame(){
-
-	    	context.clearRect(0,0,canvas.width,canvas.height)
-
-	    	if(!isMouseClick){
-	    		circle.x += 1
-	    	}
-	    	context.beginPath()
-	    	context.arc(circle.x,circle.y,circle.radius,0,360*Math.PI/180)
-	    	context.fill()
-
-	    	requestAnimationFrame(frame)
-
-	    })
 	   	
-
-
-		// 判断鼠标是否在圆形上
-	    function checkMouseInCircle(mouseEvent,circle){
-	    	// 2条直角边的距离
-			const cx = mouseEvent.clientX - canvas.getBoundingClientRect().left - circle.x;
-			const cy = mouseEvent.clientY - canvas.getBoundingClientRect().top - circle.y;
-
-			const distance = Math.sqrt(cx * cx + cy * cy);
-			if(distance < circle.radius){
-				return true
-			}
-			return false
+		function move(e){
+			context.clearRect(0,0,canvas.width,canvas.height)
+			const distanceX = e.clientX - canvas.getBoundingClientRect().left - rect.distanceRectX
+			const distanceY = e.clientY - canvas.getBoundingClientRect().top - rect.distanceRectY
+			rect.x = distanceX
+			rect.y = distanceY
+			context.beginPath();
+			context.fillStyle = "hotPink"
+			context.fillRect(rect.x,rect.y,rect.width,rect.height)
 		}
 
+		function up(e){
+
+			canvas.removeEventListener("mousemove",move)
+			canvas.removeEventListener("mouseup",up)
+			
+		}
 
 		// 判断鼠标是否在矩形上
 	    function checkMouseInRect(mouseEvent,rect){
