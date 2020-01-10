@@ -39,7 +39,6 @@
 	    		activeBox.y = canvas.height - activeBox.height
 	    		activeBox = createRect()
 	    	}
-
 	    	// 是否碰撞
 	    	boxes.forEach((box) => {
 	    		if(activeBox !== box && checkRect(activeBox,box)){
@@ -49,9 +48,6 @@
 	    	})
 	    	requestAnimationFrame(frame)
 	    })
-
-
-
 
 	    // 生成方块
 	    function createRect(){

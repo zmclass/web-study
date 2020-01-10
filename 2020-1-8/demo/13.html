@@ -53,6 +53,7 @@
 			
 		})
 
+
 	    requestAnimationFrame(function frame(){
 
 	    	context.clearRect(0,0,canvas.width,canvas.height)
@@ -60,6 +61,7 @@
 	    	if(!isMouseClick){
 	    		circle.x += 1
 	    	}
+	    	
 	    	context.beginPath()
 	    	context.arc(circle.x,circle.y,circle.radius,0,360*Math.PI/180)
 	    	context.fill()
