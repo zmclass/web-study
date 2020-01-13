@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>lcoalStorage和 sessionStorage的 属性和方法</title>
+</head>
+<body>
+
+	<script>
+		
+		localStorage.setItem("name","孟庆和")
+		localStorage.setItem("age",30)
+
+		const list = [
+			1,2,3,4,5,6
+		]
+
+		localStorage.setItem("list",list)
+
+
+		const obj = {
+
+			name: "张三",
+			age : 30
+		}
+
+		localStorage.setItem("obj",obj)
+		// sessionStorage.setItem("test",123)
+		// 
+		// 
+		//JSON格式/ XML格式
+		// {
+		// 	"name": "张三",
+		// 	"age" : "30"
+		// }
+		// 
+		// 
+		const user = {
+			name: "李四",
+			age: 30
+		}
+
+		const userString = JSON.stringify(user)
+
+		console.log(userString,typeof userString)
+		
+		localStorage.setItem("user",userString)
+
+		
+
+		// 删除某个键
+		
+		localStorage.removeItem("obj")
+		
+
+		// 清除所有的存储
+		
+		localStorage.clear()
+
+		console.log(localStorage.length)
+		// 设定几个存储
+		localStorage.setItem("a",1)
+		localStorage.setItem("b",2)
+		localStorage.setItem("c",3)
+		console.log(localStorage.length)
+		console.log(localStorage)
+		console.log(localStorage.key(0))
+		console.log(localStorage.key(1))
+		console.log(localStorage.key(2))
+
+
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getItem()</title>
+</head>
+<body>
+
+	<script>
+
+		console.log(localStorage.getItem("list"))
+		console.log(localStorage.getItem("name"))
+		console.log(localStorage.getItem("obj"))
+		console.log(localStorage.getItem("user"))
+
+		// 转换JSON字符串 为 JSON对象
+		console.log(JSON.parse(localStorage.getItem("user")))
+	</script>
+	
+</body>
+</html>
