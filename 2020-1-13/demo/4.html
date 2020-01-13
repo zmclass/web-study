@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>storage</title>
+</head>
+<body>
+
+	<script>
+		
+		// 在另外一个具有相同存储对象更新后触发
+		window.addEventListener("storage",(e) =>{
+
+
+			console.log(e.key)
+			console.log(e.oldValue)
+			console.log(e.newValue)
+			console.log(e.url)
+			console.log(e.storageArea)
+
+		})
+
+	</script>
+	
+</body>
+</html>

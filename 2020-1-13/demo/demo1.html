@@ -2,26 +2,30 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title></title>
 </head>
 <body>
 
 
 	<form action="">
-		
-
-		<textarea name="content" id="" cols="30" rows="10">
-			
-		
-
-
-
+		<textarea name="content" id="content" cols="30" rows="10">
 		</textarea>
-
-
-
-
 	</form>
+
+	<script>
+
+		content.value = localStorage.getItem("content")
+		
+		content.addEventListener("input",function(e) {
+
+			console.log(this.value)
+
+			localStorage.setItem("content",this.value)
+
+		})
+
+
+	</script>
 	
 </body>
 </html>

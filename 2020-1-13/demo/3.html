@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>storage</title>
+
+
+
+</head>
+<body>
+	
+
+	<script>
+		
+		window.addEventListener("storage",(e) =>{
+
+
+			console.log(e.key)
+			console.log(e.oldValue)
+			console.log(e.newValue)
+			console.log(e.url)
+			console.log(e.storageArea)
+
+
+		})
+
+
+		localStorage.setItem("time",Date.now())
+
+		localStorage.clear()
+
+
+
+
+	</script>
+	
+</body>
+</html>
