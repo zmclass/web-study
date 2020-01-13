@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+</head>
+<body>
+
+	<button id = "btn">发送请求</button>
+
+	<script>
+
+
+		btn.addEventListener("click", e => {
+			// 创建异步对象
+			const asyncRequestObject = new XMLHttpRequest();
+			// 打开请求
+			asyncRequestObject.open("GET","./text.txt")
+
+			// 设置请求头 
+			asyncRequestObject.setRequestHeader("Content-type","application/json")
+			
+			// 超时时间
+			asyncRequestObject.timeout = 10000
+
+			console.log(asyncRequestObject)
+
+			// 监控状态值变化
+			asyncRequestObject.addEventListener("readystatechange",()=>{
+
+				if(asyncRequestObject.readyState === 4) {
+
+					// 请求完成
+
+				}
+
+			})
+
+
+			//请求完成时触发
+			asyncRequestObject.addEventListener("load",onload)
+			// 请求错误时触发
+			asyncRequestObject.addEventListener("error",onerror)
+			// 请求过程中触发
+			asyncRequestObject.addEventListener("progress",onprogress)
+			// 请求超时触发
+			asyncRequestObject.addEventListener("timeout",ontimeout)
+			// 终止请求时触发
+			asyncRequestObject.addEventListener("abort",onbort)
+
+
+			// 发送请求
+			asyncRequestObject.send()
+			// 终止请求
+			//asyncRequestObject.abort()
+
+			
+			console.log("我是异步执行的")
+
+			function onload() {
+				console.log("请求完成")
+
+				// 获取 响应头的 Content-type 值
+				// 
+				// 
+				console.log(asyncRequestObject.getResponseHeader("Content-type"))
+
+
+				// 获取所有的响应头
+				
+				console.log(asyncRequestObject.getAllResponseHeaders().split("\r\n"))
+
+
+				// 获取状态码
+				console.log(asyncRequestObject.status)
+				// 获取 状态提示消息
+				console.log(asyncRequestObject.statusText)
+				// 获取返回结果
+				const result = asyncRequestObject.response
+				// 转换为JSON 对象
+				// 
+				console.log(result)
+				
+				// const resultJSON = JSON.parse(result)
+
+				// console.log(typeof resultJSON,resultJSON)
+
+				
+			}
+
+			function onerror(){
+				console.log("请求错误")
+			}
+
+			function onprogress(){
+				console.log("正在触发中。。。")
+			}
+
+			function ontimeout() {
+
+				console.log("超时触发")
+			}
+			function onbort() {
+				console.log("终止事件")
+			}
+
+		})
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
