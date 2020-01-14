@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>省份联动</title>
+</head>
+<body>
+
+	<select name="province" id="province">
+		<option value="">请选择省份</option>
+	</select>
+	<select name="city" id="city"></select>
+
+	<script>
+
+		// 获取省份城市数据
+		function getProvinceCity() {
+			const xhr = new XMLHttpRequest();
+			xhr.open("GET","./city.json")
+			xhr.addEventListener("load",function(e){
+
+				if(+xhr.status === 200) {
+					const dataStr = xhr.response || xhr.responseText
+					// 把JSON字符串转化为JSON对象
+					const dataJSON = JSON.parse(dataStr)
+					//渲染省份
+					renderDOM(dataJSON.provinces,province)
+
+
+					province.addEventListener("change",function(){
+						// 获取城市
+						const citys = getCity(this.value,dataJSON.provinces)
+
+						// 渲染城市
+						renderDOM(citys,city)
+
+					})
+
+
+				}
+
+
+			})
+			xhr.send()
+
+		}
+
+		// 渲染DOM 
+		function renderDOM(data,node) {
+
+			const propertyName = node === province ? "provinceName" : "citysName"
+
+			if(node === city) {
+				node.innerHTML = ""
+			}
+	
+			data.forEach(item => {
+
+				const html = `<option value = "${item[propertyName]}">${item[propertyName]}</option>`
+
+				node.insertAdjacentHTML('beforeend', html)
+
+			})
+			
+
+
+		}
+		// 获取城市
+		function getCity(value,data) {
+			return data.filter(function(item){
+				return item.provinceName === value
+			})[0].citys
+		}
+
+		getProvinceCity()
+
+
+
+
+
+
+	</script>
+
+
+
+
+
+
+	
+</body>
+</html>

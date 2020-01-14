@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>非简单请求</title>
+</head>
+<body>
+		<input type="button" value = "cors获取资源" id = "btn">
+	
+	<script>
+		
+		btn.onclick = function(){
+
+
+			const params = {
+				type : 1
+			}
+
+			const xhr = new XMLHttpRequest();
+			xhr.open("GET","http://127.0.0.1:8082/getCors")
+			xhr.onload = function(){
+
+
+				console.log(xhr.response)
+
+
+				console.log(xhr.getAllResponseHeaders())
+			}
+
+
+	
+			xhr.setRequestHeader("Content-type","application/json")
+
+			xhr.send()
+
+
+		}
+
+
+
+
+	</script>
+	
+</body>
+</html>

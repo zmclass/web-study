@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发送请求</title>
+</head>
+<body>
+
+	<script>
+		// get 请求
+		// 
+		//const xhr = new XMLHttpRequest();
+		//xhr.open("GET","http://127.0.0.1:8082/hello?type=2&sex=1")
+
+		//xhr.onload = function(){
+		//	console.log(JSON.parse(xhr.response))
+		//}
+
+		//xhr.send(null)
+		//
+		//
+		
+		
+		// post 请求
+		const data = {
+			type:1,
+			sex: 2
+		}
+
+		const xhr = new XMLHttpRequest();
+		xhr.open("POST","http://127.0.0.1:8082/getInfo")
+
+		// xhr.timeout = 10000
+		xhr.onload = function(){
+			// console.log(JSON.parse(xhr.response))
+		}
+
+		// xhr.ontimeout = function(){
+
+		// 	console.log("请求超时")
+		// }
+
+		xhr.send(JSON.stringify(data))
+
+
+
+	</script>
+	
+</body>
+</html>
