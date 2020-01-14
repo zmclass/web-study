@@ -1,42 +1,23 @@
 const express = require('express')
 const app = express()
-//const bodyParser=require("body-parser");
 
-// 解析以 application/json 和 application/x-www-form-urlencoded 提交的数据
 
-//
-// ////创建application/json解析
-//var jsonParser = bodyParser.json();
+app.all('*', function (req, res, next) {
 
-// //创建application/x-www-form-urlencoded
-// var urlencodedParser = bodyParser.urlencoded({extended: false});
+	res.set ({
 
-// //POST /login 中获取URL编码的请求体
-// app.post('/login', urlencodedParser, function(req, res){
-//     if(!req.body) return res.sendStatus(400);
-//     res.send('welcome, ' + req.body.username);
-// })
+		'Access-Control-Allow-Origin': '*',
+		'Access-Control-Allow-Headers': 'Content-Type',
+		'Access-Control-Allow-Methods': '*',
+		'Content-Type': 'application/json;charset=utf-8'
+	})
+ 
+    next();
+  });
 
-//
-//
-//
-//
-// // 解析 application/json
-// app.use(bodyParser.json()); 
-// // 解析 application/x-www-form-urlencoded
-// app.use(bodyParser.urlencoded());
-
-// 
 //JSONP跨域
 app.get('/getInfo',function(req,res){
-
-	// 设置头信息
-	// res.set({
-	// 	"Access-Control-Allow-Origin": "*"
-	// })
-
 	res.jsonp({type:2})
-
 })
 app.get('/hello', function (req, res) {
 
@@ -90,27 +71,15 @@ app.get('/getSimpleCors', function (req, res) {
 	res.send("访问简单请求")
 
 })
-
 // 非简单请求
-app.get('/getCors',function (req, res) {
-
-	// 设置头信息 
-	res.set({
-		"Access-Control-Allow-Methods":"POST,GET",
-		"Access-Control-Allow-Headers":"Content-type"
-	})
+app.post('/getCors', function (req, res) {
 
 
-	 
-	if(req.method === "OPTIONS"){
-
-		res.sendStatus(200);
-	}else {
-	
-		res.json({type:1})
-	}
+	console.log(req.method)
+	res.json([1,2,3])
 
 })
+
 
 
 app.listen(8082, () => console.log('Example app listening on port 8082!'))

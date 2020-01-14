@@ -10,30 +10,10 @@
 	<script>
 		
 		btn.onclick = function(){
-
-
-			const params = {
-				type : 1
-			}
-
 			const xhr = new XMLHttpRequest();
-			xhr.open("GET","http://127.0.0.1:8082/getCors")
-			xhr.onload = function(){
-
-
-				console.log(xhr.response)
-
-
-				console.log(xhr.getAllResponseHeaders())
-			}
-
-
-	
+			xhr.open("POST","http://127.0.0.1:8082/getCors")
 			xhr.setRequestHeader("Content-type","application/json")
-
 			xhr.send()
-
-
 		}
 
 
