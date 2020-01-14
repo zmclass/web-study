@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise-throw</title>
+</head>
+<body>
+
+
+	<script>
+		
+		
+		const promise = new Promise(function(resolve,reject){
+
+			resolve("done")
+
+		}).then(function(){
+
+			throw "发生错误了"
+
+		}).then(function(){
+
+			console.log("成功了")
+		}).catch(function(error){
+
+			console.log(error)
+		})
+
+
+
+
+	</script>
+	
+</body>
+</html>

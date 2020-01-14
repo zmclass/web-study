@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>eg</title>
+</head>
+<body>
+
+	<script>
+		
+		function loadScript(src,callback) {
+
+			const script = document.createElement("script");
+
+			script.src = src;
+
+			script.onload = function(){
+
+				typeof callback === "function" && callback(script)
+
+			}
+			document.head.append(script)
+
+		}
+
+
+		// https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js
+		// https://cdn.bootcss.com/jquery/3.4.1/core.js
+		// https://cdn.bootcss.com/vue/2.6.10/vue.common.dev.js
+		// 
+		// 
+		
+		// loadScript("https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js",function(){
+		// 	loadScript("https://cdn.bootcss.com/jquery/3.4.1/core.js",function(){
+		// 		loadScript("https://cdn.bootcss.com/vue/2.6.10/vue.common.dev.js",function(){
+		// 			console.log("我可以愉快的编写代码了")
+		// 		})
+		// 	})
+		// })
+		// 
+		// 
+		
+		const promise = new Promise(function(resolve,reject){
+			loadScript("https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js",function(){
+				resolve()
+			})
+		})
+		promise
+		.then(function(){
+			return new Promise(function(resolve,reject){
+				loadScript("https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js",function(){
+					resolve()
+				})
+
+			})
+		}).then(function(){
+			return new Promise(function(resolve,reject){
+				loadScript("https://cdn.bootcss.com/vue/2.6.10/vue.common.dev.js",function(){
+					resolve()
+				})
+
+			})
+		})
+
+	
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

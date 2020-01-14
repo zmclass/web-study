@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise-静态方法</title>
+</head>
+<body>
+
+	<script>
+		
+		// 创建一个具有成功状态的promise
+		const resolvePromise = Promise.resolve("成功状态的promise")
+		// 创建一个具有失败状态的promise
+		const rejectPromise = Promise.reject("失败状态的promise")
+
+
+		resolvePromise.then(function(value){
+
+			console.log(value)
+
+		})
+
+
+		rejectPromise.catch(function(value){
+
+			console.log(value)
+
+		})
+
+
+
+		const promise_1 = new Promise((resolve,reject) => {
+
+			setTimeout(function(){
+				//resolve([1,2,3])
+				reject("失败")
+			},1000)
+
+		})
+
+		const promise_2 = new Promise((resolve,reject) => {
+
+			setTimeout(function(){
+				resolve([4,5,6])
+				//reject("error")
+			},2000)
+
+		})
+
+		const promise_3 = new Promise((resolve,reject) => {
+
+			setTimeout(function(){
+				resolve([7,8,9])
+			},2000)
+
+		})
+
+		//const result = Promise.all([promise_1,promise_2,promise_3])
+
+		//const result = Promise.allSettled([promise_1,promise_2,promise_3])
+
+		const result = Promise.race([promise_1,promise_2,promise_3])
+		result.then(function(value){
+
+			console.log(value)
+
+		}).catch(function(value){
+			console.log(value)
+		})
+	
+
+
+
+	</script>
+	
+</body>
+</html>

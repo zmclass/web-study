@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise-3</title>
+</head>
+<body>
+
+	<script>
+		
+
+		const promise = new Promise(function(resolve,reject){
+
+			setTimeout(function(){
+				//resolve("done")
+				//
+				reject("失败了")
+			},2000)
+
+
+		})
+
+
+		// promise.then(function(value){
+		// 	console.log(value)
+		// },function(error){
+		// 	console.log(error)
+
+		// })
+
+		// 只处理成功状态
+		
+		// promise.then(function(value){
+
+		// 	console.log(value)
+		// })
+
+
+		// 只处理失败状态
+		
+		// promise.then(null,function(value){
+
+		// 	console.log(value)
+		// })
+
+		promise.catch(function(value){
+
+			console.log(value)
+		})
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>

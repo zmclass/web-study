@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise-回调</title>
+</head>
+<body>
+
+
+	<script>
+		
+		//function loadScript(src) {
+
+			//const script = document.createElement("script");
+
+			//script.src = src;
+
+			//document.head.append(script)
+
+		//}
+
+
+
+		//loadScript("https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js")
+
+		//console.log(_)
+		//
+		//
+				
+		function loadScript(src,callback) {
+
+			const script = document.createElement("script");
+
+			script.src = src;
+
+			script.onload = function(){
+
+				typeof callback === "function" && callback(script)
+
+			}
+			document.head.append(script)
+
+		}
+
+		loadScript("https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js",function(){
+
+
+			console.log(_)
+
+
+		})
+
+
+
+
+	</script>
+	
+</body>
+</html>
