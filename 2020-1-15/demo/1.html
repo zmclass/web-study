@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>async 函数</title>
+</head>
+<body>
+	<script>
+		
+		// 普通函数
+		function fn(){
+			return 1
+		}
+
+		// async函数 （隐式返回promise）
+		async function fn1(){
+			// return Promise.resolve(1)
+			return 1
+		}
+
+		// 显示返回promise
+		// 
+
+		async function fn2(){
+
+			//return Promise.resolve(1)
+
+			return new Promise(function(resolve,reject){
+				resolve(1)
+			})
+		}
+		console.log(fn())
+		console.log(fn1())
+		console.log(fn1().then(function(value){
+			console.log(value)
+		}))
+		console.log(fn2().then(function(value){
+			console.log(value)
+		}))
+
+
+		// async和 await
+		
+		async function fn3(){
+
+			const result = new Promise((resolve,reject) => {
+				setTimeout(()=>{
+					resolve("追梦课堂")
+				},3000)
+			})
+
+			// pending
+			console.log(result)
+
+
+			setTimeout(()=>{
+				console.log(result)
+			},3000)
+
+		} 
+
+		fn3()
+
+		// await
+		// 
+		async function fn4(){
+
+			const result = await new Promise((resolve,reject) => {
+				setTimeout(()=>{
+					resolve("追梦课堂")
+				},3000)
+			})
+
+			return result
+		}
+		console.log("我没有被async函数阻塞")
+
+
+
+
+		// 类中 async 函数
+		
+		class User {
+
+			async showInfo(){
+
+				return await Promise.resolve(1)
+
+			}
+
+		
+		}
+
+
+		console.log(new User().showInfo())
+
+
+		// 错误处理
+		async function fn5(){
+
+			return await Promise.reject("错误")
+
+		}
+
+		fn5().catch((err)=>{
+			console.log(err)
+		})
+
+
+	</script>
+</body>
+</html>

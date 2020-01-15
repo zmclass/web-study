@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>async demo</title>
+</head>
+<body>
+
+	<script>
+
+
+		init()
+		//初始化数据
+		function init(){
+			getData()
+			getOther()
+		}
+
+		//获取省份数据
+		function getData() {
+
+			const xhr = new XMLHttpRequest()
+			xhr.open("GET","./city.json")
+			xhr.onload = function(){
+			
+				console.log(JSON.parse(xhr.response))
+
+				//formatData(JSON.parse(xhr.response))
+
+
+				getOtherData()
+			}
+			xhr.send()
+		}
+
+		// 获取其他数据
+		
+		function getOtherData(){
+
+
+			const xhr = new XMLHttpRequest()
+			xhr.open("GET","./city.json")
+			xhr.onload = function(){
+
+				formatOtherData(JSON.parse(xhr.response))
+			}
+			xhr.send()
+
+
+		}
+
+		// 处理省份数据
+		function formatProvinceData(data){
+
+			//处理逻辑
+
+		}
+		// 处理其他数据
+		function formatOtherData(data){
+
+			//处理逻辑
+
+		}	
+
+
+
+	</script>
+
+
+
+	
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>try...catch</title>
+</head>
+<body>
+
+	<script>
+		// 全局错误
+		window.onerror= function(message,url,line,col,error){
+
+			console.log(message)
+
+			console.log(url)
+
+			console.log(line)
+
+			console.log(col)
+
+			console.log(error)
+
+		}
+
+
+
+
+
+		zmkt;
+
+		// 基本语法
+		// try {
+
+		// 	console.log(zmkt)
+
+		// }catch(err) {
+
+		// 	console.log(err)
+		// 	// 处理错误
+
+		// }
+
+
+
+		//console.log(2)
+
+
+		// 必须是有效的javascript 代码
+		
+		// try{
+		// 	cont a = 1;
+		// }catch(err){
+		// 	console.log(err)
+		// }
+
+		// console.log(1)
+		// 
+	
+
+
+		// try {
+		// 	console.log(1)
+		// }catch(err) {
+		// 	console.log(err)
+		// }
+
+		// console.log(2)
+		// 
+		
+		// try {
+
+		// 	setTimeout(function(){
+		// 		console.log(zmkt)
+		// 	},3000)
+
+		// }catch(err){
+		// 	console.log(err)
+		// }
+
+		// console.log(2)
+		// 
+		
+		// setTimeout(function(){
+
+		// 	try {
+		// 		console.log(zmkt)
+
+		// 	}catch(err){
+		// 		console.log(err)
+		// 		console.log(err.name)
+		// 		console.log(err.message)
+		// 		console.log(err.stack)
+		// 	}
+		// },3000)
+
+		// cont m = 1
+
+
+		// 自定义错误
+		
+		// const error = new Error("自定义错误")
+
+		// const synError = new SyntaxError("语法错误");
+
+
+		// const referError = new ReferenceError("引用错误")
+
+
+		// console.log(error,synError,referError)
+
+
+
+		// try {
+
+		// 	throw new Error("自定义错误")
+
+		// }catch(err){
+
+
+		// 	console.log(err,err.name,err.message)
+		// }
+
+		// try {
+
+		// 	//console.log(1)
+		// 	//
+		// 	console.log(zmkt)
+
+		// }catch(err){
+
+		// 	console.log(err)
+		// }finally{
+
+		// 	console.log(2)
+		// }
+
+		// console.log(3)
+		// 
+		// 
+		// 
+		
+
+
+		function fn(){
+
+			try{
+
+				return 1
+			}catch(err){
+
+				return err
+			}finally{
+
+				return 2
+				console.log(2)
+			}
+
+		}
+
+
+		console.log(fn())
+
+
+
+
+		//task
+		
+		new Promise(function(resolve,reject) => {
+
+			reject.reject("自定义错误")
+
+		})
+
+
+	</script>
+	
+</body>
+</html>
