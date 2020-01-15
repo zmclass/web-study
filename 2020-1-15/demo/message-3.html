@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跨窗口通信-3</title>
+</head>
+<body>
+
+	<iframe src="./message-4.html" frameborder="0" id = "iframe4"></iframe>
+
+	<script>
+		
+		iframe4.onload = function(){
+
+			this.contentWindow.postMessage("你吃了吗？","http://192.168.0.5:8081/message-4.html")
+		}
+
+
+		
+	</script>
+	
+</body>
+</html>
