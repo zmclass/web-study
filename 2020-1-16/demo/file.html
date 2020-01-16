@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>file</title>
+</head>
+<body>
+
+
+	<input type="file" name = "file" id = "file">
+
+	<script>
+		
+
+		//const file = new File(["hello wrold"],"hello.txt")
+
+
+
+		file.addEventListener("change",function(e){
+
+			// 获取文件的信息
+			console.log(this.files[0])
+
+
+		})
+
+
+
+	</script>
+
+
+
+
+	
+</body>
+</html>

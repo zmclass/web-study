@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fileReader</title>
+</head>
+<body>
+
+
+		
+
+	<input type="file" name = "file" id = "file">
+
+	<img src="" alt="" id="img">
+
+	<script>
+	
+		file.addEventListener("change",function(e){
+
+			// 获取文件的信息
+			console.log(this.files[0])
+
+			const reader = new FileReader()
+
+			reader.onloadend = function(){
+
+				console.log(reader.result)
+
+				img.src = reader.result
+
+			}
+
+			reader.onerror = function(){
+
+			}
+			reader.readAsDataURL(this.files[0])
+			//
+			//reader.readAsText(this.files[0])
+
+		})
+
+
+
+	</script>
+
+
+
+
+
+
+
+	
+</body>
+</html>

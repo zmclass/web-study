@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>url对象</title>
+</head>
+<body>
+	
+
+	<input type="file" id ="file" name ="file">
+
+	<img src="" id="img">
+
+
+
+	<script>
+		
+		const url = new URL("./image","http://www.zmclass.com")
+
+
+		console.log(url)
+
+
+		const url1 = new URL("../image","http://www.zmclass.com/video")
+
+		console.log(url1)
+
+
+		const url2 = new URL("http://www.zmclass.com/image?m=1&n=3&x=5")
+
+		console.log(url2)
+		//解析URL地址
+
+		console.log(url2.protocol)
+		console.log(url2.host)
+		console.log(url2.hostname)
+
+		console.log(url2.searchParams.get("m"))
+		console.log(url2.searchParams.get("n"))
+		console.log(url2.searchParams.get("x"))
+
+
+
+		// 编码
+		
+		{
+
+			console.log(encodeURIComponent("m=追梦课堂&n=临汾"))
+			console.log(encodeURI("http://www.zmclass.com/image?m=追梦课堂&n=临汾"))
+		}
+
+
+		//searchParams
+		{
+
+			const url = new URL("http://www.zmclass.com")
+
+			url.searchParams.set("key","追梦课堂")
+			url.searchParams.set("m","临汾")
+			url.searchParams.append("m","临汾")
+
+			console.log(url.searchParams.getAll("m"))
+
+
+
+			console.log(url)
+		}
+
+
+
+		{	
+			let url = ""
+
+			file.onchange = function(){
+
+
+				const reader = new FileReader()
+
+
+				reader.onloadend = function(){
+
+					if(url) {
+
+						URL.revokeObjectURL(url)
+
+					}
+
+					const imageBlob = new Blob([reader.result],{
+						type: "image/png"
+					})
+
+
+					url = URL.createObjectURL(imageBlob)
+
+
+					img.src = url
+
+
+
+				}
+
+				reader.readAsDataURL(this.files[0])
+
+
+
+
+			}
+
+
+		}
+
+	</script>
+
+
+
+	
+</body>
+</html>

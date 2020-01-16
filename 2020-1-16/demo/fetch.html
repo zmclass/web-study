@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fetch</title>
+</head>
+<body>
+
+	<script>
+		
+//		const promise = fetch("./city.json")
+
+//		promise.then(function(response){
+
+//			return response.json()	
+
+//		}).then(function(value){
+
+
+//			console.log(value)
+
+//		})
+
+
+		// const promise = fetch("./city.json",{
+		// 	// method:"POST",
+		// 	// headers:{
+
+		// 	// 	// 设置请求头
+
+		// 	// },
+		// 	// body: JSON.stringify({user:"张三"})
+		// 	//mode:
+
+		// })
+
+		// promise.then(function(response){
+
+			
+
+		// 	return response.json()	
+
+		// }).then(function(value){
+
+
+		// 	console.log(value)
+
+		// })
+
+
+
+
+		{
+
+			(async function(){
+
+				const response = await fetch("./city.json")
+
+				const result = await response.json()
+
+				console.log(result)
+
+			})()
+
+
+		}
+
+
+
+	</script>
+	
+</body>
+</html>

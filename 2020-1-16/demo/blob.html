@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>blob对象</title>
+</head>
+<body>
+
+	<a download="hello.html" href="./test.txt" id = "link">点此下载</a>
+
+	<script>
+		
+		const blob = new Blob(["hello world"],{
+			type: "text/plain"
+		})
+
+		console.log(blob.size)
+		console.log(blob.type)
+
+
+		const newBlob =  blob.slice(4,10,"text/plain")
+
+		console.log(newBlob.size)
+		console.log(newBlob.type)
+
+
+		const htmlBlob = new Blob(["<h1>zmkt</h1>"],{
+			type: "text/html"
+		})
+
+		const user = {
+			name : "张三",
+			age: 30
+
+		}
+		const jsonBlob = new Blob([JSON.stringify(user)],{
+			type:"application/json"
+		})
+
+		const url = URL.createObjectURL(jsonBlob)
+
+		console.log(url)
+		// link.href = url
+
+
+
+
+		
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
