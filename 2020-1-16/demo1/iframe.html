@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iframe与postMessage</title>
+</head>
+<body>
+	<script>
+		const obj = {
+			name: "张三",
+			age: 30
+		}
+
+		window.onload = function(){
+
+			parent.postMessage(obj,"http://192.168.0.5:8084/iframe.html")
+
+		}
+	</script>
+
+
+
+	
+</body>
+</html>

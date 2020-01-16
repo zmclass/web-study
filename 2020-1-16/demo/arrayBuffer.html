@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ArrayBuffer</title>
+</head>
+<body>
+
+	<script>
+
+
+		{
+
+			const buffer = new ArrayBuffer(16)
+			console.log(buffer)
+			console.log(buffer.byteLength)
+
+
+			// 传入的是buffer
+			// 
+			const view = new Uint32Array(buffer)
+
+			console.log(view)
+			console.log(view.length)
+
+
+			view[1] = 123456
+
+			view[2] = 45678
+
+
+			view.forEach(item => {
+
+				console.log(item)
+			})
+		}
+
+
+
+		{
+			// 参数为数组
+
+			const view = new Uint8Array([0,1,2,3])
+
+			console.log(view.length)
+
+			console.log(view.buffer)
+
+		}
+
+
+
+		{
+			 //参数为 类型视图
+
+			const view16 = new Uint16Array([1,1000])
+
+			const view8 = new Uint8Array(view16)
+
+
+			console.log(view8[0])
+			console.log(view8[1])
+
+
+
+		}
+
+	
+
+
+
+
+
+		{
+			// 参数为视图长度
+
+			const view16 = new Uint16Array(4)
+			console.log(Uint16Array.BYTES_PER_ELEMENT)
+			console.log(view16.buffer)
+
+		}
+
+
+		{
+			// 无参数
+			const view16 = new Uint16Array()
+
+			console.log(view16)
+
+		}
+		
+
+
+		{
+
+			const view8 = new Uint8Array([1,2,3,4])
+
+			console.log(view8.buffer)
+
+
+			const view16 = new Uint16Array(view8.buffer)
+
+
+			console.log(view16)
+
+
+		}
+
+
+
+	</script>
+	
+</body>
+</html>

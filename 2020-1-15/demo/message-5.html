@@ -6,14 +6,16 @@
 </head>
 <body>
 
-	<iframe src="http://192.168.0.5:8082/message.html" frameborder="0" id = "iframe5"></iframe>
+	<iframe src="http://192.168.0.5:8083/message.html" frameborder="0" id = "iframe5"></iframe>
 
 	<script>
-
+		window.addEventListener("message",function(event){
+			console.log(event.data)
+		})
 
 		iframe5.onload = function(){
 
-			this.contentWindow.postMessage("你吃了吗？","http://192.168.0.5:8082/message.html")
+			this.contentWindow.postMessage("你吃了吗？","http://192.168.0.5:8083/message.html")
 		}
 
 
