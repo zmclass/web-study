@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>formData</title>
+</head>
+<body>
+	
+	<form id = "form">
+		<label for="">
+			用户名 : <input type="text" name = "user" id = "user">
+		</label>
+		<label for="">
+			年龄 : <input type="text" name = "age" id = "age">
+		</label>
+		<input type="button" value="提交数据" id = "btn">
+	</form>
+	
+	<script>
+		
+		const btn = document.getElementById("btn")
+		const form = document.getElementById("form")
+		btn.addEventListener("click",async function(e){
+
+			//const formData = new FormData(form)
+			//
+			const formData = new FormData();
+
+			formData.append("user",document.getElementById("user").value)
+			formData.append("age",document.getElementById("age").value)
+
+			// formData.append("age",20)
+
+
+			// formData.set("user","王五")
+
+			// for(let [key,value] of formData){
+
+			// 	console.log(key,value)
+			// }
+
+			const result = await new Promise((resolve,reject) => {
+				const xhr = new XMLHttpRequest()
+				xhr.open("POST","http://localhost:8082/saveInfo")
+				xhr.onload = function(){
+					resolve(JSON.parse(xhr.response))
+				}
+				xhr.send(formData)
+
+			})
+			console.log(result)
+
+
+		})
+
+
+
+
+
+
+	</script>
+
+
+	
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>form表单</title>
+</head>
+<body>
+	
+
+	<!--
+
+		action  提交的地址
+
+		method  请求的方式
+
+		enctype x-www-form-urlencode / multipart/form-data 
+
+		target
+	-->
+	<form action="http://localhost:8082/saveInfo" method = "POST" target = "iframe">
+		<label for="">
+			用户名 : <input type="text" name = "user">
+		</label>
+		<label for="">
+			年龄 : <input type="text" name = "age">
+		</label>
+		<input type="submit" value="提交数据">
+	</form>
+
+
+
+<!-- 	<iframe name = "iframe" frameborder="0"></iframe> -->
+	
+</body>
+</html>

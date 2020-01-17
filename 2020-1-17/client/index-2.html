@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下载文件到本地</title>
+</head>
+<body>
+	<textarea name="content" id="content" cols="20" rows="5">
+		
+	</textarea>
+	<div>
+		<input type="button" id="btn" value = "生成文件">
+	</div>
+	
+	<a download="info.txt" id = "link"></a>
+	<script>
+		
+		const btn = document.getElementById("btn");
+		const content = document.getElementById("content");
+		const link = document.getElementById("link");
+		let oldUrl = null;
+		btn.addEventListener("click",function(e){
+			// 创建 blob 对象
+			const blob = new Blob([content.value],{
+				type: "text/plain"
+			})
+
+			if(oldUrl){
+				URL.revokeObjectURL(oldUrl)
+			}
+			// 生成 url地址
+			const url = URL.createObjectURL(blob);
+			oldUrl = url;
+			link.href = url
+			link.click()
+
+		})
+
+
+
+
+
+	</script>
+</body>
+</html>

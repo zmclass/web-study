@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>将文本内容显示到网页上面</title>
+</head>
+<body>
+
+	<input type="file" name = "file" id = "file" accept = ".txt">
+
+	<div class="content"></div>
+	<script>
+		
+		const inputFile = document.getElementById("file")
+		inputFile.addEventListener("change",function(e){
+
+			const fileInfo = this.files[0]
+
+			const reader = new FileReader();
+
+			reader.onloadend = function(){
+
+				console.log(reader.result)
+				document.querySelector(".content").innerHTML = reader.result
+
+			}
+
+			reader.readAsText(fileInfo)
+
+		})
+
+
+
+
+	</script>
+	
+</body>
+</html>

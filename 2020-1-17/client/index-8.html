@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>保存canvas 图像 上传到服务器</title>
+</head>
+<body>
+
+	<canvas id="canvas" width="200" height="150" style="background: #eeeeee"></canvas>
+	
+	<div>
+  		<input type="button" value="保存canvas图像到服务器" id = "btn">
+  	</div>
+
+  <script>
+
+		const canvas = document.getElementById("canvas")
+		const ctx = canvas.getContext('2d');
+		const btn = document.getElementById("btn");
+		canvas.addEventListener("mousemove",function(e){
+	      ctx.lineTo(e.clientX, e.clientY);
+	      ctx.stroke();
+		})
+
+
+		btn.addEventListener("click",save)
+
+	    async function save() {
+	      let imageBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+
+	      console.log(imageBlob)
+
+	      let formData = new FormData();
+	      formData.append("file", imageBlob, "image.png");
+	      let response = await fetch('http://localhost:8082/upload', {
+	        method: 'POST',
+	        body: formData
+	      });
+	      	let result = await response.text();
+	  		console.log(result)
+	    }
+  </script>
+  
+
+
+	
+</body>
+</html>

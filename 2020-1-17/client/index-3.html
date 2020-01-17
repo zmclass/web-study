@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>预览图片</title>
+	<style>
+		
+		label{
+			
+			padding: 10px 10px;
+			background: orange;
+			color: white;
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+	
+	<label for="file">上传文件</label>
+	<input hidden type="file" name = "file" id = "file" accept = "image/*">
+	<div id = "preview"></div>
+	<script>
+		
+		const inputFile = document.getElementById("file");
+
+		const preview = document.getElementById("preview")
+
+		inputFile.addEventListener("change",function(e){
+
+			const reader = new FileReader();
+
+			reader.onloadend = function(){
+
+				const image = new Image()
+
+				image.src = reader.result
+
+				preview.append(image)
+
+
+			}
+
+			reader.readAsDataURL(this.files[0])
+
+		})
+
+
+
+	</script>
+
+	
+</body>
+</html>

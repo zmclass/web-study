@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单文件应用</title>
+</head>
+<body>
+
+	<!-- 	
+		限制文件类型 
+		accept
+		值为 mimeType 媒体类型，多个值用逗号隔开
+		可以为 文件扩展名
+		通配符 * 
+	-->
+
+
+	<!-- 
+		多文件上传 
+		multiple
+
+	-->
+
+	<input type="file" name = "file" id = "file" accept = "image/*" multiple>
+	
+	<script>
+		const inputFile = document.getElementById("file");
+
+		inputFile.addEventListener("change",(e)=>{
+			// 获取文件的信息
+			// console.log(e.target.files[0])
+			// const type = e.target.files[0].type
+			
+			// if(!/image\/png/.test(type)) {
+			// 	e.target.value = ""
+			// 	return
+			// }
+			// 
+			// 限制文件个数
+			// 
+			if(e.target.files.length > 3) {
+				console.log("只能选择3个文件")
+				e.target.value= ""
+				return
+			}
+
+			// 限制文件大小
+			
+			// const isRange = Array.from(e.target.files).every(item => {
+			// 	return item.size < 10 * 1024
+			// })
+			// 
+			// 
+			// if(!isRange){
+			// 	console.log("您选择的文件大小超过10kB")
+			// 	return
+			// }
+			const newFiles =  Array.from(e.target.files).filter(item => {
+				return item.size < 100000 * 1024
+			})
+
+			if(newFiles.length != e.target.files.length){
+
+				console.log("您选择的文件大小超过10kB")
+				return
+			}
+
+
+
+
+
+		})
+
+ 
+		
+
+
+	</script>
+	
+
+	
+</body>
+</html>

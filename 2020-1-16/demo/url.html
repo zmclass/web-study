@@ -85,7 +85,8 @@
 
 					}
 
-					const imageBlob = new Blob([reader.result],{
+					console.log(reader.result)
+					const imageBlob = new Blob([""],{
 						type: "image/png"
 					})
 
@@ -93,13 +94,13 @@
 					url = URL.createObjectURL(imageBlob)
 
 
+					console.log(url)
+
 					img.src = url
-
-
 
 				}
 
-				reader.readAsDataURL(this.files[0])
+				reader.readAsArrayBuffer(this.files[0])
 
 
 
